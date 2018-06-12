@@ -12,4 +12,4 @@ Web application for climbers in the Orange County area to find both climbing rou
 
 ### mentors
 - Cody
-- 
+- Dan
