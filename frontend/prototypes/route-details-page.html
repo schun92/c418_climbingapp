@@ -28,27 +28,31 @@
         }
 
         .thumbnail {
-            height: 30%;
-            background-image: url(https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg);
+            height: 35%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg);
             background-size: cover;
             background-position: center;
+
+            display: flex;
+            color: white;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .title,
         .subtitle,
         .stars {
             margin: 0;
-            margin-bottom: .3em;
             font-weight: lighter;
         }
 
         .title {
-            font-size: 2em;
+            font-size: 3em;
         }
 
-        .subtitle,
-        .stars {
-            font-size: .9em;
+        .subtitle {
+            font-size: 1em;
         }
 
         .details {
@@ -57,6 +61,7 @@
 
         .bar {
             display: flex;
+            flex-flow: row wrap;
             justify-content: space-between;
             font-weight: 300;
             border-top: 1px solid black;
@@ -74,6 +79,15 @@
             font-size: 2em;
         }
 
+        .bar:last-of-type{
+            justify-content: center;
+        }
+
+        .bar:last-of-type div p:first-child {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
         img {
             width: 100%;
             margin-top: 1em;
@@ -83,7 +97,7 @@
         const data = {
             "id": 106004895,
             "name": "Dihedral",
-            "type": "Trad, TR",
+            "type": "Trad, TR, Sport, Boulder",
             "rating": "5.7",
             "stars": 3.1,
             "starVotes": 49,
@@ -116,23 +130,25 @@
         </i>
     </nav>
     <div class="container">
-        <div class="thumbnail"></div>
-        <div class="details">
+        <div class="thumbnail">
             <h1 class="title">Dihedral</h1>
-            <div class="stars">★★★★★ 49 votes</div>
             <h2 class="subtitle">Ortega Falls</h2>
+        </div>
+        <div class="details">
             <div class="bar">
                 <div>
                     <p>5.7</p>
                     <p>difficulty</p>
                 </div>
                 <div>
-                    <p>Trad</p>
-                    <p>type</p>
+                    <p>★★★★★</p>
+                    <p> 49 votes</p>
                 </div>
+            </div>
+            <div class="bar">
                 <div>
-                    <p>1</p>
-                    <p>pitches</p>
+                    <p>Trad, TR, Sport, Boulder</p>
+                    <p>type</p>
                 </div>
             </div>
             <img src="./images/gmap.jpg" alt="">
