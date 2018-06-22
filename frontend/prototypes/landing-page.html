@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page</title>
+    <style>
+        body {
+            background-image: url("http://www.preppywallpapers.com/wp-content/uploads/2016/09/mountain-top.jpg");
+            background-color: #cccccc;
+        }
+        .top-nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color:yellow;
+        }
+
+        .landing-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .landing-page-input{
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .search-btn-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .search-btn{
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+        <nav class="top-nav">
+            <button class="back-btn">Back</button>
+            <button class="home-btn">Home</button>
+        </nav> 
+        <form class="landing-page">
+            <input class="landing-page-input" type="text" placeholder="Enter City or Zip Code">
+        </form>
+        <div class="search-btn-wrapper">
+            <button class="search-btn">Search Locations</button>
+        </div>
+
+</body>
+</html>
