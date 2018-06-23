@@ -10,8 +10,8 @@
 
 <body>
     <nav class="top-nav">
-        <button>Back</button>
-        <button>Home</button>
+        <button class="back-btn">Back</button>
+        <button class="ham-menu-btn">Ham Menu</button>
     </nav>
     <div class="filter">
         <button id="modalButton" type="button">Filter</button>
@@ -25,6 +25,9 @@
 
     <div id="modalShadow">
         <div id="modalBody">
+            <span class="close">
+                <button>X</button>
+            </span>
             <input type="checkbox">Rock
             <ul>
                 <li>
@@ -149,15 +152,24 @@
             <input type="checkbox">Indoor
             <input type="checkbox">Popularity
             <input type="checkbox">Difficulty
-
+            <div class="apply-btn-wrapper">
+                <button class="apply-btn">Apply</button>
+            </div>
         </div>
+
     </div>
     <script>
         document.querySelector('#modalButton').addEventListener('click', showModal)
+        document.querySelector('.close').addEventListener('click', hideModal)
 
         function showModal() {
             document.querySelector('#modalShadow').style.display = "block"
         }
+
+        function hideModal(){
+            document.querySelector('#modalShadow').style.display = "none"
+        }
+
     </script>
 
     <style type="text/css">
@@ -181,11 +193,23 @@
             transform: translate(-50%, -50%)
         }
 
+        #modalButton{
+            background-color: green;
+        }
+
         .top-nav {
             display: flex;
             justify-content: space-between;
             flex-direction: row;
             align-items: flex-start;
+        }
+
+
+        .back-btn {
+            background-color:orange;
+        }
+
+        .ham-menu-btn{
             background-color: yellow;
         }
 
@@ -216,6 +240,24 @@
 
         .drop-menu-style{
             border: 1px black solid;
+        }
+
+        .close {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            font-size: 1.5em;
+        }
+
+        .apply-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .apply-btn {
+            background-color: lavender;
         }
     </style>
 </body>
