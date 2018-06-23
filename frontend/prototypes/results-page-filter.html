@@ -25,10 +25,12 @@
 
     <div id="modalShadow">
         <div id="modalBody">
-            <!-- ROCK -->
-            <input type="checkbox">Traditional
-            <input type="checkbox">Top Rope
-            <input type="checkbox">Sport
+                <input type="checkbox">Rock
+            <ul>
+                <li><input type="checkbox">Traditional</li>
+                <li><input type="checkbox">Top Rope</li>
+                <li><input type="checkbox">Sport</li>
+            </ul>            
             <!-- Own Category -->
             <input type="checkbox">Boulder
             <!-- INDOOR -->
@@ -87,6 +89,10 @@
             justify-content: flex-end;
             flex-direction: row;
             align-items: flex-start;
+        }
+
+        li{
+            list-style-type: none;
         }
     </style>
 </body>
