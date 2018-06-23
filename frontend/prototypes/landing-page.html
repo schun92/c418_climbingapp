@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page</title>
+    <style>
+        body {
+            background-image: url("http://www.preppywallpapers.com/wp-content/uploads/2016/09/mountain-top.jpg");
+            background-color: #cccccc;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .landing-page {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .landing-page-input {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .search-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .search-btn {
+            background-color: yellow;
+            margin-bottom: 10em;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="landing-page">
+        <h1>Climbing Journal</h1>
+        <form>
+            <input class="landing-page-input" type="text" placeholder="Enter City or Zip Code">
+        </form>
+        <div class="search-btn-wrapper">
+            <button class="search-btn">Search Locations</button>
+        </div>
+    </div>
+</body>
+
+</html>
