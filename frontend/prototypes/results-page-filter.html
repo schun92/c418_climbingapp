@@ -6,49 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Results Page Filter</title>
-</head>
-
-<body>
-    <nav class="top-nav">
-        <button>Back</button>
-        <button>Home</button>
-    </nav>
-    <div class="filter">
-            <button id="modalButton" type="button">Filter</button>
-        </div>
-    <div class="map">
-            <div class="map-content">
-                <img src="https://cache.emirates247.com/polopoly_fs/1.497654.1452301124!/image/image.png" alt="map" width="363">
-            </div>
-    </div>  
-
-
-    <div id="modalShadow">
-        <div id="modalBody">
-                <input type="checkbox">Rock
-            <ul>
-                <li><input type="checkbox">Traditional</li>
-                <li><input type="checkbox">Top Rope</li>
-                <li><input type="checkbox">Sport</li>
-            </ul>            
-            <!-- Own Category -->
-            <input type="checkbox">Boulder
-            <!-- INDOOR -->
-            <input type="checkbox">Indoor
-            <input type="checkbox">Popularity
-            <input type="checkbox">Difficulty
-
-        </div>
-    </div>
-    <script>
-        document.querySelector('#modalButton').addEventListener('click', showModal)
-
-        function showModal() {
-            document.querySelector('#modalShadow').style.display = "block"
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style type="text/css">
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+        }
+
         #modalShadow {
             position: fixed;
             left: 0;
@@ -91,10 +58,181 @@
             align-items: flex-start;
         }
 
-        li{
+        li {
             list-style-type: none;
         }
+
+        .routes-modal {
+            position: fixed;
+            top: 30vh;
+            left: 0;
+            height: 70vh;
+            width: 100vw;
+            background-color: white;
+            border: 1px solid salmon;
+            box-sizing: border-box;
+            overflow-y: scroll;
+
+
+            transform-origin: 0 0;
+            transform: translate(0%, 100%);
+            transition: transform .2s ease-in;
+        }
+
+        .routes-modal.show {
+            transform: none;
+        }
+
+        .routes-modal h1 {
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .routes-modal>p {
+            text-align: right;
+            margin-right: 1em;
+        }
+
+        .routes-modal ul {
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 0 1em;
+        }
+
+        .routes-modal ul li {
+            border-bottom: 1px solid rgba(43, 41, 41, 0.507);
+            box-sizing: border-box;
+            margin: .1em 0;
+        }
+
+        .routes-modal ul li:last-child {
+            border-bottom: none;
+        }
+
+        .routes-modal ul li a {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
     </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <button>Back</button>
+        <button>Home</button>
+    </nav>
+    <div class="filter">
+        <button id="modalButton" type="button">Filter</button>
+    </div>
+    <div class="map">
+        <div class="map-content">
+            <img src="https://cache.emirates247.com/polopoly_fs/1.497654.1452301124!/image/image.png" alt="map" width="363">
+        </div>
+    </div>
+
+    <div class="routes-modal">
+        <h1>Pirate's Cove</h1>
+        <p>7 routes</p>
+        <ul>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Not Even</p>
+                    <p>3.8</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Iron Man</p>
+                    <p>v3</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Diamond Man</p>
+                    <p>v4</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Paper Boy</p>
+                    <p>V7</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Tin Man</p>
+                    <p>V0+</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Italian Fall</p>
+                    <p>V3</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+            <li>
+                <a href="./route-details-page.html">
+                    <p>Not Even Chips</p>
+                    <p>V3- PG13</p>
+                    <i class="material-icons">arrow_forward_ios</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="modalShadow">
+        <div id="modalBody">
+            <input type="checkbox">Rock
+            <ul>
+                <li>
+                    <input type="checkbox">Traditional</li>
+                <li>
+                    <input type="checkbox">Top Rope</li>
+                <li>
+                    <input type="checkbox">Sport</li>
+            </ul>
+            <!-- Own Category -->
+            <input type="checkbox">Boulder
+            <!-- INDOOR -->
+            <input type="checkbox">Indoor
+            <input type="checkbox">Popularity
+            <input type="checkbox">Difficulty
+
+        </div>
+    </div>
+    <script>
+        document.querySelector('.map-content').addEventListener('click', function () {
+            document.querySelector('.routes-modal').classList.toggle('show');
+        })
+        document.querySelector('#modalButton').addEventListener('click', showModal)
+        document.querySelector('#modalShadow').addEventListener('click', noneModal)
+        document.querySelector('#modalBody').addEventListener('click', e => e.stopPropagation())
+
+        function showModal(e) {
+
+            document.querySelector('#modalShadow').style.display = "block"
+        }
+
+        function noneModal() {
+            document.querySelector('#modalShadow').style.display = "none"
+        }
+    </script>
+
+
 </body>
 
 </html>
