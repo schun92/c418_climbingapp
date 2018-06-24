@@ -22,6 +22,61 @@
             box-sizing: border-box;
             padding: .5em;
             align-items: center;
+
+
+        }
+
+        nav ul {
+            z-index: 1;
+        }
+
+        nav .brand {
+            z-index: 2;
+        }
+
+        nav .material-icons:last-of-type {
+            z-index: 2;
+        }
+
+        ul {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            border: 1px solid rgb(35, 204, 30);
+            box-sizing: border-box;
+            list-style-type: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column wrap;
+
+
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        ul.show {
+            transform: none;
+        }
+
+        ul li {
+            margin: .5em auto;
+        }
+
+        ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: lighter;
         }
 
         .container {
@@ -30,7 +85,7 @@
 
         .thumbnail {
             height: 35%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/109839631_medium_1494364012.jpg);
             background-size: cover;
             background-position: center;
 
@@ -50,6 +105,7 @@
 
         .title {
             font-size: 3em;
+            text-align: center;
         }
 
         .subtitle {
@@ -61,7 +117,6 @@
         }
 
         .brand {
-            font-weight: bold;
             text-transform: uppercase;
             font-size: 100%;
         }
@@ -71,8 +126,8 @@
             flex-flow: row wrap;
             justify-content: space-between;
             font-weight: 300;
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
             margin-top: 1em;
             padding: 1em;
         }
@@ -96,8 +151,9 @@
         }
 
         img {
-            width: 100%;
+            width: 49%;
             margin-top: 1em;
+            display: inline-block;
         }
 
         section.btn-group {
@@ -108,7 +164,7 @@
         button {
             margin-top: .5em;
             width: 100%;
-            background-color: rgb(30, 255, 0);
+            background-color: rgb(35, 204, 30);
             color: white;
             font-size: 1.5em;
             font-weight: lighter;
@@ -119,49 +175,70 @@
     </style>
     <script>
         const data = {
-            "id": 106004895,
-            "name": "Dihedral",
-            "type": "Trad, TR, Sport, Boulder",
-            "rating": "5.7",
-            "stars": 3.1,
-            "starVotes": 49,
+            "id": 107501690,
+            "name": "Photographer's Delight",
+            "type": "Sport",
+            "rating": "5.4 PG13",
+            "stars": 4.2,
+            "starVotes": 19,
             "pitches": 1,
             "location": [
                 "California",
-                "Los Angeles Basin",
-                "Santa Ana Mountains",
-                "Ortega Falls"
+                "Central Coast",
+                "Pinnacles National Park",
+                "High Peaks"
             ],
-            "url": "https://www.mountainproject.com/route/106004895/dihedral",
-            "imgSqSmall": "https://cdn-files.apstatic.com/climb/106571432_sqsmall_1494121431.jpg",
-            "imgSmall": "https://cdn-files.apstatic.com/climb/106571432_small_1494121431.jpg",
-            "imgSmallMed": "https://cdn-files.apstatic.com/climb/106571432_smallMed_1494121431.jpg",
-            "imgMedium": "https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg",
-            "longitude": -117.4264,
-            "latitude": 33.6258
-        };
+            "url": "https://www.mountainproject.com/route/107501690/photographers-delight",
+            "imgSqSmall": "https://cdn-files.apstatic.com/climb/109839631_sqsmall_1494364012.jpg",
+            "imgSmall": "https://cdn-files.apstatic.com/climb/109839631_small_1494364012.jpg",
+            "imgSmallMed": "https://cdn-files.apstatic.com/climb/109839631_smallMed_1494364012.jpg",
+            "imgMedium": "https://cdn-files.apstatic.com/climb/109839631_medium_1494364012.jpg",
+            "longitude": -117.8227,
+            "latitude": 34.0591
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.querySelector('.material-icons.burger-menu').addEventListener('click', function () {
+                document.getElementsByTagName('ul')[0].classList.toggle('show');
+            })
+        });
     </script>
 </head>
 
 <body>
     <nav>
         <i class="material-icons">
+            arrow_back
+        </i>
+        <div class="brand">EJ</div>
+        <i class="material-icons burger-menu">
             menu
         </i>
-        <div class="brand">Excursion Journal</div>
-        <i class="material-icons">
-            note_add
-        </i>
+
+        <ul>
+            <li>
+                <a href="http://jhonalino.com">home</a>
+            </li>
+            <li>
+                <a href="http://jhonalino.com">itinery</a>
+            </li>
+            <li>
+                <a href="http://jhonalino.com">about</a>
+            </li>
+            <li>
+                <a href="http://jhonalino.com">team</a>
+            </li>
+        </ul>
     </nav>
     <div class="container">
         <div class="thumbnail">
-            <h1 class="title">Dihedral</h1>
-            <h2 class="subtitle">Ortega Falls</h2>
+            <h1 class="title">Photographer's Delight</h1>
+            <h2 class="subtitle">High Peaks</h2>
         </div>
         <div class="details">
             <div class="bar">
                 <div>
-                    <p>5.7</p>
+                    <p>5.4 PG13</p>
                     <p>difficulty</p>
                 </div>
                 <div>
@@ -176,9 +253,10 @@
                     <p>type</p>
                 </div>
             </div>
-            <img src="./images/gmap.jpg" alt="">
+            <img src="https://picsum.photos/200?random" alt="">
+            <img src="https://picsum.photos/200?random" alt="">
             <section class="btn-group">
-                <button>More routes</button>
+                <button>add to itenary</button>
             </section>
         </div>
     </div>
