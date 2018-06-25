@@ -200,12 +200,15 @@
                 document.getElementsByTagName('ul')[0].classList.toggle('show');
             })
         });
+        function goBack(){
+            window.history.back();
+        }
     </script>
 </head>
 
 <body>
     <nav>
-        <i class="material-icons">
+        <i class="material-icons" onclick="goBack()">
             arrow_back_ios
         </i>
         <div class="brand">EJ</div>
@@ -217,13 +220,13 @@
                 <a href="./landing-page.html">home</a>
             </li>
             <li>
-                <a href="http://jhonalino.com">itinery</a>
+                <a href="itinerary-page.html">itinery</a>
             </li>
             <li>
-                <a href="http://jhonalino.com">about</a>
+                <a href="about-page.html">about</a>
             </li>
             <li>
-                <a href="http://jhonalino.com">team</a>
+                <a href="team-page.html">team</a>
             </li>
         </ul>
     </nav>
@@ -253,7 +256,9 @@
             <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt="">
             <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt="">
             <section class="btn-group">
-                <button>add to itenary</button>
+                
+                    <a href="./itinerary-page.html"><button>add to itinerary</button></a>
+                
             </section>
         </div>
     </div>
