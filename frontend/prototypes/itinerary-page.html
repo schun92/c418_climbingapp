@@ -16,7 +16,9 @@
             font-family: 'Quicksand', sans-serif;
             padding: 0;
         }
-
+        a{
+            text-decoration: none;
+        }
         nav {
             height: 3.5em;
             display: flex;
@@ -99,7 +101,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin: 1.5em; 
+            margin: 1.5em;
         }
 
         .card {
@@ -139,7 +141,7 @@
             box-sizing: border-box;
         }
 
-        input{
+        input {
             margin-top: 3em;
             width: 100%;
             background-color: rgb(156, 229, 153);
@@ -151,15 +153,15 @@
             text-transform: uppercase;
             text-align: center;
             box-sizing: border-box;
-            }  
+        }
 
-        ::placeholder{
+        ::placeholder {
             color: white;
         }
-        .centered{
+
+        .centered {
             width: 100%;
         }
-        
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
@@ -167,12 +169,16 @@
                 document.getElementsByTagName('ul')[0].classList.toggle('show');
             })
         });
+
+        function goBack(){
+            window.history.back();
+        }
     </script>
 </head>
 
 <body>
     <nav>
-        <i class='material-icons'>
+        <i class='material-icons' onclick="goBack()">
             arrow_back_ios
         </i>
         <div class='brand'>CJ</div>
@@ -184,13 +190,13 @@
                 <a href="./landing-page.html">home</a>
             </li>
             <li>
-                <a href="./landing-page.html">itinerary</a>
+                <a href="./itinerary-page.html">itinerary</a>
             </li>
             <li>
-                <a href="./landing-page.html">about</a>
+                <a href="./about-page.html">about</a>
             </li>
             <li>
-                <a href="./landing-page.html">team</a>
+                <a href="./team-page.html">team</a>
             </li>
 
     </nav>
@@ -222,10 +228,15 @@
         </div>
         <section class="cards">
 
+
             <article class="card">
-                <h3>Ortega Falls</h3>
-                <p>Fingers</p>
+
+                <a href="route-details-page.html">
+                    <h3>Ortega Falls</h3>
+                    <p>Fingers</p>
+                </a>
             </article>
+
             <!-- /card-one -->
 
             <article class="card">
@@ -245,30 +256,30 @@
                 <p>Jagged Ridge</p>
             </article>
             <article class="card">
-                    <h3>Ortega Falls</h3>
-                    <p>Fingers</p>
-                </article>
-                <!-- /card-one -->
-    
-                <article class="card">
-                    <h3>Ortega Falls</h3>
-                    <p>Polish</p>
-                </article>
-                <!-- /card-two -->
-    
-                <article class="card">
-                    <h3>San Jaun Loop</h3>
-                    <p>Alpine</p>
-                </article>
-                <!-- /card-three -->
-    
-                
+                <h3>Ortega Falls</h3>
+                <p>Fingers</p>
+            </article>
+            <!-- /card-one -->
+
+            <article class="card">
+                <h3>Ortega Falls</h3>
+                <p>Polish</p>
+            </article>
+            <!-- /card-two -->
+
+            <article class="card">
+                <h3>San Jaun Loop</h3>
+                <p>Alpine</p>
+            </article>
+            <!-- /card-three -->
+
+
             <!-- /card-four -->
 
         </section>
         <input type="email" placeholder="email address">
         <button>Send My intinerary</button>
-        
+
     </div>
 </body>
 
