@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FilterBtn from './results-filter-btn';
 import FilterModal from './results-filter-modal';
 
-class Filter extends Component {
+class Results extends Component {
     constructor(props) {
         super(props)
 
@@ -18,4 +18,4 @@ class Filter extends Component {
 
 
 
-export default Filter;
+export default Results;

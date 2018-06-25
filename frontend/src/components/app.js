@@ -1,11 +1,11 @@
 import React from 'react';
 import '../assets/css/app.css';
 import logo from '../assets/images/logo.svg';
-import Filter from './results-page';
+import Results from './results-page';
 
 const App = () => (
     <div>
-        <Filter />
+        <Results />
     </div>
 );
 
