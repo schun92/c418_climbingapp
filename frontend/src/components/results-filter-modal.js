@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FilterBtn from './results-filter-btn';
-import './results-filter-modal.css'
+import './results-filter-modal.css';
 
 class FilterModal extends Component {
     constructor(props) {
