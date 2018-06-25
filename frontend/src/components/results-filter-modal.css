@@ -1,0 +1,43 @@
+
+.filter-modal-body {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    min-width: 90%;
+    min-height: 90%;
+    background-color: white;
+    transform: translate(-50%, -50%)
+}
+
+li {
+    list-style-type: none;
+}
+
+.drop-menu{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.drop-menu-style{
+    border: 1px black solid;
+}
+
+.close-filter-modal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 1.5em;
+}
+
+.apply-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.apply-btn {
+    background-color: lavender;
+}
