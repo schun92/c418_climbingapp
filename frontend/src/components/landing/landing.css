@@ -1,0 +1,38 @@
+
+
+.landing-page{
+    background-image: url("http://www.preppywallpapers.com/wp-content/uploads/2016/09/mountain-top.jpg");
+    height: 100%;
+}
+
+
+.landing-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.landing-page-input {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.search-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.search-btn {
+    background-color: yellow;
+    margin-bottom: 10em;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 0;
+}

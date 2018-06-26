@@ -7,19 +7,7 @@ nav {
     align-content: center;
 }
 
-nav ul {
-    z-index: 1;
-}
-
-nav .brand {
-    z-index: 2;
-}
-
-nav .material-icons:last-of-type {
-    z-index: 2;
-}
-
-ul {
+.nav-ul{
     position: fixed;
     top: 0;
     left: 0;
@@ -37,13 +25,20 @@ ul {
     align-items: center;
     flex-flow: column wrap;
 
-    transform-origin: 0% 0%;
     transform: translate(100%, 0);
 
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    z-index: 1;
+}
+nav .brand {
+    z-index: 2;
 }
 
-ul.show {
+nav .material-icons:last-of-type {
+    z-index: 2;
+}
+
+.nav-ul.show {
     transform: none;
 }
 

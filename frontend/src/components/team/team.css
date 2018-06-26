@@ -1,0 +1,32 @@
+.team {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.member {
+    flex: 1 1 40%;
+    padding: .4em;
+}
+
+.member>img {
+    width: 100%;
+}
+
+
+.member>p>img {
+    width: 2em;
+}
+
+h2,
+h3 {
+    margin: 0;
+}
+
+h3 {
+    font-weight: lighter;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
