@@ -24,7 +24,7 @@ const App = () => (
         <Route path='/route-details' component={RouteDetails} />
         <Route path='/team' component={Team} />
 
-    </div>
+</div>
 );
 
 export default App;
