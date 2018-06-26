@@ -18,7 +18,6 @@ class Nav extends Component {
     }
 
     toggleBurgerMenu() {
-        console.log('burger')
         this.setState({ showNavMenu: !this.state.showNavMenu })
     }
 

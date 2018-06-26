@@ -30,11 +30,11 @@ export default class RouteDetails extends Component{
                 </div>
                 <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt=""/>
                 <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt=""/>
-                <section className="btn-group">
+                <button className="btn-group">
                     
                        <NavLink to = './itinerary'>add to itinerary</NavLink>
                     
-                </section>
+                </button>
             </div>
         </div>
         )

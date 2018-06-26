@@ -6,6 +6,7 @@
 }
 
 
+
 .landing-page {
     display: flex;
     justify-content: space-between;
@@ -15,24 +16,20 @@
 }
 
 .landing-page-input {
-    border: 1px solid black;
-    text-align: center;
+   font-size: 1.5em
 }
 
-.search-btn-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
 
-.search-btn {
-    background-color: yellow;
-    margin-bottom: 10em;
-}
+
+
 
 h1 {
     text-align: center;
     color: white;
     margin: 0;
+    font-size: 1 em
+}
+
+.search-locations-button {
+ margin-top: 16.5em;
 }
