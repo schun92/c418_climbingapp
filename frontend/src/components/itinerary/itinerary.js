@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 import './itinerary.css'
 
 export default class Itinerary extends Component {
@@ -13,10 +14,10 @@ export default class Itinerary extends Component {
 
                     <article className="card">
 
-                        <a href="route-details-page.html">
+                        <NavLink to = './route-details'>
                             <h3>Ortega Falls</h3>
                             <p>Fingers</p>
-                        </a>
+                        </NavLink>
                     </article>
 
 
