@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import logo from '../assets/images/logo.svg';
 
+
 import Results from '../components/results/results-page';
 import Nav from '../components/nav/nav';
 import Landing from '../components/landing/landing-page';
@@ -14,6 +15,7 @@ import './app.css'
 
 const App = () => (
     <div>
+
         <Nav />
         <Route exact path='/' component={Landing} />
         <Route path='/results' component={Results} />
@@ -21,6 +23,7 @@ const App = () => (
         <Route path='/itinerary' component={Itinerary} />
         <Route path='/route-details' component={RouteDetails} />
         <Route path='/team' component={Team} />
+
     </div>
 );
 
