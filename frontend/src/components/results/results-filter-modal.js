@@ -16,14 +16,14 @@ class FilterModal extends Component {
                     <span className="close-filter-modal">
                         <button onClick={this.props.handleHideModal}>X</button>
                     </span>
-                    <input type="checkbox" />Rock
+                    <input className="input-checkbox" type="checkbox" />Rock
             <ul>
                         <li>
-                            <input type="checkbox" />Traditional</li>
+                            <input className="input-checkbox" type="checkbox" />Traditional</li>
                         <li>
-                            <input type="checkbox" />Top Rope</li>
+                            <input className="input-checkbox" type="checkbox" />Top Rope</li>
                         <li>
-                            <input type="checkbox" />Sport</li>
+                            <input className="input-checkbox" type="checkbox" />Sport</li>
                     </ul>
                     <form className="drop-menu" action="/action_page.php">
                         <select className="drop-menu-style" name="difficulty">
@@ -137,7 +137,7 @@ class FilterModal extends Component {
                         </select>
                     </form>
 
-                    <input type="checkbox" />Difficulty
+                    <input className="input-checkbox" type="checkbox" />Difficulty
             <div className="apply-btn-wrapper">
                         <button className="filter-apply-btn">Apply</button>
                     </div>

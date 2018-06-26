@@ -31,6 +31,10 @@ li {
     font-size: 1.5em;
 }
 
+.input-checkbox {
+    margin-top: 0;
+}
+
 .apply-btn-wrapper {
     display: flex;
     justify-content: center;
