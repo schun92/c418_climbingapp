@@ -4,6 +4,7 @@ import github from '../../assets/images/github.svg';
 import linkedin from '../../assets/images/linkedin.svg';
 import blank from '../../assets/images/blank.png';
 import jphoto from '../../assets/images/jphoto.jpg';
+import schun from '../../assets/images/schun.jpg';
 
 export default class Team extends Component {
 
@@ -40,7 +41,7 @@ export default class Team extends Component {
                         </p>
                     </div>
                     <div className="member">
-                        <img src={blank} alt="" />
+                        <img src={schun} alt="" />
                         <h2>Sarah</h2>
                         <h3>Frontend</h3>
                         <p>
