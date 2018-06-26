@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import HtmlCssJs from '../assets/images/html-css-js-icon.png';
-import ReactRedux from '../assets/images/react-redux-icon.png'
+import './about-content.css'
+import HtmlCssJs from '../../assets/images/html-css-js-icon.png';
+import ReactRedux from '../../assets/images/react-redux-icon.png'
+
+
 
 class MainContent extends Component {
     constructor(props) {
@@ -11,7 +14,7 @@ class MainContent extends Component {
         return (
             <div >
                 <div className="container about-info">
-                    <h1>About</h1>
+                    <h1 className="about-header">About</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita ducimus neque tempore exercitationem rem reiciendis alias eligendi inventore debitis vero! Aspernatur officia quae minus. Fugit veniam labore blanditiis aperiam.</p>
                 </div>
                 <div className="tech-info-wrapper">
