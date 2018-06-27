@@ -11,19 +11,19 @@ var pull_up_bar = {
     'mountainLocation': 'Ortega Falls',
     'routes': [
         {
-            name: 'Dihedral',
+            routeName: 'Dihedral',
             difficulty: 5.7,
             popularity: 3.1,
-            routeID: 123,
+            routeID: 29,
         },
         {
-            name: 'Fingers',
+            routeName: 'Fingers',
             difficulty: 5.9,
             popularity: 3.4,
             routeID: 234
         },
         {
-            name: 'Splitter',
+            routeName: 'Splitter',
             difficulty: '5.10d',
             popularity: 3.5,
             routeID: 356

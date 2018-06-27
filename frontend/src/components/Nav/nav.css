@@ -5,6 +5,7 @@ nav {
     box-sizing: border-box;
     padding: .5em;
     align-content: center;
+    background-color: rgb(158, 216, 158);
 }
 
 .nav-ul{
