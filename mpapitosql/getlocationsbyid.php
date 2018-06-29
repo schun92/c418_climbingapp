@@ -6,8 +6,7 @@ $output = [
 	'errors'=>[]
 ];
 
-$_GET['routeID'] = 6;
-$locID = $_GET['routeID'];
+$locID = $_POST['routeID'];
 $query = "SELECT * FROM `routes` WHERE `locationID` = $locID";
 $result = mysqli_query($conn, $query);
 
