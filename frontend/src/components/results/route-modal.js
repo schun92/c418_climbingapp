@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './route-modal.css';
 
 class RouteModal extends Component {
-    constructor(prop){
-        super(prop)
+    constructor(props){
+        super(props)
     }
 
     render(){
         return(
-            <div className="routes-modal">
+            <div className="routes-modal" >
             <h1>Pirate's Cove</h1>
             <p>7 routes</p>
             <ul>
