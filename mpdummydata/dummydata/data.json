@@ -26,24 +26,24 @@
         },
         {
             "id": 106762637,
-            "name": "Not Even",
-            "type": "Boulder",
-            "rating": "V2",
-            "stars": 3.8,
-            "starVotes": 58,
-            "pitches": "",
+            "name": "Not Even",//name of the individual route
+            "type": "Boulder",//style of climbing
+            "rating": "V2", //difficulty rating specific to bouldering. Starts at V0 goes to V14
+            "stars": 3.8, //how popular the route is on mountainProject.com
+            "starVotes": 58, //how many people voted
+            "pitches": "", //stages of climbing. Refers to larger climbs.
             "location": [
                 "California",
                 "Los Angeles Basin",
                 "Beaches",
-                "Pirate's Cove (aka The Beach or Corona Del Mar)"
+                "Pirate's Cove (aka The Beach or Corona Del Mar)" //Climb location
             ],
             "url": "https://www.mountainproject.com/route/106762637/not-even",
-            "imgSqSmall": "https://cdn-files.apstatic.com/climb/107958518_sqsmall_1494253544.jpg",
+            "imgSqSmall": "https://cdn-files.apstatic.com/climb/107958518_sqsmall_1494253544.jpg", //All the same picture, just different size.
             "imgSmall": "https://cdn-files.apstatic.com/climb/107958518_small_1494253544.jpg",
             "imgSmallMed": "https://cdn-files.apstatic.com/climb/107958518_smallMed_1494253544.jpg",
-            "imgMedium": "https://cdn-files.apstatic.com/climb/107958518_medium_1494253544.jpg",
-            "longitude": -117.8781,
+            "imgMedium": "https://cdn-files.apstatic.com/climb/107958518_medium_1494253544.jpg",    //This is one we want
+            "longitude": -117.8781, 
             "latitude": 33.5949
         },
         {
@@ -58,7 +58,7 @@
                 "California",
                 "Los Angeles Basin",
                 "Beaches",
-                "Pirate's Cove (aka The Beach or Corona Del Mar)"
+                "Pirate's Cove (aka The Beach or Corona Del Mar)" //Climb Location
             ],
             "url": "https://www.mountainproject.com/route/106068137/iron-man",
             "imgSqSmall": "https://cdn-files.apstatic.com/climb/108325211_sqsmall_1494276241.jpg",
@@ -72,7 +72,7 @@
             "id": 106004895,
             "name": "Dihedral",
             "type": "Trad, TR",
-            "rating": "5.7",
+            "rating": "5.7", //difficulty rating specific to rock climbing. 5.6 to 5.15
             "stars": 3.1,
             "starVotes": 49,
             "pitches": 1,
