@@ -26,7 +26,7 @@ class Results extends Component {
             <div>
                 <FilterBtn />
                 <RouteMap toggle = {this.togglePullUpBar} handleclick = {this.togglePullUpBar} />
-                <RouteModal display={this.state.togglePullUpBar ? 'hidden' : 'show'}/>
+                <RouteModal display={this.state.togglePullUpBar ? 'show' : 'hidden'}/>
             </div>
         )
     }

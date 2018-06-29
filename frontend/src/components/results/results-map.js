@@ -8,13 +8,14 @@ import './results-map.css';
 class RouteMap extends Component {
     constructor(props){
         super(props)
+        console.log('props:', props)
     
     }
 
     render(){
         return(
             <div>
-                <img onClick = {this.props.toggle} className="map-img" src={map} />
+                <img className="map-img" src={map} />
             </div>
         )
     }
