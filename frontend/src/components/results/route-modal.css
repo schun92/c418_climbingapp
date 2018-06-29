@@ -10,7 +10,7 @@
             box-sizing: border-box;
             overflow-y: scroll;
             transform-origin: 0 0;
-            transform: translate(0%, 100%);
+            transform: translate(0%, 78%);
             transition: transform .2s ease-in;
         }
 

@@ -25,8 +25,8 @@ class Results extends Component {
         return (
             <div>
                 <RouteMap handleClick={this.togglePullUpBar} />
-                <div className="bottom-bar" onClick={this.togglePullUpBar}>this is the piece</div>
-                <RouteModal display={this.state.toggle ? 'show' : ''} />
+                {/* <div onClick={this.togglePullUpBar}></div> */}
+                <RouteModal handleClick={this.togglePullUpBar} display={this.state.toggle ? 'show' : ''} />
             </div>
         )
     }
