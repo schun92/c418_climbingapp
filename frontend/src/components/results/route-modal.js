@@ -7,8 +7,9 @@ class RouteModal extends Component {
     }
 
     render(){
+        console.log(this.props);
         return(
-            <div className="routes-modal" >
+            <div className={`routes-modal ${this.props.display}`} >
             <h1>Pirate's Cove</h1>
             <p>7 routes</p>
             <ul>

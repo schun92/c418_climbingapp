@@ -14,7 +14,7 @@ class RouteMap extends Component {
 
     render(){
         return(
-            <div>
+            <div className="map-container" onClick={this.props.handleClick}>
                 <img className="map-img" src={map} />
             </div>
         )

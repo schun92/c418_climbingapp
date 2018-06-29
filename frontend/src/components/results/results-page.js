@@ -15,18 +15,18 @@ class Results extends Component {
         this.togglePullUpBar = this.togglePullUpBar.bind(this);
     }
 
-    togglePullUpBar(){
+    togglePullUpBar() {
         this.setState({
             toggle: !this.state.toggle
         })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <FilterBtn />
-                <RouteMap toggle = {this.togglePullUpBar} handleclick = {this.togglePullUpBar} />
-                <RouteModal display={this.state.togglePullUpBar ? 'show' : 'hidden'}/>
+                <RouteMap handleClick={this.togglePullUpBar} />
+                <div className="bottom-bar" onClick={this.togglePullUpBar}>this is the piece</div>
+                <RouteModal display={this.state.toggle ? 'show' : ''} />
             </div>
         )
     }
