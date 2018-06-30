@@ -1,6 +1,6 @@
-.container {
+.about-container{
     position: absolute;
-    top: 60%;
+    top: 73%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
@@ -13,3 +13,4 @@
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
 }
+
