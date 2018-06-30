@@ -30,6 +30,7 @@ class Results extends Component {
                 'latitude': 33.6251, //avg latitude of routes,
                 'longitude': -117.4273,//avg longitude of routes,
                 'numberOfRoutes': 4, //Number of routes that fit filter,
+                climbType: 'Trad, TR',
                 id: 1
             },
             {
@@ -37,6 +38,7 @@ class Results extends Component {
                 'latitude': 33.6438,
                 'longitude': -117.4432,
                 'numberOfRoutes': 2,
+                climbType: 'Trad, TR',
                 id: 2
             },
             {
@@ -44,6 +46,7 @@ class Results extends Component {
                 'latitude': 33.6072,
                 'longitude': -117.4336,
                 'numberOfRoutes': 7,
+                climbType: 'Boulder',
                 id: 3
             }
         ]
@@ -78,12 +81,15 @@ class Results extends Component {
     }
 
     render() {
-        console.log(this.state.locations[0])
+        const { locations: [location], selectedLocationRoutes, toggle } = this.state;
         return (
             <div>
                 <RouteMap handleClick={this.togglePullUpBar} />
-                {/* <div onClick={this.togglePullUpBar}></div> */}
-                <RouteModal locationName={this.state.locations[0] ? this.state.locations[0].mountainLocation: ''} routes={this.state.selectedLocationRoutes} handleClick={this.togglePullUpBar} display={this.state.toggle ? 'show' : ''} />
+                <RouteModal
+                    location={location}
+                    routes={selectedLocationRoutes}
+                    handleClick={this.togglePullUpBar}
+                    display={toggle ? 'show' : ''}/>
             </div>
         )
     }
