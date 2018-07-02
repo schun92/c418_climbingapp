@@ -21,7 +21,7 @@
             success: function(response) {
                 for (let i=0; i<response.routes.length; i++) {
                     var phpOptions = {
-                        url: 'server.php',
+                        url: 'addAPItoSQL.php',
                         data: {
                             routeID: response.routes[i].id,
                             name: response.routes[i].name,
@@ -34,11 +34,10 @@
                             location_region: response.routes[i].location[1],
                             location_park: response.routes[i].location[2],
                             location_mountain: response.routes[i].location[3],
-                            location_other1: response.routes[i].location[4],
-                            location_other2: response.routes[i].location[5],
                             image: response.routes[i].imgMedium,
                             longitude: response.routes[i].longitude,
-                            latitude:  response.routes[i].latitude
+                            latitude:  response.routes[i].latitude,
+                            url: response.routes[i].url
                         },
                         method: 'post',
                         dataType: 'json',

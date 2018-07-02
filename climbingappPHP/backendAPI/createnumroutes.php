@@ -1,14 +1,15 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 
-$query = "SELECT COUNT(*) FROM `locations`";
+$query = "SELECT MIN(ID), MAX(ID) FROM `locations`";
 
 $result = mysqli_query($conn, $query);
 
 $row = mysqli_fetch_assoc($result);
-$numOfLocations = $row['COUNT(*)'];
+$min = $row['MIN(ID)'];
+$max = $row['MAX(ID)'];
 
-for ($locCount = 0; $locCount <= $numOfLocations; ++$locCount) {
+for ($locCount = $min; $locCount <= $max; ++$locCount) {
     $query = "SELECT COUNT(*) FROM `routes` WHERE locationID = $locCount";
     $result = mysqli_query($conn, $query);
     
