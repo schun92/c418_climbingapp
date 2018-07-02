@@ -6,9 +6,9 @@ $output = [
 	'errors'=>[]
 ];
 
-$locID = $_POST['routeID'];
-$query = "SELECT * FROM `routes` WHERE `locationID` = $locID";
-$result = mysqli_query($conn, $query);
+$latQuery = "SELECT `ID`, `name`, `avgLat`, `avgLong`, `numRoutes` FROM locations WHERE (avgLat BETWEEN 33.6163 AND 33.8512) AND (avgLong BETWEEN -117.9008 AND -117.5991)";
+
+$result = mysqli_query($conn, $latQuery);
 
 if (empty($result)) {
 	$output['errors'][] = 'database error';
@@ -26,4 +26,3 @@ if (empty($result)) {
 
 $outputJSON = json_encode($output);
 print_r($outputJSON);
-?>
