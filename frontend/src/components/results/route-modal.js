@@ -8,6 +8,7 @@ class RouteModal extends Component {
 	}
 
 	render() {
+        
 		return (
 			<div className={`routes-modal ${this.props.display}`}>
 				<div onClick={this.props.handleClick}>
