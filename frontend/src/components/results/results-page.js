@@ -11,7 +11,7 @@ class Results extends Component {
 		this.state = {
 			toggle: false,
 			locations: [],
-			selectedLocation: {},
+			selectedLocation: null,
 			selectedLocationRoutes: []
 		};
 
@@ -107,7 +107,7 @@ class Results extends Component {
 					location={selectedLocation}
 					routes={selectedLocationRoutes}
 					handleClick={this.togglePullUpBar}
-					display={toggle ? "show" : ""}
+                    display={selectedLocation ? toggle ? 'show' : '' : 'hide-modal'}
 				/>
 			</div>
 		);

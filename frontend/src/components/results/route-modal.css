@@ -18,6 +18,10 @@
             transform: none;
         }
 
+        .routes-modal.hide-modal{
+            transform: translateY(100%)
+        }
+
         .routes-modal h1 {
             text-transform: uppercase;
             text-align: center;
