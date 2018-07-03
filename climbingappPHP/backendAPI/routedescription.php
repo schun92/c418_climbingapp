@@ -17,7 +17,6 @@ if (empty($result)) {
         $output['data']=[];
         while( $row = mysqli_fetch_assoc($result)){
             $id = $row['id'];
-            $name = $row['name'];
             $descriptionURL = $row['routeURL'];
 
             $handler = curl_init();
@@ -35,8 +34,14 @@ if (empty($result)) {
             $description = substr($testArea, $start+9, $end-$start-9);
             $startKey = "a_$id";
             $data = [];
+        
+            $descripwithslash = addslashes($description);
 
-            $descripquery = "INSERT INTO `mountainproject`.`descriptions` (`routeID`, `name`, `description`) VALUES ('$id', '$name', '$description')";
+            if(empty($descripwithslash)) {
+                $descripwithslash = "No description available.";
+            }
+
+            $descripquery = "UPDATE `routes` SET `description` = '$descripwithslash' WHERE `ID` = '$id'";
             $descripresult = mysqli_query($conn, $descripquery);
 
             };
