@@ -3,6 +3,7 @@ import FilterBtn from "./results-filter-btn";
 import FilterModal from "./results-filter-modal";
 import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
+import axios from "axios";
 
 class Results extends Component {
   constructor(props) {
@@ -33,34 +34,13 @@ class Results extends Component {
     });
   }
 
-  componentDidMount() {
-    console.log(this.props.match.params.zipOrCity);
-    const locations = [
-      {
-        mountainLocation: "Ortega Falls",
-        latitude: 33.6251, //avg latitude of routes,
-        longitude: -117.4273, //avg longitude of routes,
-        numberOfRoutes: 4, //Number of routes that fit filter,
-        climbType: "Trad, TR",
-        id: 1
-      },
-      {
-        mountainLocation: "El Cariso",
-        latitude: 33.6438,
-        longitude: -117.4432,
-        numberOfRoutes: 2,
-        climbType: "Trad, TR",
-        id: 2
-      },
-      {
-        mountainLocation: "Upper San Juan Boulders",
-        latitude: 33.6072,
-        longitude: -117.4336,
-        numberOfRoutes: 7,
-        climbType: "Boulder",
-        id: 3
-      }
-    ];
+  async componentDidMount() {
+	  
+    const response = await axios.get(
+      "http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_location_data.php?data=irvine"
+	);
+	
+	const locations = response.data.data.locations
 
     this.setState({ locations });
   }

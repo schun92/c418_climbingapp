@@ -18,7 +18,7 @@ class LandingPage extends Component {
                     <NavLink to='/results' className="search-btn">Seach Locations</NavLink>
                 </div> */}
         <button className="search-locations-button">
-          <NavLink to={`/resultsss/sdfsdfsd`} className="search-btn">
+          <NavLink to={`/results`} className="search-btn">
             Seach Locations
           </NavLink>
         </button>

@@ -8,15 +8,15 @@ class RouteModal extends Component {
 	}
 
 	render() {
-        
+        console.log(this.props);
 		return (
 			<div className={`routes-modal ${this.props.display}`}>
 				<div onClick={this.props.handleClick}>
 					<h1>
-						{this.props.location ? this.props.location.mountainLocation : ""}
+						{this.props.location ? this.props.location.name : ""}
 					</h1>
 					<p>
-						{this.props.routes.length} routes <span />
+						{this.props.location ? this.props.location.numRoutes : ""} routes <span />
 						{this.props.location ? this.props.location.climbType : ""}
 					</p>
 				</div>

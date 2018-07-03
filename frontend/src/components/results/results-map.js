@@ -22,9 +22,9 @@ class RouteMap extends Component {
 
 	render() {
 		this.props.locations.map(location => {
-			const { latitude: lat, longitude: lng } = location;
+			const { avgLat: lat, avgLong: lng } = location;
 			var marker = new google.maps.Marker({
-				position: { lat, lng },
+				position: { lat: Number(lat), lng: Number(lng) },
 				map: this.map
 			});
 
