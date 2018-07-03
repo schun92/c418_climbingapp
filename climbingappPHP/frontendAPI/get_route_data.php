@@ -12,8 +12,8 @@ $output = [
 ];
 
 
-$query = "SELECT `routeID`, `name`, `type`, `difficulty`, `` FROM `routes` WHERE `locationID` = {$locationID}";
-$result = mysqli_query($conn, $result);
+$query = "SELECT `id`, `name`, `type`, `difficulty` FROM `routes` WHERE `locationID` = {$locationID}";
+$result = mysqli_query($conn, $query);
 
 
 if(empty($result)) {
@@ -21,7 +21,7 @@ if(empty($result)) {
 } else {
     if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            $routeList[] = $row;
+            $output['data']['locations'][] = $row;
         }
         $output['success'] = true;
     } else {
