@@ -1,6 +1,6 @@
 <?php
 
-$locationID = $_GET['data']['id'];
+$locationID = $_GET['data'];
 
 
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
