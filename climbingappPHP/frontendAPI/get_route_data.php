@@ -1,5 +1,5 @@
 <?php
-
+ header("Access-Control-Allow-Origin: *");
 $locationID = $_GET['data'];
 
 
@@ -21,7 +21,7 @@ if(empty($result)) {
 } else {
     if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
-            $output['data']['locations'][] = $row;
+            $output['data']['routes'][] = $row;
         }
         $output['success'] = true;
     } else {
