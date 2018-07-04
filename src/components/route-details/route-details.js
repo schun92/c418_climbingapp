@@ -14,7 +14,7 @@ export default class RouteDetails extends Component {
 
   async componentDidMount() {
     const response = await axios.get(
-      "http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_route_details.php?data=114506401"
+      "/api/get_route_details.php?data=114506401"
     );
 
     const routeDetailInfo = response.data.data[0];

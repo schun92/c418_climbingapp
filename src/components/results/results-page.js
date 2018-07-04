@@ -40,7 +40,7 @@ class Results extends Component {
 	const {location} = queryString.parse(this.props.location.search);
     console.log(location);
     const response = await axios.get(
-      `http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_location_data.php?data=${location}`
+      `/api/get_location_data.php?data=${location}`
     );
     const locations = response.data.data.locations;
     this.setState({
@@ -55,7 +55,7 @@ class Results extends Component {
 
   async getRoutesByLocationId(id) {
     const response = await axios.get(
-      `http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_route_data.php?data=${id}`
+      `/api/get_route_data.php?data=${id}`
     );
     return response.data.data.routes;
   }
