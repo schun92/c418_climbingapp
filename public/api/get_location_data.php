@@ -2,7 +2,7 @@
  header("Access-Control-Allow-Origin: *");
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 
-require('../backendAPI/google_places_curl.php');
+require('../../server/backendAPI/google_places_curl.php');
 
 $output = [
 	'success'=> false,
