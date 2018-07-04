@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./landing.css";
 import { NavLink } from "react-router-dom";
 
+import axios from "axios";
+
 class LandingPage extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +40,12 @@ class LandingPage extends Component {
     const { location } = this.state.form;
 
     console.log(this.props.history.push(`/results?location=${location}`));
+  }
+  
+  async componentDidMount() {
+    const resp = await axios.get("/api/test.php");
+
+    console.log("Test Response:", resp);
   }
 
   render() {
