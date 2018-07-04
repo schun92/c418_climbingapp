@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import "./landing.css";
 import { NavLink } from "react-router-dom";
 
+import axios from 'axios';
+
 class LandingPage extends Component {
+  async componentDidMount(){
+    const resp = await axios.get('/api/test.php');
+
+    console.log('Test Response:', resp);
+  }
+
   render() {
     return (
       <div className="landing-page">
