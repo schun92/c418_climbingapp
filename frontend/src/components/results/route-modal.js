@@ -8,7 +8,6 @@ class RouteModal extends Component {
 	}
 
 	render() {
-        console.log(this.props);
 		return (
 			<div className={`routes-modal ${this.props.display}`}>
 				<div onClick={this.props.handleClick}>
@@ -24,7 +23,7 @@ class RouteModal extends Component {
 					{this.props.routes.map((route, i) => (
 						<li key={i}>
 							<NavLink to="/route-details">
-								<p>{route.routeName}</p>
+								<p>{route.name}</p>
 								<p>{route.difficulty}</p>
 								<i className="material-icons">arrow_forward_ios</i>
 							</NavLink>

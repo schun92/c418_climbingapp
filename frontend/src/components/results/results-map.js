@@ -14,13 +14,16 @@ class RouteMap extends Component {
 
 	componentDidMount() {
 		this.map = new google.maps.Map(this.ref.current, {
-			center: { lat: 33.6251, lng: -117.4273 },
-			zoom: 12,
+			zoom: 10,
 			styles: mapStyle
 		});
 	}
 
 	render() {
+		if(this.map) {
+			this.map.setCenter(this.props.mapCenter);
+		}
+
 		this.props.locations.map(location => {
 			const { avgLat: lat, avgLong: lng } = location;
 			var marker = new google.maps.Marker({

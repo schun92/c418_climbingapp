@@ -4,6 +4,7 @@ import FilterModal from "./results-filter-modal";
 import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
 import axios from "axios";
+import queryString from "query-string";
 
 class Results extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Results extends Component {
       toggle: false,
       locations: [],
       selectedLocation: null,
-      selectedLocationRoutes: []
+      selectedLocationRoutes: [],
+      mapCenter: null
     };
 
     this.togglePullUpBar = this.togglePullUpBar.bind(this);
@@ -26,8 +28,8 @@ class Results extends Component {
     });
   }
 
-  handleSelectLocation(location) {
-    const routes = this.getRoutesByLocationId(location.id);
+  async handleSelectLocation(location) {
+    const routes = await this.getRoutesByLocationId(location.ID);
     this.setState({
       selectedLocation: location,
       selectedLocationRoutes: routes
@@ -35,38 +37,27 @@ class Results extends Component {
   }
 
   async componentDidMount() {
-	  
+	const {location} = queryString.parse(this.props.location.search);
+    console.log(location);
     const response = await axios.get(
-      "http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_location_data.php?data=irvine"
-	);
-	
-	const locations = response.data.data.locations
+      `http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_location_data.php?data=${location}`
+    );
+    const locations = response.data.data.locations;
+    this.setState({
+      mapCenter: {
+        lat: response.data.data.mapCenterLat,
+        lng: response.data.data.mapCenterLon
+      }
+    });
 
     this.setState({ locations });
   }
 
-  getRoutesByLocationId(id) {
-    const routes = [
-      {
-        routeName: "Dihedral",
-        difficulty: 5.7,
-        popularity: 3.1,
-        routeID: 29
-      },
-      {
-        routeName: "Fingers",
-        difficulty: 5.9,
-        popularity: 3.4,
-        routeID: 234
-      },
-      {
-        routeName: "Splitter",
-        difficulty: "5.10d",
-        popularity: 3.5,
-        routeID: 356
-      }
-    ];
-    return routes;
+  async getRoutesByLocationId(id) {
+    const response = await axios.get(
+      `http://localhost:8000/c418_climbingapp/climbingappPHP/frontendAPI/get_route_data.php?data=${id}`
+    );
+    return response.data.data.routes;
   }
 
   render() {
@@ -80,6 +71,7 @@ class Results extends Component {
     return (
       <div>
         <RouteMap
+          mapCenter={this.state.mapCenter}
           locations={locations}
           handleClick={this.togglePullUpBar}
           selectLocation={this.handleSelectLocation}
