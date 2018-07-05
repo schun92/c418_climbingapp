@@ -1,6 +1,7 @@
 <?php
 
 $place = $_GET['data'];
+$place = str_replace(' ','', $place);
 
 $curl = curl_init();
 
