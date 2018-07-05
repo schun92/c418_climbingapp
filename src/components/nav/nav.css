@@ -1,57 +1,96 @@
-nav {
-    height: 3.5em;
-    display: flex;
+.navbar {
+	height: 3.2em;
+	display: flex;
     justify-content: space-between;
-    box-sizing: border-box;
-    padding: .5em;
-    align-content: center;
-    background-color: rgb(158, 216, 158);
-}
-
-.nav-ul{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    border: 1px solid rgb(35, 204, 30);
-    box-sizing: border-box;
-    list-style-type: none;
-
-    display: flex;
-    justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
-
-    transform: translate(100%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    z-index: 1;
-}
-nav .brand {
-    z-index: 2;
+	box-sizing: border-box;
+	padding: 0 0.5em;
+	background-color: rgb(158, 216, 158);
 }
 
-nav .material-icons:last-of-type {
-    z-index: 2;
+.navbar ul {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	border: 1px solid rgb(35, 204, 30);
+	box-sizing: border-box;
+	list-style-type: none;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
+
+	transform: translate(100%, 0);
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+	z-index: 1;
 }
 
-.nav-ul.show {
-    transform: none;
+.navbar ul.show {
+	transform: none;
 }
 
-ul li {
-    margin: .5em auto;
+.navbar ul li {
+	margin: 0.5em auto;
 }
 
-ul li a {
-    color: black;
-    text-decoration: none;
-    font-size: 2em;
-    text-transform: uppercase;
-    font-weight: lighter;
+.navbar ul li a {
+	color: black;
+	text-decoration: none;
+	font-size: 2em;
+	text-transform: uppercase;
+	font-weight: lighter;
+}
 
+.navbar .burger-menu,
+.navbar .brand {
+	z-index: 2;
+}
+
+.navbar .burger-menu {
+	height: 1em;
+	width: 2em;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.navbar .burger-menu span {
+	width: 100%;
+	height: 1px;
+	background-color: black;
+	display: block;
+	position: absolute;
+
+	transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navbar .burger-menu span:nth-child(1) {
+	top: 0;
+}
+
+.navbar .burger-menu span:nth-child(2) {
+	top: 50%;
+}
+
+.navbar .burger-menu span:nth-child(3) {
+	top: 100%;
+}
+
+.navbar .burger-menu.close span:nth-child(1) {
+	transform: rotateZ(45deg);
+	top: 50%;
+}
+
+.navbar .burger-menu.close span:nth-child(2) {
+	transform: scale(0);
+}
+
+.navbar .burger-menu.close span:nth-child(3) {
+	transform: rotateZ(-45deg);
+	top: 50%;
 }
