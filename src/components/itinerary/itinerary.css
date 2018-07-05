@@ -1,0 +1,80 @@
+.container {
+    height: calc(100% - 3.5em)
+}
+
+.itinerary-title h1{
+    color: black;    
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1.5em;
+}
+
+.card {
+    flex: 0 1 47%;
+    box-sizing: border-box;
+    margin: 1rem .25em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+    border-radius: 0
+
+}
+
+@media screen and (min-width: 40em) {
+    .card {
+        max-width: calc(50% - 1em)
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .card {
+        max-width: calc(25% - 1em);
+    }
+}
+
+button {
+
+    margin-top: .5em;
+    width: 100%;
+    background-color: rgb(156, 229, 153);
+    color: white;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding: .5em;
+    border: none;
+    text-transform: uppercase;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+input {
+    margin-top: 3em;
+    width: 100%;
+    background-color: rgb(156, 229, 153);
+    color: white;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding: .5em;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+::placeholder {
+    color: white;
+}
+
+.centered {
+    width: 100%;
+}
