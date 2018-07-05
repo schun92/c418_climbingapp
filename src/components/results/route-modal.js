@@ -1,19 +1,32 @@
 import React, { Component } from "react";
-import "./route-modal.css";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import "./route-modal.css";
 
 class RouteModal extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			toggle: false
+		};
+
+		this.togglePullUpBar = this.togglePullUpBar.bind(this);
+	}
+
+	togglePullUpBar() {
+		this.setState({
+			toggle: !this.state.toggle
+		});
 	}
 
 	render() {
 		return (
-			<div className={`routes-modal ${this.props.display}`}>
-				<div onClick={this.props.handleClick}>
-					<h1>
-						{this.props.location ? this.props.location.name : ""}
-					</h1>
+			<div
+				className={`routes-modal ${this.props.location ? (this.state.toggle ? "show" : "") : "hide-modal"}`}
+			>
+				<div onClick={this.togglePullUpBar}>
+					<h1>{this.props.location ? this.props.location.name : ""}</h1>
 					<p>
 						{this.props.location ? this.props.location.numRoutes : ""} routes <span />
 						{this.props.location ? this.props.location.climbType : ""}
@@ -35,4 +48,9 @@ class RouteModal extends Component {
 	}
 }
 
-export default RouteModal;
+const mapStateToProps = state => ({
+	location: state.location.selectedLocation,
+	routes: state.route.routes
+});
+
+export default connect(mapStateToProps)(RouteModal);
