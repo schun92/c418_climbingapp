@@ -32,8 +32,8 @@ class LandingPage extends Component {
 						onChange={handleSearchTermChange}
 						value={searchTerm}
 					/>
+					<button type="submit" className="search-locations-button">Seach Locations</button>
 				</form>
-				<button className="search-locations-button">Seach Locations</button>
 			</div>
 		);
 	}

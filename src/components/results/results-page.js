@@ -12,7 +12,6 @@ const Results = props => (
 );
 
 const mapsStateToProps = (state, ownProps) => ({
-	routes: state.route.routes,
 	searchTerm: queryString.parse(ownProps.location.search).location
 });
 
