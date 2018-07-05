@@ -23,7 +23,9 @@ class RouteModal extends Component {
 	render() {
 		return (
 			<div
-				className={`routes-modal ${this.props.location ? (this.state.toggle ? "show" : "") : "hide-modal"}`}
+				className={`routes-modal ${
+					this.props.location ? (this.state.toggle ? "show" : "") : "hide-modal"
+				}`}
 			>
 				<div onClick={this.togglePullUpBar}>
 					<h1>{this.props.location ? this.props.location.name : ""}</h1>
@@ -35,7 +37,7 @@ class RouteModal extends Component {
 				<ul>
 					{this.props.routes.map((route, i) => (
 						<li key={i}>
-							<NavLink to="/route-details">
+							<NavLink to={`/route-details/${route.id}`}>
 								<p>{route.name}</p>
 								<p>{route.difficulty}</p>
 								<i className="material-icons">arrow_forward_ios</i>
@@ -49,7 +51,7 @@ class RouteModal extends Component {
 }
 
 const mapStateToProps = state => ({
-	location: state.location.selectedLocation,
+	location: state.location.selectedLocation,	
 	routes: state.route.routes
 });
 
