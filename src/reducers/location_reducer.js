@@ -1,11 +1,20 @@
 import types from "../actions/types";
 
-function locationReducer(state = "", action) {
-  if (action.type === types.SET_LOCATION) {
-    return action.payload;
-  } else {
-    return state;
+const DEFAULT_STATE = {
+  locations: [],
+  selectedLocation: null
+};
+
+function locationReducer(state = DEFAULT_STATE, action) {
+  switch (action.type) {
+    case types.SET_LOCATIONS:
+      return { ...state, locations: action.payload };
+    case types.SET_SELECTED_LOCATION:
+      return { ...state, selectedLocation: action.payload };
+    default:
+      return state;
   }
 }
+
 
 export default locationReducer;

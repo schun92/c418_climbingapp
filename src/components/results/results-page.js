@@ -1,90 +1,95 @@
 import React, { Component } from "react";
-import FilterBtn from "./results-filter-btn";
-import FilterModal from "./results-filter-modal";
+import { connect } from "react-redux";
 import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
 import axios from "axios";
 import queryString from "query-string";
 
+import { getLocations } from "../../actions";
+
 class Results extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      toggle: false,
-      locations: [],
-      selectedLocation: null,
-      selectedLocationRoutes: [],
-      mapCenter: null
-    };
+		this.state = {
+			toggle: false,
+			selectedLocation: null,
+			selectedLocationRoutes: [],
+			mapCenter: null
+		};
 
-    this.togglePullUpBar = this.togglePullUpBar.bind(this);
-    this.handleSelectLocation = this.handleSelectLocation.bind(this);
-  }
+		this.togglePullUpBar = this.togglePullUpBar.bind(this);
+		this.handleSelectLocation = this.handleSelectLocation.bind(this);
+	}
 
-  togglePullUpBar() {
-    this.setState({
-      toggle: !this.state.toggle
-    });
-  }
+	togglePullUpBar() {
+		this.setState({
+			toggle: !this.state.toggle
+		});
+	}
 
-  async handleSelectLocation(location) {
-    const routes = await this.getRoutesByLocationId(location.ID);
-    this.setState({
-      selectedLocation: location,
-      selectedLocationRoutes: routes
-    });
-  }
+	async handleSelectLocation(location) {
+		const routes = await this.getRoutesByLocationId(location.ID);
+		this.setState({
+			selectedLocation: location,
+			selectedLocationRoutes: routes
+		});
+	}
 
-  async componentDidMount() {
-	const {location} = queryString.parse(this.props.location.search);
-    console.log(location);
-    const response = await axios.get(
-      `/api/get_location_data.php?data=${location}`
-    );
-    const locations = response.data.data.locations;
-    this.setState({
-      mapCenter: {
-        lat: response.data.data.mapCenterLat,
-        lng: response.data.data.mapCenterLon
-      }
-    });
+	async componentDidMount() {
+		this.props.getLocationsData();
+		// this.setState({
+		// 	mapCenter: {
+		// 		lat: response.data.data.mapCenterLat,
+		// 		lng: response.data.data.mapCenterLon
+		// 	}
+		// });
 
-    this.setState({ locations });
-  }
+		// this.setState({ locations });
+	}
 
-  async getRoutesByLocationId(id) {
-    const response = await axios.get(
-      `/api/get_route_data.php?data=${id}`
-    );
-    return response.data.data.routes;
-  }
+	async getRoutesByLocationId(id) {
+		const response = await axios.get(`/api/get_route_data.php?data=${id}`);
+		return response.data.data.routes;
+	}
 
-  render() {
-    const {
-      locations,
-      selectedLocationRoutes,
-      toggle,
-      selectedLocation
-    } = this.state;
+	render() {
+		console.log(this.props);
+		const { mapCenter, locations } = this.props;
 
-    return (
-      <div>
-        <RouteMap
-          mapCenter={this.state.mapCenter}
-          locations={locations}
-          handleClick={this.togglePullUpBar}
-          selectLocation={this.handleSelectLocation}
-        />
-        <RouteModal
-          location={selectedLocation}
-          routes={selectedLocationRoutes}
-          handleClick={this.togglePullUpBar}
-          display={selectedLocation ? (toggle ? "show" : "") : "hide-modal"}
-        />
-      </div>
-    );
-  }
+		return (
+			<div>
+				<RouteMap
+					mapCenter={mapCenter}
+					locations={locations}
+					// handleClick={this.togglePullUpBar}
+					// selectLocation={this.handleSelectLocation}
+				/>
+				{/* 
+				<RouteModal
+					location={selectedLocation}
+					routes={selectedLocationRoutes}
+					handleClick={this.togglePullUpBar}
+					display={selectedLocation ? (toggle ? "show" : "") : "hide-modal"}
+				/> */}
+			</div>
+		);
+	}
 }
 
-export default Results;
+const mapsStateToProps = state => ({
+	locations: state.location.locations,
+	mapCenter: state.map.center
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	getLocationsData() {
+		const { location: searchTerm } = queryString.parse(ownProps.location.search);
+		dispatch(getLocations(searchTerm));
+	}
+});
+
+export default connect(
+	mapsStateToProps,
+	mapDispatchToProps
+)(Results);
