@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import "./route-details.css";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { connect } from "react-redux";
 import { getSelectedRoute } from "../../actions";
+import ReactStars from "react-stars";
+import "./route-details.css";
 
 class RouteDetails extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			routeDetailInfo: {}
-		};
-	}
-
 	async componentDidMount() {
 		this.props.getRouteData();
 	}
@@ -46,10 +38,8 @@ class RouteDetails extends Component {
 								<p>difficulty</p>
 							</div>
 							<div>
-								<p>
-									<span>★★★★</span>☆
-								</p>
-								<p>{star_votes} votes</p>
+								<ReactStars value={stars} edit={false} count={5} size={24} color2={"#ffd700"} />
+								<p>{star_votes} vote(s)</p>
 							</div>
 						</div>
 						<div className="bar">
