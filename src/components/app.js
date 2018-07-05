@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import logo from "../assets/images/logo.svg";
 
 import Results from "../components/results/results-page";
 import Nav from "../components/nav/nav";
@@ -16,10 +15,9 @@ const App = () => (
     <Nav />
     <Route exact path="/" component={Landing} />
     <Route path="/results" component={Results} />
-    {/* <Route path="/results/:zipOrCity" component={Results} /> */}
     <Route path="/about" component={About} />
     <Route path="/itinerary" component={Itinerary} />
-    <Route path="/route-details" component={RouteDetails} />
+    <Route path="/route-details/:routeID" component={RouteDetails} />
     <Route path="/team" component={Team} />
   </div>
 );
