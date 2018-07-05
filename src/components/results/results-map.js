@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import RouteModal from "./route-modal";
-import map from "../../assets/images/map.png";
+import { connect } from "react-redux";
 import "./results-map.css";
 import mapStyle from "./map-style.json";
+import { setSelectedLocation, getRoutes } from "../../actions";
+import { getLocations } from "../../actions";
 
 class RouteMap extends Component {
 	constructor(props) {
 		super(props);
-		// this.key = "AIzaSyBve0XPbDvrdzCZ18vda59aGZxBp8v_lU4";
-		this.maps = null;
+		this.map = null;
 		this.ref = React.createRef();
 	}
 
 	componentDidMount() {
+		this.props.getLocationsData();
 		this.map = new google.maps.Map(this.ref.current, {
 			zoom: 10,
 			styles: mapStyle
@@ -20,7 +21,7 @@ class RouteMap extends Component {
 	}
 
 	render() {
-		if(this.map) {
+		if (this.map) {
 			this.map.setCenter(this.props.mapCenter);
 		}
 
@@ -31,11 +32,10 @@ class RouteMap extends Component {
 				map: this.map
 			});
 
-			marker.addListener("click", () => this.props.selectLocation(location));
+			marker.addListener("click", () => this.props.handleLocationSelect(location));
 		});
 
 		return (
-			//   <div className="map-container" onClick={this.props.handleClick}>
 			<div className="map-container">
 				<div ref={this.ref} />
 			</div>
@@ -43,4 +43,22 @@ class RouteMap extends Component {
 	}
 }
 
-export default RouteMap;
+const mapStateToProps = state => ({
+	locations: state.location.locations,
+	mapCenter: state.map.center
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	getLocationsData() {
+		dispatch(getLocations(ownProps.searchTerm));
+	},
+	handleLocationSelect(location) {
+		dispatch(setSelectedLocation(location))
+		dispatch(getRoutes(location.ID))
+	  }
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(RouteMap);

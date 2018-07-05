@@ -45,6 +45,13 @@ export function setRoutes(routes) {
 	};
 }
 
+export function getRoutes(locationID) {
+	return async dispatch => {
+		const response = await axios.get(`/api/get_route_data.php?data=${locationID}`);
+		const { routes } = response.data.data;
+		dispatch(setRoutes(routes));
+	};
+}
 export function setSelectedRoutes(route) {
 	return {
 		type: types.SET_SELECTED_ROUTE,
