@@ -1,55 +1,25 @@
 import React, { Component } from "react";
-import "./landing.css";
-import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
-import axios from "axios";
+import { setLocation } from "../../actions";
+import "./landing.css";
 
 class LandingPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      form: {
-        location: ""
-      }
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-  }
-
-  handleInputChange({ target }) {
-    const { name, value } = target;
-
-    const { form } = this.state;
-
-    // create a new form state
-    // destructure the form
-    // replace the input state with the new value
-    // the name from the input has to match the state name
-    const newState = {
-      form: { ...form, [name]: value }
-    };
-
-    this.setState(newState);
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
+    const { location } = this.props;
 
-    const { location } = this.state.form;
-
-    console.log(this.props.history.push(`/results?location=${location}`));
-  }
-  
-  async componentDidMount() {
-    const resp = await axios.get("/api/test.php");
-
-    console.log("Test Response:", resp);
+    this.props.history.push(`/results?location=${location}`);
   }
 
   render() {
-    const { location } = this.state.form;
+    const { location, handleLocationChange } = this.props;
     return (
       <div className="landing-page">
         <h1>Climbing Journal</h1>
@@ -59,15 +29,29 @@ class LandingPage extends Component {
             className="landing-page-input"
             type="text"
             placeholder="Enter City or Zip"
-            onChange={this.handleInputChange}
+            onChange={handleLocationChange}
             value={location}
           />
         </form>
-
         <button className="search-locations-button">Seach Locations</button>
       </div>
     );
   }
 }
 
-export default LandingPage;
+const mapStateToProps = state => {
+  return {
+    location: state.location
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  handleLocationChange(event) {
+    dispatch(setLocation(event.target.value));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LandingPage);
