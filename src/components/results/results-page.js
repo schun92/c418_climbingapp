@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
 import queryString from "query-string";
+import FilterBtn from './results-filter-btn';
 
 const Results = props => (
 	<div>
 		<RouteMap searchTerm={props.searchTerm} />
+		<FilterBtn />
 		<RouteModal />
 	</div>
 );
