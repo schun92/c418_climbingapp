@@ -17,6 +17,7 @@ const App = () => (
     <Route path="/results" component={Results} />
     <Route path="/about" component={About} />
     <Route path="/itinerary" component={Itinerary} />
+    <Route path="/itinerary/:itinItem" component={Itinerary}/>
     <Route path="/route-details/:routeID" component={RouteDetails} />
     <Route path="/team" component={Team} />
   </div>
