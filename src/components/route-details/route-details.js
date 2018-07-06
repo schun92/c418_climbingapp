@@ -3,7 +3,8 @@ import "./route-details.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getSelectedRoute } from "../../actions";
+import { getSelectedRoute, addRouteToItinerary } from "../../actions";
+
 
 class RouteDetails extends Component {
 	constructor(props) {
@@ -12,13 +13,19 @@ class RouteDetails extends Component {
 		this.state = {
 			routeDetailInfo: {}
 		};
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	async componentDidMount() {
 		this.props.getRouteData();
 	}
 
+	handleClick(){
+		this.props.addToItinerary(this.props.selectedRoute)
+	}
+
 	render() {
+		console.log('Props:', this.props)
 		let content;
 
 		if (this.props.selectedRoute) {
@@ -59,8 +66,8 @@ class RouteDetails extends Component {
 							</div>
 						</div>
 						<p>{description}</p>
-						<button className="btn-group">
-							<NavLink to="./itinerary">add to itinerary</NavLink>
+						<button className="btn-group" onClick={this.handleClick}>
+							add to itinerary
 						</button>
 					</div>
 				</div>
@@ -74,13 +81,18 @@ class RouteDetails extends Component {
 }
 
 const mapStateToProps = state => ({
-	selectedRoute: state.route.selectedRoute
+	selectedRoute: state.route.selectedRoute,
+	itineraryRoutes: state.itinerary.routes
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	getRouteData() {
 		dispatch(getSelectedRoute(ownProps.match.params.routeID));
+	},
+	addToItinerary(route){
+		dispatch(addRouteToItinerary(route))
 	}
+
 });
 export default connect(
 	mapStateToProps,
