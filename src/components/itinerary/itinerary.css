@@ -71,9 +71,7 @@ input {
     box-sizing: border-box;
 }
 
-::placeholder {
-    color: white;
-}
+
 
 .centered {
     width: 100%;

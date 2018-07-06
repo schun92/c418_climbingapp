@@ -22,7 +22,7 @@ class Nav extends Component {
 
 	render() {
 		return (
-			<nav className="navbar">
+			<nav className="navbar is-primary is-text-white">
 				<i className="material-icons" onClick={this.goBack}>
 					arrow_back_ios
 				</i>
