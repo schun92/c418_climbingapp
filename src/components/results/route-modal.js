@@ -21,6 +21,7 @@ class RouteModal extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div
 				className={`routes-modal ${
@@ -28,11 +29,10 @@ class RouteModal extends Component {
 				}`}
 			>
 				<div onClick={this.togglePullUpBar}>
-					<h1>{this.props.location ? this.props.location.name : ""}</h1>
-					<p>
-						{this.props.location ? this.props.location.numRoutes : ""} routes <span />
-						{this.props.location ? this.props.location.climbType : ""}
-					</p>
+					<h1 className="is-text-lighter">
+						({this.props.location ? this.props.location.numRoutes : ""}){" "}
+						{this.props.location ? this.props.location.name : ""}
+					</h1>
 				</div>
 				<ul>
 					{this.props.routes.map((route, i) => (
@@ -40,7 +40,6 @@ class RouteModal extends Component {
 							<NavLink to={`/route-details/${route.id}`}>
 								<p>{route.name}</p>
 								<p>{route.difficulty}</p>
-								<i className="material-icons">arrow_forward_ios</i>
 							</NavLink>
 						</li>
 					))}
@@ -51,7 +50,7 @@ class RouteModal extends Component {
 }
 
 const mapStateToProps = state => ({
-	location: state.location.selectedLocation,	
+	location: state.location.selectedLocation,
 	routes: state.route.routes
 });
 

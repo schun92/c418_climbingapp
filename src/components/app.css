@@ -10,6 +10,10 @@ a {
 	text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .colors {
 	color: #6fb265;
 	color: #e8ffe5;
