@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './about-content.css'
 import HtmlCssJs from '../../assets/images/html-css-js-icon.png';
 import ReactRedux from '../../assets/images/react-redux-icon.png';
-
+import Php from '../../assets/images/php.png';
+import Regex from '../../assets/images/regex.png';
 
 
 
@@ -23,6 +24,8 @@ class About extends Component {
                     <div className="tech-icons">
                         <img src={HtmlCssJs} alt="html css javascript icons" width="140px" />
                         <img className="react-redux-icon" src={ReactRedux} alt="react redux icon" width="120px" />
+                        <img className="react-redux-icon" src={Php} alt="php, mysql icon" width="120px" />
+                        <img className="react-redux-icon" src={Regex} alt="regex icon" width="100px" />
                     </div>
                 </div>
             </div>
