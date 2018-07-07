@@ -1,15 +1,15 @@
 .routes-modal {
 	position: fixed;
-	top: 20vh;
+	top: 20%;
 	left: 0;
-	height: 80vh;
+	height: 100vh;
 	width: 100vw;
 	background-color: rgba(255, 255, 255, 0.85);
 	border-top: 1px solid #6fb265;
 	box-sizing: border-box;
 	overflow-y: scroll;
 	transform-origin: 0 0;
-	transform: translate(0%, 80%);
+	transform: translate(0%, 70%);
 	transition: transform 0.2s ease-in;
 }
 
@@ -25,7 +25,7 @@
 	text-transform: capitalize;
 	text-align: center;
 	font-size: 2em;
-	margin: .5em 1em;
+	margin: 0.2em 1em;
 }
 
 .routes-modal > p {
