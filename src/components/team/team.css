@@ -16,17 +16,3 @@
 .member>p>img {
     width: 2em;
 }
-
-h2,
-h3 {
-    margin: 0;
-}
-
-h3 {
-    font-weight: lighter;
-}
-
-h1 {
-    text-align: center;
-    color: black;
-}

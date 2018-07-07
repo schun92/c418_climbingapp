@@ -16,7 +16,8 @@ class RouteMap extends Component {
 		this.props.getLocationsData();
 		this.map = new google.maps.Map(this.ref.current, {
 			zoom: 10,
-			styles: mapStyle
+			styles: mapStyle,
+			disableDefaultUI: true
 		});
 	}
 
