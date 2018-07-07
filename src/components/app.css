@@ -14,12 +14,25 @@ ul {
 	list-style-type: none;
 }
 
+.container {
+	height: calc(100% - 3.5em);
+}
+
 .colors {
 	color: #6fb265;
 	color: #e8ffe5;
 	color: #c9ffc2;
 	color: #b27ba1;
 	color: #ffc3ec;
+}
+
+.input {
+	font-size: 1.3em;
+	width: 80%;
+	background-color: white;
+	color: black;
+	padding: 0.5em;
+	font-weight: 300;
 }
 
 .btn {
@@ -47,7 +60,7 @@ ul {
 }
 
 .btn-group .btn {
-	margin-bottom: .5em;
+	margin-bottom: 0.5em;
 }
 
 .btn.is-fullwidth {

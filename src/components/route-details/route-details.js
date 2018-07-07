@@ -44,10 +44,10 @@ class RouteDetails extends Component {
 					<div className="thumbnail">
 						<h1 className="title">{name}</h1>
 						<h2 className="subtitle">{location}</h2>
-						<p className="stars">
-							<ReactStars value={stars} edit={false} count={5} size={18} color2={"#fff"} />
+						<div className="stars">
+							<ReactStars value={Number(stars)} edit={false} count={5} size={18} color2={"#fff"} />
 							<span>({star_votes})</span>
-						</p>
+						</div>
 					</div>
 					<div className="details">
 						<div className="bar">
@@ -69,9 +69,9 @@ class RouteDetails extends Component {
 							<button className="btn is-primary is-text-ligther" onClick={this.handleClick}>
 								add to itinerary
 							</button>
-							<button className="btn is-secondary  is-text-ligther" onClick={this.handleClick}>
+							<NavLink className="btn is-secondary  is-text-ligther" to="/itinerary">
 								go to itinerary
-							</button>
+							</NavLink>
 						</div>
 					</div>
 				</div>
