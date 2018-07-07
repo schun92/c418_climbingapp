@@ -9,7 +9,7 @@ $output = [
 	'errors'=>[]
 ];
 
-$query = "SELECT `name`, `location_mountain` AS 'location', `description`, `type`, `pitches`, `difficulty`, `stars`, `star_votes`, `image` FROM `routes` WHERE `id` = $inputID";
+$query = "SELECT `id`,`name`, `location_mountain` AS 'location', `description`, `type`, `pitches`, `difficulty`, `stars`, `star_votes`, `image` FROM `routes` WHERE `id` = $inputID";
 
 $result = mysqli_query($conn, $query);
 

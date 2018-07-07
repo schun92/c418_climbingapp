@@ -34,8 +34,9 @@ if (empty($result)) {
             $description = substr($testArea, $start+9, $end-$start-9);
             $startKey = "a_$id";
             $data = [];
-        
-            $descripwithslash = addslashes($description);
+
+            $cleandescrip = strip_tags($description);
+            $descripwithslash = addslashes($cleandescrip);
 
             if(empty($descripwithslash)) {
                 $descripwithslash = "No description available.";

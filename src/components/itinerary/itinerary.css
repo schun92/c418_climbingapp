@@ -2,28 +2,90 @@
     height: calc(100% - 3.5em)
 }
 
-.itinerary-title h1{
-    color: black;    
-}
-
 .cards {
+.itinerary-title h1 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 1.5em;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: black; 
 }
 
-.card {
-    flex: 0 1 47%;
-    box-sizing: border-box;
-    margin: 1rem .25em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    text-align: center;
-    border-radius: 0
-
-}
-
-.centered {
+.cards{
     width: 100%;
+    padding: .5em;
+    box-sizing: border-box;
+}
+
+.card{
+    height: 17em;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.card.expand{
+    height: auto;
+}
+
+.card-content h1{
+    font-size: 2em;
+    text-align: left;
+}
+
+.card-content h2{
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.card-content p{
+    text-align: left;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.card-image{
+    height: 10em;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-content{
+    padding: .8em;
+    display: flex;
+    align-items: center;
+}
+.card-content-left{
+    flex: 1 1 90%;
+}
+.card-content-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-content-right i{
+    font-size: 1.9em;
+}
+.card .card-details{
+    display: none;
+}
+
+.card.expand .card-details{
+    display: block;
+    padding: .5em;
+}
+
+.card .card-content-right .material-icons:first-of-type{
+    display: block;
+}
+.card .card-content-right .material-icons:last-of-type{
+    display: none;
+}
+
+
+.card.expand .card-content-right .material-icons:first-of-type{
+    display: none;
+}
+.card.expand .card-content-right .material-icons:last-of-type{
+    display: block;
 }
