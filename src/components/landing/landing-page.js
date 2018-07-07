@@ -23,7 +23,7 @@ class LandingPage extends Component {
 		return (
 			<div className="landing-page">
 				<form onSubmit={this.handleFormSubmit}>
-					<h1 className="brand is-text-white">Climbing Journal</h1>
+					<h1 className="brand is-text-white is-text-lighter">Climbing Journal</h1>
 					<input
 						name="location"
 						className="landing-page-input"
@@ -32,7 +32,7 @@ class LandingPage extends Component {
 						onChange={handleSearchTermChange}
 						value={searchTerm}
 					/>
-					<button type="submit" className="btn is-primary">
+					<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter">
 						Seach Locations
 					</button>
 				</form>

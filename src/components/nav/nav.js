@@ -1,35 +1,38 @@
 import React, { Component } from "react";
 import "./nav.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 class Nav extends Component {
 	constructor(props) {
 		super(props);
 
 		this.goBack = this.goBack.bind(this);
-		this.handleBurgerMenuClick = this.handleBurgerMenuClick.bind(this);
+		this.toggleBurgerMenu = this.toggleBurgerMenu.bind(this);
 		this.state = {
 			showNavMenu: false
 		};
 	}
+
 	goBack() {
 		window.history.back();
 	}
 
-	handleBurgerMenuClick() {
+	toggleBurgerMenu() {
 		this.setState({ showNavMenu: !this.state.showNavMenu });
 	}
 
 	render() {
 		return (
 			<nav className="navbar is-primary is-text-white">
-				<i className="material-icons" onClick={this.goBack}>
-					arrow_back_ios
-				</i>
+				{this.props.location.pathname === "/" ? null : (
+					<i className="material-icons" onClick={this.goBack}>
+						arrow_back_ios
+					</i>
+				)}
 				<div className="brand">CJ</div>
 				<div
 					className={this.state.showNavMenu ? "burger-menu close" : "burger-menu"}
-					onClick={this.handleBurgerMenuClick}
+					onClick={this.toggleBurgerMenu}
 				>
 					<span />
 					<span />
@@ -54,4 +57,4 @@ class Nav extends Component {
 	}
 }
 
-export default Nav;
+export default withRouter(Nav);

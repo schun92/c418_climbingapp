@@ -1,11 +1,52 @@
-body{
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Quicksand', sans-serif;
-    padding: 0;
+body {
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	font-family: "Quicksand", sans-serif;
+	padding: 0;
 }
 
-a{
-    text-decoration: none;
+a {
+	text-decoration: none;
+}
+
+.colors {
+	color: #6fb265;
+	color: #e8ffe5;
+	color: #c9ffc2;
+	color: #b27ba1;
+	color: #ffc3ec;
+}
+
+.btn {
+	box-sizing: border-box;
+	padding: 0.5em 1em;
+	font-size: 1.5em;
+	outline: none;
+    border: none;
+}
+
+.btn.is-primary {
+	background-color: #6fb265;
+	color: white;
+}
+
+.btn.is-fullwidth {
+    width: 100%;
+}
+
+.is-uppercase {
+	text-transform: uppercase;
+}
+
+.navbar.is-primary {
+	background-color: #6fb265;
+}
+
+.is-text-white {
+	color: #e8ffe5;
+}
+
+.is-text-lighter {
+	font-weight: lighter;
 }
