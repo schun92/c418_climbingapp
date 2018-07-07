@@ -27,13 +27,18 @@
 	align-items: center;
 	flex-flow: column wrap;
 
+	background-color: #6fb265;
+	border-radius: 50%;
+
 	transform: translate(100%, 0);
-	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-	z-index: 1;
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+		border-radius 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+	z-index: 10;
 }
 
 .navbar ul.show {
 	transform: none;
+	border-radius: 0;
 }
 
 .navbar ul li {
@@ -41,7 +46,7 @@
 }
 
 .navbar ul li a {
-	color: black;
+	color: white;
 	text-decoration: none;
 	font-size: 2em;
 	text-transform: uppercase;
@@ -50,7 +55,7 @@
 
 .navbar .burger-menu,
 .navbar .brand {
-	z-index: 2;
+	z-index: 11;
 }
 
 .navbar .brand {
@@ -96,9 +101,9 @@
 	top: 100%;
 }
 
-.navbar .burger-menu.close span {
+/* .navbar .burger-menu.close span {
 	background-color: black;
-}
+} */
 
 .navbar .burger-menu.close span:nth-child(1) {
 	transform: rotateZ(45deg);
