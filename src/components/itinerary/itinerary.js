@@ -50,25 +50,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(Itinerary)
-
-/*
-<article className="card">
-                <NavLink to="./route-details">
-                   <h1>{route.name}</h1>
-                   <p>Fingers</p>
-              </NavLink>
-            </article>
-
-
-   <Card>
-                <CardImg top width="100%" src={route.image}/>
-                <CardBody>
-                  <CardTitle tag='h2'>{route.name}</CardTitle>
-                  <CardSubtitle tag='h3'>{route.location}</CardSubtitle>
-                  <CardSubtitle tag='h3'>{route.difficulty}</CardSubtitle>
-                  <CardText>{route.description}</CardText>
-                  <Button>Complete</Button>
-                </CardBody>
-              </Card>
-
-            */

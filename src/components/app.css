@@ -11,7 +11,7 @@ a {
 }
 
 ul {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 .colors {
@@ -27,7 +27,7 @@ ul {
 	padding: 0.5em 1em;
 	font-size: 1.5em;
 	outline: none;
-    border: none;
+	border: none;
 }
 
 .btn.is-primary {
@@ -35,12 +35,31 @@ ul {
 	color: white;
 }
 
+.btn.is-secondary {
+	background-color: #b27ba1;
+	color: white;
+}
+
+.btn-group {
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+}
+
+.btn-group .btn {
+	margin-bottom: .5em;
+}
+
 .btn.is-fullwidth {
-    width: 100%;
+	width: 100%;
 }
 
 .is-uppercase {
 	text-transform: uppercase;
+}
+
+.is-capitalize {
+	text-transform: capitalize;
 }
 
 .navbar.is-primary {
@@ -54,3 +73,6 @@ ul {
 .is-text-lighter {
 	font-weight: lighter;
 }
+
+/* Photo by Christoph Deinet on Unsplash
+Photo by Daniel Leone on Unsplash */

@@ -5,7 +5,6 @@ import { getSelectedRoute, addRouteToItinerary } from "../../actions";
 import ReactStars from "react-stars";
 import "./route-details.css";
 
-
 class RouteDetails extends Component {
 	constructor(props) {
 		super(props);
@@ -20,12 +19,12 @@ class RouteDetails extends Component {
 		this.props.getRouteData();
 	}
 
-	handleClick(){
-		this.props.addToItinerary(this.props.selectedRoute)
+	handleClick() {
+		this.props.addToItinerary(this.props.selectedRoute);
 	}
 
 	render() {
-		console.log('Props:', this.props)
+		console.log("Props:", this.props);
 		let content;
 
 		if (this.props.selectedRoute) {
@@ -45,28 +44,35 @@ class RouteDetails extends Component {
 					<div className="thumbnail">
 						<h1 className="title">{name}</h1>
 						<h2 className="subtitle">{location}</h2>
+						<p className="stars">
+							<ReactStars value={stars} edit={false} count={5} size={18} color2={"#fff"} />
+							<span>({star_votes})</span>
+						</p>
 					</div>
 					<div className="details">
 						<div className="bar">
 							<div>
+								<p>{type}</p>
+								<p>type</p>
+							</div>
+							<div>
+								<p>{pitches}</p>
+								<p>pitches</p>
+							</div>
+							<div>
 								<p>{difficulty}</p>
 								<p>difficulty</p>
 							</div>
-							<div>
-								<ReactStars value={stars} edit={false} count={5} size={24} color2={"#ffd700"} />
-								<p>{star_votes} vote(s)</p>
-							</div>
 						</div>
-						<div className="bar">
-							<div>
-								<p>{type}</p>
-								<p>rock</p>
-							</div>
+						<p className="description">{description}</p>
+						<div className="btn-group">
+							<button className="btn is-primary is-text-ligther" onClick={this.handleClick}>
+								add to itinerary
+							</button>
+							<button className="btn is-secondary  is-text-ligther" onClick={this.handleClick}>
+								go to itinerary
+							</button>
 						</div>
-						<p>{description}</p>
-						<button className="btn-group" onClick={this.handleClick}>
-							add to itinerary
-						</button>
 					</div>
 				</div>
 			);
@@ -87,10 +93,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	getRouteData() {
 		dispatch(getSelectedRoute(ownProps.match.params.routeID));
 	},
-	addToItinerary(route){
-		dispatch(addRouteToItinerary(route))
+	addToItinerary(route) {
+		dispatch(addRouteToItinerary(route));
 	}
-
 });
 export default connect(
 	mapStateToProps,
