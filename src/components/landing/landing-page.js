@@ -9,6 +9,11 @@ class LandingPage extends Component {
 		super(props);
 
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
+	}
+
+	componentDidMount(){
+		this.props.clearSearchTerm();
 	}
 
 	handleFormSubmit(event) {
@@ -20,10 +25,11 @@ class LandingPage extends Component {
 
 	render() {
 		const { searchTerm, handleSearchTermChange } = this.props;
+		console.log('landing page props', this.props)
 		return (
 			<div className="landing-page">
 				<form onSubmit={this.handleFormSubmit}>
-					<h1 className="brand is-text-white">Climbing Journal</h1>
+					<h1 className="brand is-text-white">PEAKY FINDER</h1>
 					<input
 						name="location"
 						className="landing-page-input"
@@ -50,6 +56,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
 	handleSearchTermChange(event) {
 		dispatch(setSearchTerm(event.target.value));
+	}, clearSearchTerm(){
+		dispatch(setSearchTerm(''))
 	}
 });
 

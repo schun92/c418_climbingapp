@@ -13,6 +13,7 @@ class RouteMap extends Component {
 	}
 
 	componentDidMount() {
+		this.props.clearLocation();
 		this.props.getLocationsData();
 		this.map = new google.maps.Map(this.ref.current, {
 			zoom: 10,
@@ -56,7 +57,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	handleLocationSelect(location) {
 		dispatch(setSelectedLocation(location))
 		dispatch(getRoutes(location.ID))
-	  }
+	  },
+	clearLocation(){
+		dispatch(setSelectedLocation(null))
+	}
 });
 
 export default connect(
