@@ -10,6 +10,7 @@ class RouteModal extends Component {
 		this.state = {
 			toggle: false
 		};
+	
 
 		this.togglePullUpBar = this.togglePullUpBar.bind(this);
 	}
@@ -21,8 +22,9 @@ class RouteModal extends Component {
 	}
 
 	render() {
-		console.log(this.props);
+		console.log('result props', this.props);
 		return (
+			
 			<div
 				className={`routes-modal ${
 					this.props.location ? (this.state.toggle ? "show" : "") : "hide-modal"

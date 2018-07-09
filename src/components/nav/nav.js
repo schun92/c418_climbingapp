@@ -9,12 +9,14 @@ class Nav extends Component {
 		this.goBack = this.goBack.bind(this);
 		this.toggleBurgerMenu = this.toggleBurgerMenu.bind(this);
 		this.state = {
-			showNavMenu: false
+			showNavMenu: false,
+
 		};
 	}
 
 	goBack() {
 		window.history.back();
+	
 	}
 
 	toggleBurgerMenu() {
@@ -29,7 +31,7 @@ class Nav extends Component {
 						arrow_back_ios
 					</i>
 				)}
-				<div className="brand">CJ</div>
+				<div className="brand">PF</div>
 				<div
 					className={this.state.showNavMenu ? "burger-menu close" : "burger-menu"}
 					onClick={this.toggleBurgerMenu}
