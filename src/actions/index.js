@@ -46,7 +46,6 @@ export function setRoutes(routes) {
 }
 
 
-
 export function getRoutes(locationID) {
 	return async dispatch => {
 		const response = await axios.get(`/api/get_route_data.php?data=${locationID}`);
@@ -73,5 +72,12 @@ export function addRouteToItinerary(route){
 	return{
 		type: types.ADD_ROUTE_TO_ITINERARY,
 		payload: route
+	}
+}
+
+export function showModal(show) {
+	return {
+		type: types.SHOW_MODAL,
+		payload: show
 	}
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { setSearchTerm, setSelectedLocation } from "../../actions";
+import { setSearchTerm, setSelectedLocation, showModal } from "../../actions";
 import "./landing.css";
 
 class LandingPage extends Component {
@@ -14,18 +14,19 @@ class LandingPage extends Component {
 
 	componentDidMount(){
 		this.props.clearSearchTerm();
+		this.props.clearLocation();
+		this.props.hideRouteModal();
 	}
 
 	handleFormSubmit(event) {
 		event.preventDefault();
 		const { searchTerm } = this.props;
 
-		this.props.history.push(`/results?location=${searchTerm}`);
+		this.props.history.push(`/results?search=${searchTerm}`);
 	}
 
 	render() {
 		const { searchTerm, handleSearchTermChange } = this.props;
-		console.log('landing page props', this.props)
 		return (
 			<div className="landing-page">
 				<form onSubmit={this.handleFormSubmit}>
@@ -58,6 +59,12 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(setSearchTerm(event.target.value));
 	}, clearSearchTerm(){
 		dispatch(setSearchTerm(''))
+	},
+	clearLocation(){
+		dispatch(setSelectedLocation(null))
+	},
+	hideRouteModal() {
+		dispatch(showModal(false))
 	}
 });
 
@@ -65,3 +72,5 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(LandingPage);
+
+
