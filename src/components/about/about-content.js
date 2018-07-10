@@ -18,7 +18,7 @@ class About extends Component {
             <div className="container about-page">
                 <div className="about-container">
                     <h1 className="about-header">About</h1>
-                    <p className="about-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita ducimus neque tempore exercitationem rem reiciendis alias eligendi inventore debitis vero! Aspernatur officia quae minus. Fugit veniam labore blanditiis aperiam.</p>
+                    <p className="about-text">Peaky Finder is an application for climbers in the orange county area to be able to locate and save different routes into an itinerary to map out a day's worth of climbing!</p>
                     <h3>Technologies used:</h3>
                     <div className="tech-icons">
                         <img src={HtmlCssJs} alt="html css javascript icons" width="140px" />

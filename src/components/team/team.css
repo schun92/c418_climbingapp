@@ -3,9 +3,16 @@
     flex-flow: row wrap;
 }
 
+.team-title{
+    text-align: center;
+    text-transform: uppercase
+    
+}
+
 .member {
     flex: 1 1 40%;
     padding: .4em;
+    text-transform: uppercase;
 }
 
 .member>img {
@@ -15,4 +22,9 @@
 
 .member>p>img {
     width: 2em;
+    padding: .3em;
+}
+
+.member h2, h3, p{
+    margin: .3em;
 }
