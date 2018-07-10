@@ -4,6 +4,8 @@ import "./results-map.css";
 import mapStyle from "./map-style.json";
 import { setSelectedLocation, getRoutes } from "../../actions";
 import { getLocations } from "../../actions";
+import { showModal } from '../../actions';
+
 
 class RouteMap extends Component {
 	constructor(props) {
@@ -13,16 +15,23 @@ class RouteMap extends Component {
 	}
 
 	componentDidMount() {
-		this.props.clearLocation();
+
 		this.props.getLocationsData();
 		this.map = new google.maps.Map(this.ref.current, {
 			zoom: 10,
 			styles: mapStyle,
 			disableDefaultUI: true
 		});
+
+		
+	}
+
+	componentDidUpdate() {
+		console.log('componeitdid update' ,this.props);
 	}
 
 	render() {
+		console.log(this.props);
 		if (this.map) {
 			this.map.setCenter(this.props.mapCenter);
 		}
@@ -34,11 +43,13 @@ class RouteMap extends Component {
 				map: this.map
 			});
 
-			marker.addListener("click", () => this.props.handleLocationSelect(location));
+			marker.addListener("click", () => {
+				this.props.handleLocationSelect(location)
+			});
 		});
 
 		return (
-			<div className="map-container">
+			<div className="map-container" >
 				<div ref={this.ref} />
 			</div>
 		);
@@ -57,9 +68,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	handleLocationSelect(location) {
 		dispatch(setSelectedLocation(location))
 		dispatch(getRoutes(location.ID))
-	  },
-	clearLocation(){
-		dispatch(setSelectedLocation(null))
 	}
 });
 
