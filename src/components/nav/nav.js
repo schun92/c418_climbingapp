@@ -31,7 +31,9 @@ class Nav extends Component {
 						arrow_back_ios
 					</i>
 				)}
-				<div className="brand">PF</div>
+				
+					<NavLink to="/"><div className="brand">PF</div></NavLink>
+				
 				<div
 					className={this.state.showNavMenu ? "burger-menu close" : "burger-menu"}
 					onClick={this.toggleBurgerMenu}
