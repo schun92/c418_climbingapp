@@ -21,6 +21,8 @@ class RouteMap extends Component {
 			styles: mapStyle,
 			disableDefaultUI: true
 		});
+		this.map.setCenter(this.props.mapCenter);
+
 		this.props.getLocationsData();
 
 		//check if url has location data in it;
@@ -32,7 +34,7 @@ class RouteMap extends Component {
 
 	render() {
 		if (this.map) {
-			this.map.setCenter(this.props.mapCenter);
+			// this.map.setCenter(this.props.mapCenter);
 		}
 
 		this.props.locations.map(location => {

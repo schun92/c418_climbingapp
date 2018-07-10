@@ -20,7 +20,6 @@ class Itinerary extends Component {
 	}
 
 	render() {
-		console.log("props", this.props);
 		return (
 			<div className="centered">
 				<div className="itinerary-title">
