@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import stockPhoto from "../../assets/images/climb_no_image.jpeg";
+
 
 class Card extends Component {
 	constructor(props) {
@@ -17,9 +19,15 @@ class Card extends Component {
 	}
 
 	render() {
+		let img = this.props.route.image;
+		if (img === ''){
+		img = stockPhoto;
+		}
 		return (
 			<div className={this.state.expandCard ? "card expand" : "card"}>
-				<div className="card-image" style={{ backgroundImage: `url(${this.props.route.image})` }} />
+				{/* <div className="card-image" style={{ backgroundImage: `url(${this.props.route.image})` }} /> */}
+				<div className="card-image" style={{ backgroundImage: `url(${img})` }} />
+
 				<div onClick={this.handleClick} className="card-content">
 					<div className="card-content-left">
 						<h1>{this.props.route.name}</h1>
