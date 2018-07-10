@@ -21,6 +21,7 @@ class FilterBtn extends Component {
     }
 
     handleHideModal() {
+        console.log('hide modal')
         this.setState({
             showFilterModal: false
         })
@@ -32,7 +33,7 @@ class FilterBtn extends Component {
                 <div className="filter">
                     <button className="filter-modal-button" type="button" onClick={this.handleClick}>Filter</button>
                 </div>
-                {this.state.showFilterModal ? <FilterModal handleHideModal={this.handleHideModal} /> : null}
+                <FilterModal handleHideModal = {this.handleHideModal} showModal={this.state.showFilterModal}/>
             </div>
         )
 

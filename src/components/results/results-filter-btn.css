@@ -1,6 +1,9 @@
 .filter {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    align-items: flex-start;
+    z-index: 3;
+    position: fixed;
+    top: 55px;
+    right: 5px;
+    background-color: white;
+    padding: .5em 1em;
+    font-size: 1em;
 }

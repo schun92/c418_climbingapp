@@ -6,140 +6,130 @@ class FilterModal extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            rockOptions: [
+                'Traditional',
+                'Top Rope',
+                'Sport'
+            ],
+            rockDifficulty: [
+                "3rd",
+                "4th",
+                "5.0",
+                "5.1",
+                "5.2",
+                "5.3",
+                "5.4",
+                "5.5",
+                "5.6",
+                "5.7",
+                "5.8",
+                "5.9",
+                "5.10a",
+                "5.11a",
+                "5.11b",
+                "5.11c",
+                "5.11d",
+                "5.12a",
+                "5.12b",
+                "5.12c",
+                "5.12d",
+                "5.13a",
+                "5.13b",
+                "5.13c",
+                "5.13d",
+                "5.14a",
+                "5.14b",
+                "5.14c",
+                "5.14d",
+                "5.15a",
+                "5.15b",
+                "5.15c",
+                "5.15d",
+            ],
+            boulderDifficulty: [
+                "V0",
+                "V1",
+                "V2",
+                "V3",
+                "V4",
+                "V5",
+                "V6",
+                "V7",
+                "V8",
+                "V9",
+                "V10",
+                "V11",
+                "V12",
+                "V13",
+                "V14",
+            ]
+        }
     }
 
 
     render() {
+        let showClass = '';
+        if (this.props.showModal) {
+            showClass = 'show';
+        }
+
         return (
-            <div className="filter-modal-shadow">
+            <div className={`filter-modal-shadow ${showClass}`}>
                 <div className="filter-modal-body">
-                    <span className="close-filter-modal">
-                        <button onClick={this.props.handleHideModal}>X</button>
-                    </span>
-                    <input className="input-checkbox" type="checkbox" />Rock
-            <ul>
-                        <li>
-                            <input className="input-checkbox" type="checkbox" />Traditional</li>
-                        <li>
-                            <input className="input-checkbox" type="checkbox" />Top Rope</li>
-                        <li>
-                            <input className="input-checkbox" type="checkbox" />Sport</li>
+                    <h5>Rock</h5>
+                    <ul>
+                        {this.state.rockOptions.map((option) => {
+                            return (
+                                <label className="container">{option}
+                                    <input type="checkbox" checked="checked" />
+                                    <span className="checkmark"></span>
+                                </label>
+                            )
+                        })}
                     </ul>
-                    <form className="drop-menu" action="/action_page.php">
+                    <form className="drop-menu">
                         <select className="drop-menu-style" name="difficulty">
-                            <option value="3rd">3rd</option>
-                            <option value="4th">4th</option>
-                            <option value="5.0">5.0</option>
-                            <option value="5.1">5.1</option>
-                            <option value="5.2">5.2</option>
-                            <option value="5.3">5.3</option>
-                            <option value="5.4">5.4</option>
-                            <option value="5.5">5.5</option>
-                            <option value="5.6">5.6</option>
-                            <option value="5.7">5.7</option>
-                            <option value="5.8">5.8</option>
-                            <option value="5.9">5.9</option>
-                            <option value="5.10a">5.10a</option>
-                            <option value="5.11a">5.11a</option>
-                            <option value="5.11b">5.11b</option>
-                            <option value="5.11c">5.11c</option>
-                            <option value="5.11d">5.11d</option>
-                            <option value="5.12a">5.12a</option>
-                            <option value="5.12b">5.12b</option>
-                            <option value="5.12c">5.12c</option>
-                            <option value="5.12d">5.12d</option>
-                            <option value="5.13a">5.13a</option>
-                            <option value="5.13b">5.13b</option>
-                            <option value="5.13c">5.13c</option>
-                            <option value="5.13d">5.13d</option>
-                            <option value="5.14a">5.14a</option>
-                            <option value="5.14b">5.14b</option>
-                            <option value="5.14c">5.14c</option>
-                            <option value="5.14d">5.14d</option>
-                            <option value="5.15a">5.15a</option>
-                            <option value="5.15b">5.15b</option>
-                            <option value="5.15c">5.15c</option>
-                            <option value="5.15d">5.15d</option>
+                            {this.state.rockDifficulty.map((difficulty) => {
+                                return (
+                                    <option value={difficulty}>{difficulty}</option>
+                                )
+                            })}
                         </select> to
-                <select className="drop-menu-style" name="difficulty">
-                            <option value="3rd">3rd</option>
-                            <option value="4th">4th</option>
-                            <option value="5.0">5.0</option>
-                            <option value="5.1">5.1</option>
-                            <option value="5.2">5.2</option>
-                            <option value="5.3">5.3</option>
-                            <option value="5.4">5.4</option>
-                            <option value="5.5">5.5</option>
-                            <option value="5.6">5.6</option>
-                            <option value="5.7">5.7</option>
-                            <option value="5.8">5.8</option>
-                            <option value="5.9">5.9</option>
-                            <option value="5.10a">5.10a</option>
-                            <option value="5.11a">5.11a</option>
-                            <option value="5.11b">5.11b</option>
-                            <option value="5.11c">5.11c</option>
-                            <option value="5.11d">5.11d</option>
-                            <option value="5.12a">5.12a</option>
-                            <option value="5.12b">5.12b</option>
-                            <option value="5.12c">5.12c</option>
-                            <option value="5.12d">5.12d</option>
-                            <option value="5.13a">5.13a</option>
-                            <option value="5.13b">5.13b</option>
-                            <option value="5.13c">5.13c</option>
-                            <option value="5.13d">5.13d</option>
-                            <option value="5.14a">5.14a</option>
-                            <option value="5.14b">5.14b</option>
-                            <option value="5.14c">5.14c</option>
-                            <option value="5.14d">5.14d</option>
-                            <option value="5.15a">5.15a</option>
-                            <option value="5.15b">5.15b</option>
-                            <option value="5.15c">5.15c</option>
-                            <option value="5.15d">5.15d</option>
+                        <select className="drop-menu-style" name="difficulty">
+                            {this.state.rockDifficulty.map((difficulty) => {
+                                return (
+                                    <option value={difficulty}>{difficulty}</option>
+                                )
+                            })}
+
                         </select>
                     </form>
-
-                    <input type="checkbox" />Boulder
-            <form className="drop-menu" action="/action_page.php">
+                    <label className="container">Boulder
+                        <input type="checkbox" checked="checked" />
+                        <span className="checkmark"></span>
+                    </label>
+                    <form className="drop-menu" >
                         <select className="drop-menu-style" name="difficulty">
-                            <option value="V0">V0</option>
-                            <option value="V1">V1</option>
-                            <option value="V2">V2</option>
-                            <option value="V3">V3</option>
-                            <option value="V4">V4</option>
-                            <option value="V5">V5</option>
-                            <option value="V6">V6</option>
-                            <option value="V7">V7</option>
-                            <option value="V8">V8</option>
-                            <option value="V9">V9</option>
-                            <option value="V10">V10</option>
-                            <option value="V11">V11</option>
-                            <option value="V12">V12</option>
-                            <option value="V13">V13</option>
-                            <option value="V14">V14</option>
-
+                            {this.state.boulderDifficulty.map((difficulty) => {
+                                return (
+                                    <option value={difficulty}>{difficulty}</option>
+                                )
+                            })}
                         </select> to
-                <select className="drop-menu-style" name="difficulty">
-                            <option value="V0">V0</option>
-                            <option value="V1">V1</option>
-                            <option value="V2">V2</option>
-                            <option value="V3">V3</option>
-                            <option value="V4">V4</option>
-                            <option value="V5">V5</option>
-                            <option value="V6">V6</option>
-                            <option value="V7">V7</option>
-                            <option value="V8">V8</option>
-                            <option value="V9">V9</option>
-                            <option value="V10">V10</option>
-                            <option value="V11">V11</option>
-                            <option value="V12">V12</option>
-                            <option value="V13">V13</option>
-                            <option value="V14">V14</option>
+                        <select className="drop-menu-style" name="difficulty">
+                            {this.state.boulderDifficulty.map((difficulty) => {
+                                return (
+                                    <option value={difficulty}>{difficulty}</option>
+                                )
+                            })}
                         </select>
                     </form>
-
-                    <input className="input-checkbox" type="checkbox" />Difficulty
-            <div className="apply-btn-wrapper">
-                        <button className="filter-apply-btn">Apply</button>
+                    <div className="apply-btn-wrapper">
+                        <button className="filter-apply-btn">APPLY</button>
+                    </div>
+                    <div className="close-filter-modal">
+                        <button onClick={this.props.handleHideModal}>CANCEL</button>
                     </div>
                 </div>
             </div>
