@@ -15,7 +15,7 @@ class About extends Component {
 
     render() {
         return (
-            <div className="container about-page">
+            <div className="main-container about-page">
                 <div className="about-container">
                     <h1 className="about-header">About</h1>
                     <p className="about-text">Peaky Finder is an application for climbers in the orange county area to be able to locate and save different routes into an itinerary to map out a day's worth of climbing!</p>
