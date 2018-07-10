@@ -22,7 +22,7 @@ class LandingPage extends Component {
 		event.preventDefault();
 		const { searchTerm } = this.props;
 
-		this.props.history.push(`/results?search=${searchTerm}`);
+		this.props.history.push(`/results?searchTerm=${searchTerm}`);
 	}
 
 	render() {

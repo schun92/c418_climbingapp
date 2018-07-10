@@ -16,7 +16,7 @@ const Results = props => {
 }
 
 const mapsStateToProps = (state, ownProps) => ({
-	searchTerm: queryString.parse(ownProps.location.search).search
+	searchTerm: queryString.parse(ownProps.location.search).searchTerm
 });
 
 export default connect(mapsStateToProps)(Results);
