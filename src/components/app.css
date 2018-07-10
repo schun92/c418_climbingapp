@@ -49,8 +49,9 @@ ul {
 }
 
 .btn.is-secondary {
-	background-color: #DFF1FF;
+	background-color:#9BA8B2;
 	color: white;
+	text-align: center;
 }
 
 .btn-group {
