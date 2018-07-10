@@ -1,14 +1,9 @@
-//These are the routes at the mountain_location that fit the current filter. 
-//Input from frontend: mountain_location and filters
+request = [
+    //Route IDs that were returned from the dummy_data_filter_call for a given location. 
+    106033708, 105906823, 106067249, 105911055,  106067249, 105911055
+];
 
-//Request from front end
-var data_call = {
-    locationId: 93874925,
-}
-
-//Response from back end
-var pull_up_bar = {
-    'mountainLocation': 'Ortega Falls',
+response = {
     'routes': [
         {   
             id: 123456,
@@ -31,5 +26,5 @@ var pull_up_bar = {
             popularity: 3.5,
             routeID: 356
         }
-    ]
+    ]    
 }
