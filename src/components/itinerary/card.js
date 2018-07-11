@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+
+import { connect } from 'react-redux';
+import {removeRouteFromItinerary} from '../../actions'
+
 import stockPhoto from "../../assets/images/climb_no_image.jpeg";
+
 
 
 class Card extends Component {
@@ -7,15 +12,19 @@ class Card extends Component {
 		super(props);
 
 		this.state = {
-			expandCard: false
+			expandCard: false,
 		};
 		this.handleClick = this.handleClick.bind(this);
+		this.handleXClick = this.handleXClick.bind(this);
 	}
 
 	handleClick() {
 		this.setState({
 			expandCard: !this.state.expandCard
 		});
+	}
+	handleXClick(){
+		this.props.removeRoute(this.props.route.id);
 	}
 
 	render() {
@@ -24,27 +33,48 @@ class Card extends Component {
 		img = stockPhoto;
 		}
 		return (
-			<div className={this.state.expandCard ? "card expand" : "card"}>
-				{/* <div className="card-image" style={{ backgroundImage: `url(${this.props.route.image})` }} /> */}
-				<div className="card-image" style={{ backgroundImage: `url(${img})` }} />
+
+				<div className={this.state.expandCard ? "card expand" : "card"}>
+					<div className="card-image" style={{ backgroundImage: `url(${img})` }} />
+						<div className='top-left-text'><p>{this.props.route.difficulty}</p></div>
+						<div className='top-right-x' onClick={this.handleXClick}><p>X</p></div>
+				
 
 				<div onClick={this.handleClick} className="card-content">
 					<div className="card-content-left">
 						<h1>{this.props.route.name}</h1>
 						<h2>{this.props.route.location}</h2>
-						<p>{this.props.route.difficulty}</p>
+					
+
 					</div>
-					<div className="card-content-right">
-						<i className="material-icons">keyboard_arrow_down</i>
-						<i className="material-icons">keyboard_arrow_up</i>
+					<div onClick={this.handleClick} className="card-content">
+						<div className="card-content-left">
+							<h1>{this.props.route.name}</h1>
+							<h2>{this.props.route.location}</h2>
+						</div>
+						<div className="card-content-right">
+							<i className="material-icons">keyboard_arrow_down</i>
+							<i className="material-icons">keyboard_arrow_up</i>
+						</div>
+					</div>
+					<div className="card-details">
+						{this.props.route.description}
 					</div>
 				</div>
-				<div className="card-details">
-					{this.props.route.description}
-				</div>
-			</div>
 		);
 	}
 }
 
-export default Card;
+function mapStateToProps(state){
+	console.log("CARDstate:", state);
+  }
+
+function mapDispatchToProps(dispatch){
+	return {
+		removeRoute(routeID){
+			dispatch(removeRouteFromItinerary(routeID))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
