@@ -9,6 +9,7 @@ import { Field, reduxForm } from 'redux-form';
 import Card from "./card";
 
 class Itinerary extends Component {
+
   constructor(props) {
     super(props);
 
@@ -21,6 +22,7 @@ class Itinerary extends Component {
     console.log('form values: ', values);
     // await this.props.sendTodoItem(values)
     // this.props.history.push('/');
+
 }
 
         

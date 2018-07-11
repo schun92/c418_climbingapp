@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+
 import { connect } from 'react-redux';
 import {removeRouteFromItinerary} from '../../actions'
+
+import stockPhoto from "../../assets/images/climb_no_image.jpeg";
+
 
 
 class Card extends Component {
@@ -24,11 +28,24 @@ class Card extends Component {
 	}
 
 	render() {
+		let img = this.props.route.image;
+		if (img === ''){
+		img = stockPhoto;
+		}
 		return (
+
 				<div className={this.state.expandCard ? "card expand" : "card"}>
-					<div className="card-image" style={{ backgroundImage: `url(${this.props.route.image})` }}>
+					<div className="card-image" style={{ backgroundImage: `url(${img})` }} />
 						<div className='top-left-text'><p>{this.props.route.difficulty}</p></div>
 						<div className='top-right-x' onClick={this.handleXClick}><p>X</p></div>
+				
+
+				<div onClick={this.handleClick} className="card-content">
+					<div className="card-content-left">
+						<h1>{this.props.route.name}</h1>
+						<h2>{this.props.route.location}</h2>
+					
+
 					</div>
 					<div onClick={this.handleClick} className="card-content">
 						<div className="card-content-left">

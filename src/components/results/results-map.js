@@ -21,6 +21,7 @@ class RouteMap extends Component {
 			styles: mapStyle,
 			disableDefaultUI: true
 		});
+
 		this.props.getLocationsData();
 
 		//check if url has location data in it;
