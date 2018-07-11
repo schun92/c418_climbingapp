@@ -5,16 +5,18 @@ import RouteMap from "./results-map";
 import queryString from "query-string";
 import FilterBtn from './results-filter-btn';
 
-const Results = props => (
-	<div>
-		<RouteMap searchTerm={props.searchTerm} />
-		<FilterBtn />
-		<RouteModal />
-	</div>
-);
+const Results = props => {
+	return (
+		<div>
+			<RouteMap searchTerm={props.searchTerm} />
+			<FilterBtn />
+			<RouteModal />
+		</div>
+	);
+}
 
 const mapsStateToProps = (state, ownProps) => ({
-	searchTerm: queryString.parse(ownProps.location.search).location
+	searchTerm: queryString.parse(ownProps.location.search).searchTerm
 });
 
 export default connect(mapsStateToProps)(Results);

@@ -46,7 +46,6 @@ export function setRoutes(routes) {
 }
 
 
-
 export function getRoutes(locationID) {
 	return async dispatch => {
 		const response = await axios.get(`/api/get_route_data.php?data=${locationID}`);
@@ -75,3 +74,25 @@ export function addRouteToItinerary(route){
 		payload: route
 	}
 }
+
+export function removeRouteFromItinerary(routeId){
+	return{
+		type: types.REMOVE_ROUTE_FROM_ITINERARY,
+		payload: routeId
+	}
+}
+
+export function showModal(show) {
+	return {
+		type: types.SHOW_MODAL,
+		payload: show
+	}
+}
+
+
+// export function (item){
+//     return {
+//         type: types.ADD_ITEM,
+//         payload: 
+//     }
+// }

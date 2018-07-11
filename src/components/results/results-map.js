@@ -4,6 +4,9 @@ import "./results-map.css";
 import mapStyle from "./map-style.json";
 import { setSelectedLocation, getRoutes } from "../../actions";
 import { getLocations } from "../../actions";
+import { withRouter } from "react-router-dom";
+import { showModal } from "../../actions";
+import queryString from "query-string";
 
 class RouteMap extends Component {
 	constructor(props) {
@@ -13,12 +16,19 @@ class RouteMap extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getLocationsData();
 		this.map = new google.maps.Map(this.ref.current, {
 			zoom: 10,
 			styles: mapStyle,
 			disableDefaultUI: true
 		});
+
+		this.props.getLocationsData();
+
+		//check if url has location data in it;
+		const location = queryString.parse(this.props.history.location.search);
+		if (location.name && location.ID) {
+			this.props.handleLocationSelect(location);
+		}
 	}
 
 	render() {
@@ -33,7 +43,14 @@ class RouteMap extends Component {
 				map: this.map
 			});
 
-			marker.addListener("click", () => this.props.handleLocationSelect(location));
+			marker.addListener("click", () => {
+				this.props.handleLocationSelect(location);
+				const { pathname, search } = this.props.history.location;
+				const queryParamsData = queryString.parse(search);
+				const queryParams = queryString.stringify({ ...queryParamsData, ...location });
+				const newUrl = `${pathname}?${queryParams}`;
+				this.props.history.push(newUrl);
+			});
 		});
 
 		return (
@@ -54,12 +71,14 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 		dispatch(getLocations(ownProps.searchTerm));
 	},
 	handleLocationSelect(location) {
-		dispatch(setSelectedLocation(location))
-		dispatch(getRoutes(location.ID))
-	  }
+		dispatch(setSelectedLocation(location));
+		dispatch(getRoutes(location.ID));
+	}
 });
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(RouteMap);
+export default withRouter(
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(RouteMap)
+);

@@ -11,7 +11,7 @@ export default class Team extends Component {
     render() {
         return (
             <div>
-                <h1>Meet the Team</h1>
+                <h1 className='team-title'>Meet the Team</h1>
                 <div className="team">
                     <div className="member">
                         <img src={blank} alt="" />

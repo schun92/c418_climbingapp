@@ -2,47 +2,67 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import "./route-modal.css";
+import boulder from "../../assets/images/icons/boulder.png";
+import { showModal, setSelectedLocation, getRoutes } from "../../actions";
+import { withRouter } from "react-router-dom";
+import queryString from "query-string";
 
 class RouteModal extends Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			toggle: false
-		};
-
-		this.togglePullUpBar = this.togglePullUpBar.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
-	togglePullUpBar() {
-		this.setState({
-			toggle: !this.state.toggle
-		});
+	componentDidMount() {
+		const searchTerm = queryString.parse(this.props.history.location.search);
+		if (searchTerm.showModal) {
+			this.props.toggleRouteModal(searchTerm.showModal == "true");
+		}
+	}
+
+	handleClick() {
+		this.props.toggleRouteModal(!this.props.show);
+		const { pathname, search } = this.props.history.location;
+		const queryParamsData = queryString.parse(search);
+		const queryParams = queryString.stringify({ ...queryParamsData, showModal: !this.props.show });
+		const newUrl = `${pathname}?${queryParams}`;
+		this.props.history.push(newUrl);
+
+		console.log('click');
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div
 				className={`routes-modal ${
-					this.props.location ? (this.state.toggle ? "show" : "") : "hide-modal"
+					this.props.location ? (this.props.show ? "show" : "") : "hide-modal"
 				}`}
 			>
-				<div onClick={this.togglePullUpBar}>
+				<div onClick={this.handleClick}>
 					<h1 className="is-text-lighter">
 						({this.props.location ? this.props.location.numRoutes : ""}){" "}
 						{this.props.location ? this.props.location.name : ""}
 					</h1>
 				</div>
 				<ul>
-					{this.props.routes.map((route, i) => (
-						<li key={i}>
-							<NavLink to={`/route-details/${route.id}`}>
-								<p>{route.name}</p>
-								<p>{route.difficulty}</p>
-							</NavLink>
-						</li>
-					))}
+					{this.props.routes.map((route, i) => {
+						let abbreviate = null;
+						//  if(route.type.toLowerCase() === 'trad'){
+						//  	abbreviate =  <p>TRAD</p>
+						//  }
+						//  if(route.type.toLowerCase() === 'sport'){
+						// 	 abbreviate = <p>S</p>
+						//  }
+						return (
+							<li key={i}>
+								<NavLink to={`/route-details/${route.id}`}>
+									<p>{route.name}</p>
+									{route.type}
+									<p>{route.difficulty}</p>
+								</NavLink>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		);
@@ -51,7 +71,23 @@ class RouteModal extends Component {
 
 const mapStateToProps = state => ({
 	location: state.location.selectedLocation,
-	routes: state.route.routes
+	routes: state.route.routes,
+	show: state.routeModal.show
 });
 
-export default connect(mapStateToProps)(RouteModal);
+const mapDispatchToProps = dispatch => ({
+	toggleRouteModal(show) {
+		dispatch(showModal(show));
+	},
+	handleLocationSelect(location) {
+		dispatch(setSelectedLocation(location));
+		dispatch(getRoutes(location.ID));
+	}
+});
+
+export default withRouter(
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(RouteModal)
+);

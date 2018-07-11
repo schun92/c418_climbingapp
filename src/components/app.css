@@ -4,6 +4,7 @@ body {
 	height: 100vh;
 	font-family: "Quicksand", sans-serif;
 	padding: 0;
+	
 }
 
 a {
@@ -19,11 +20,11 @@ ul {
 }
 
 .colors {
-	color: #6fb265;
-	color: #e8ffe5;
-	color: #c9ffc2;
-	color: #b27ba1;
-	color: #ffc3ec;
+	color: #78A9D1;
+	color: #DFF1FF;
+	color: #9BA8B2;
+	color: #A79D8D;
+	color: #FFEBCC;
 }
 
 .input {
@@ -44,13 +45,14 @@ ul {
 }
 
 .btn.is-primary {
-	background-color: #6fb265;
+	background-color: #78A9D1;
 	color: white;
 }
 
 .btn.is-secondary {
-	background-color: #b27ba1;
+	background-color:#9BA8B2;
 	color: white;
+	text-align: center;
 }
 
 .btn-group {
@@ -76,7 +78,7 @@ ul {
 }
 
 .navbar.is-primary {
-	background-color: #6fb265;
+	background-color: #78A9D1;
 }
 
 .is-text-white {

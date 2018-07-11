@@ -1,14 +1,10 @@
 //Input from frontend: Latitude and longitude range
 //From frontend
 var dataCall = {
-    latitudeStart: 33.6251,
-    latitudeEnd: 33.6467,
-    longitudeStart: -117.7958,
-    longitudeEnd: -117.4273,
-    rock: true, //true or false
     traditional: true, //true or false
     topeRope: true, //true or false
     sport: true, //true or false
+    boulder: true, //true or false 
     rockDiffStart: '3', //3 to 5.15d
     rockDiffEnd: '5.11c', //3 to 5.15d
     boulderDiffStart: 'V0', //V0 to V14
@@ -18,21 +14,24 @@ var dataCall = {
 //From backend:
 var mapDummyData = [
     {
-        'mountainLocation': 'Ortega Falls',
-        'latitude': 33.6251, //avg latitude of routes,
-        'longitude': -117.4273,//avg longitude of routes,
-        'numberOfRoutes': 4, //Number of routes that fit filter
+        "ID": "1",
+        "name": "(a) Slab City",
+        "avgLat": "34.0187",
+        "avgLong": "-117.416",
+        "numRoutes": "14"
     },
     {
-        'mountainLocation': 'El Cariso',
-        'latitude': 33.6438,
-        'longitude': -117.4432,
-        'numberOfRoutes': 2,
-    }, 
+        "ID": "2",
+        "name": "(b) Metro Sector",
+        "avgLat": "34.0169",
+        "avgLong": "-117.417",
+        "numRoutes": "4"
+    },
     {
-        'mountainLocation': 'Upper San Juan Boulders',
-        'latitude': 33.6072,
-        'longitude': -117.4336,
-        'numberOfRoutes': 7,
-    } 
+        "ID": "3",
+        "name": "(c) Left of the Roof",
+        "avgLat": "34.0169",
+        "avgLong": "-117.417",
+        "numRoutes": "13"
+    }
 ]

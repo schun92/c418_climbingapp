@@ -18,7 +18,7 @@
 }
 
 .card {
-	height: 17em;
+	height: 16em;
 	width: 100%;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	margin-bottom: 1em;
@@ -51,6 +51,7 @@
 	height: 10em;
 	background-position: center;
 	background-size: cover;
+	position: relative;
 }
 
 .card-content {
@@ -103,3 +104,26 @@
 .card.expand .card-content-right .material-icons:last-of-type {
 	display: block;
 }
+
+.top-left-text{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	background-color: #9BA8B2;
+	color: white;
+	border-radius: 10%;
+
+}
+
+.top-right-x{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	background-color: #9BA8B2;
+	color: white;
+	border-radius: 10%;
+	width: 2em;
+	text-align: center;
+
+}
+
