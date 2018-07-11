@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { reducer as formReducer } from 'redux-form';
+
 
 import itineraryReducer from './itinerary_reducer';
 import locationReducer from "./location_reducer";
@@ -13,7 +15,8 @@ const rootReducer = combineReducers({
   route: routeReducer,
   searchTerm: searchTermReducer,
   itinerary: itineraryReducer,
-  routeModal: routeModalReducer
+  routeModal: routeModalReducer,
+  form: formReducer
 });
 
 export default rootReducer;

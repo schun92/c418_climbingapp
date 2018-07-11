@@ -75,9 +75,24 @@ export function addRouteToItinerary(route){
 	}
 }
 
+export function removeRouteFromItinerary(routeId){
+	return{
+		type: types.REMOVE_ROUTE_FROM_ITINERARY,
+		payload: routeId
+	}
+}
+
 export function showModal(show) {
 	return {
 		type: types.SHOW_MODAL,
 		payload: show
 	}
 }
+
+
+// export function (item){
+//     return {
+//         type: types.ADD_ITEM,
+//         payload: 
+//     }
+// }
