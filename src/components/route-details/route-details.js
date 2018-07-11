@@ -40,7 +40,7 @@ class RouteDetails extends Component {
 			} = this.props.selectedRoute;
 
 			content = (
-				<div className="container">
+				<div className="detail-container">
 					<div className="thumbnail">
 						<h1 className="title">{name}</h1>
 						<h2 className="subtitle">{location}</h2>
