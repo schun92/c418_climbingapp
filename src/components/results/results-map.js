@@ -21,7 +21,6 @@ class RouteMap extends Component {
 			styles: mapStyle,
 			disableDefaultUI: true
 		});
-		this.map.setCenter(this.props.mapCenter);
 
 		this.props.getLocationsData();
 
@@ -34,7 +33,7 @@ class RouteMap extends Component {
 
 	render() {
 		if (this.map) {
-			// this.map.setCenter(this.props.mapCenter);
+			this.map.setCenter(this.props.mapCenter);
 		}
 
 		this.props.locations.map(location => {
