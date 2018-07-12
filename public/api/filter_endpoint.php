@@ -12,12 +12,12 @@ $output = [
 
 $rock = $_GET['rock'];
 $traditional = $_GET['traditional'];
-$topRope = $_GET['toprope'];
+$topRope = $_GET['topRope'];
 $sport = $_GET['sport'];
-$aid = $_GET['aid'];
+// $aid = $_GET['aid'];
 $boulder = $_GET['boulder'];
-$ice = $_GET['ice'];
-$snow = $_GET['snow'];
+// $ice = $_GET['ice'];
+// $snow = $_GET['snow'];
 $rockDiffMin = $_GET['rockDiffStart'];
 $rockDiffMax = $_GET['rockDiffEnd'];
 $boulderDiffMin = $_GET['boulderDiffStart'];
@@ -40,21 +40,21 @@ if($rock) {
     $regex[] = 'rock';
 }
 
-if($aid) {
-    $regex[] = 'aid';
-}
+// if($aid) {
+//     $regex[] = 'aid';
+// }
 
 if($boulder) {
     $regex[] = 'boulder';
 }
 
-if($ice) {
-    $regex[] = 'ice';
-}
+// if($ice) {
+//     $regex[] = 'ice';
+// }
 
-if($snow) {
-    $regex[] = 'snow';
-}
+// if($snow) {
+//     $regex[] = 'snow';
+// }
 
 
 $regexString = join("|", $regex);
@@ -67,6 +67,7 @@ $query = "SELECT `locations`.`ID` AS 'Location ID', `locations`.`name`, `locatio
 	`routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax} AND
     `routes`.`boulder_difficulty` BETWEEN {$boulderDiffMin} AND {$boulderDiffMax}
     GROUP BY `routes`.`ID`";
+
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
@@ -91,5 +92,7 @@ if(empty($result)) {
         $output['error'] = 'No Data';
     }
 }
+
+print_r($output);
 
 ?>
