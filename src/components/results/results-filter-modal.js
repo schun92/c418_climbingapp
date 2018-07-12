@@ -15,13 +15,6 @@ class FilterModal extends Component {
                 'Sport'
             ],
             rockDifficulty: [
-                "3rd",
-                "4th",
-                "5.0",
-                "5.1",
-                "5.2",
-                "5.3",
-                "5.4",
                 "5.5",
                 "5.6",
                 "5.7",
@@ -71,13 +64,12 @@ class FilterModal extends Component {
 
         async HandleApplyClick() {
             const params = {
-                rock: true,
-                traditional: true, //true or false
-                topRope: true, //true or false
-                sport: true, //true or false
+                traditional: false, //true or false
+                topRope: false, //true or false
+                sport: false, //true or false
                 boulder: true, //true or false 
-                rockDiffStart: '3', //3 to 5.15d
-                rockDiffEnd: '5.11c', //3 to 5.15d
+                rockDiffStart: '5.5', //3 to 5.15d
+                rockDiffEnd: '5.15d', //3 to 5.15d
                 boulderDiffStart: 'V0', //V0 to V14
                 boulderDiffEnd: 'V14', //V0 to V14
             }
