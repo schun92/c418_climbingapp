@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { removeRouteFromItinerary } from '../../actions'
 
 import stockPhoto from "../../assets/images/climb_no_image.jpeg";
+import './card.css'
+
 
 
 
@@ -45,8 +47,7 @@ class Card extends Component {
 						<h2>{this.props.route.location}</h2>
 					</div>
 					<div className="card-content-right">
-						<i className="material-icons">keyboard_arrow_down</i>
-						<i className="material-icons">keyboard_arrow_up</i>
+						<i className="down-arrow material-icons">keyboard_arrow_down</i>
 					</div>
 				</div>
 				<div className="card-details">
