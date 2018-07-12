@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./nav.css";
 import { NavLink, withRouter } from "react-router-dom";
+import brandLogo from '../../assets/images/pf_cropped.png';
 
 class Nav extends Component {
 	constructor(props) {
@@ -32,7 +33,7 @@ class Nav extends Component {
 					</i>
 				)}
 				
-					<NavLink to="/"><div className="brand">PF</div></NavLink>
+					<NavLink to="/"><img className='brand' src={brandLogo}/></NavLink>
 				
 				<div
 					className={this.state.showNavMenu ? "burger-menu close" : "burger-menu"}

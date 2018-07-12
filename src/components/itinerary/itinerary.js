@@ -35,10 +35,10 @@ class Itinerary extends Component {
   renderInput({label, input, meta: {touched, error}}){
         
     return(
-        <div>
-            <label>{label}</label>
-            <input {...input} type="text" autoComplete='off'/>
-            <p>{touched && error}</p>
+        <div className='form-component'>
+            <label className='itinerary-label'>{label}</label>
+            <input className='itinerary-input' {...input} type="text" autoComplete='off'/>
+            <p className='error-text'>{touched && error}</p>
         </div>
     )
   }
@@ -48,7 +48,7 @@ class Itinerary extends Component {
 
     console.log("props", this.props);
     return (
-      <div>
+      <div className='itinerary-page'>
         <div className="itinerary-title">
           <h1>Itinerary</h1>
         </div>
@@ -84,7 +84,7 @@ function validate(values){
   const errors = {};
 
   if(!email){
-      errors.email = 'Please add an email.'
+      errors.email = 'Please add your email address'
   }
    return errors;
 }
