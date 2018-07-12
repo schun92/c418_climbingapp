@@ -31,7 +31,7 @@ class FilterBtn extends Component {
         return (
             <div>
                 <div className="filter">
-                    <button className="filter-modal-button" type="button" onClick={this.handleClick}>Filter</button>
+                    <button className="filter-modal-button" type="button" onClick={this.handleClick}>filter</button>
                 </div>
                 <FilterModal handleHideModal = {this.handleHideModal} showModal={this.state.showFilterModal}/>
             </div>
