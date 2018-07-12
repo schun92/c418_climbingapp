@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import FilterBtn from './results-filter-btn';
 import './results-filter-modal.css';
+import axios from 'axios';
+import queryString from "query-string";
 
 class FilterModal extends Component {
     constructor(props) {
@@ -67,6 +69,24 @@ class FilterModal extends Component {
         }
     }
 
+        async HandleApplyClick() {
+            const params = {
+                rock: true,
+                traditional: true, //true or false
+                topRope: true, //true or false
+                sport: true, //true or false
+                boulder: true, //true or false 
+                rockDiffStart: '3', //3 to 5.15d
+                rockDiffEnd: '5.11c', //3 to 5.15d
+                boulderDiffStart: 'V0', //V0 to V14
+                boulderDiffEnd: 'V14', //V0 to V14
+            }
+            const queryParams = queryString.stringify(params)
+        const response = await axios.get(`/api/filter_endpoint.php?${queryParams}`);
+        const apply = response;
+        console.log('apply:', apply)
+
+    }
 
     render() {
         let showClass = '';
@@ -126,7 +146,7 @@ class FilterModal extends Component {
                         </select>
                     </form>
                     <div className="apply-btn-wrapper">
-                        <button className="filter-apply-btn">APPLY</button>
+                        <button onClick={this.HandleApplyClick.bind(this)} className="filter-apply-btn">APPLY</button>
                     </div>
                     <div className="close-filter-modal">
                         <button onClick={this.props.handleHideModal}>CANCEL</button>
