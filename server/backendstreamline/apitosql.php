@@ -69,7 +69,7 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
     if(empty($routeURL)) {
         $routeURL = null;
     };
-    $query = "INSERT INTO `mountainprojecttwo`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL')";
+    $query = "INSERT INTO `mountainprojecttwo`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
     $result = mysqli_query($conn, $query);
 
     if (empty($result)) {
