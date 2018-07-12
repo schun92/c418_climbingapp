@@ -5,14 +5,14 @@
 
 .team-title{
     text-align: center;
-    text-transform: uppercase
+    text-transform: lowercase
     
 }
 
 .member {
     flex: 1 1 40%;
     padding: .4em;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 
 .member>img {

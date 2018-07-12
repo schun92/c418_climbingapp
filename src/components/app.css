@@ -69,13 +69,13 @@ ul {
 	width: 100%;
 }
 
-.is-uppercase {
+/* .is-uppercase {
 	text-transform: uppercase;
-}
+} */
 
-.is-capitalize {
+/* .is-capitalize {
 	text-transform: capitalize;
-}
+} */
 
 .navbar.is-primary {
 	background-color: #78A9D1;

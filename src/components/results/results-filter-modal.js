@@ -97,7 +97,7 @@ class FilterModal extends Component {
         return (
             <div className={`filter-modal-shadow ${showClass}`}>
                 <div className="filter-modal-body">
-                    <h5>Rock</h5>
+                    <h5>rock</h5>
                     <ul>
                         {this.state.rockOptions.map((option) => {
                             return (
@@ -125,7 +125,7 @@ class FilterModal extends Component {
 
                         </select>
                     </form>
-                    <label className="container">Boulder
+                    <label className="container">boulder
                         <input type="checkbox" checked="checked" />
                         <span className="checkmark"></span>
                     </label>
@@ -146,10 +146,10 @@ class FilterModal extends Component {
                         </select>
                     </form>
                     <div className="apply-btn-wrapper">
-                        <button onClick={this.HandleApplyClick.bind(this)} className="filter-apply-btn">APPLY</button>
+                        <button onClick={this.HandleApplyClick.bind(this)} className="filter-apply-btn">apply</button>
                     </div>
                     <div className="close-filter-modal">
-                        <button onClick={this.props.handleHideModal}>CANCEL</button>
+                        <button onClick={this.props.handleHideModal}>cancel</button>
                     </div>
                 </div>
             </div>

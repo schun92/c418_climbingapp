@@ -22,7 +22,7 @@
 }
 
 .routes-modal h1 {
-	text-transform: capitalize;
+	text-transform: lowercase;
 	text-align: center;
 	font-size: 2em;
 	margin: 0.2em 1em;
