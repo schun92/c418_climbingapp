@@ -5,7 +5,7 @@ $output = [
 	'errors'=>[]
 ];
 
-$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes`";
+$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes` WHERE `hasdescription`=0";
 $routedescriptionresult = mysqli_query($conn, $routedescriptionquery);
 
 if (empty($routedescriptionresult)) {
