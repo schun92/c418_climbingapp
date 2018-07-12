@@ -7,6 +7,8 @@ import { setItineraryItem } from "../../actions";
 import { setSelectedItineraryItem } from "../../actions";
 import { Field, reduxForm } from 'redux-form';
 import Card from "./card";
+import Loading from '../loading';
+
 
 class Itinerary extends Component {
 
@@ -14,32 +16,33 @@ class Itinerary extends Component {
     super(props);
 
     this.state = {
-      itineraryItems: {}
+      itineraryItems: {},
+      loading: false
     };
   }
 
-  async handleAddItem(values){
+  async handleAddItem(values) {
     console.log('form values: ', values);
     // await this.props.sendTodoItem(values)
     // this.props.history.push('/');
 
-}
+  }
 
-        
-  
+
+
   componentDidMount() {
     const { itinItem } = this.props.match.params;
   }
 
 
-  renderInput({label, input, meta: {touched, error}}){
-        
-    return(
-        <div className='form-component'>
-            <label className='itinerary-label'>{label}</label>
-            <input className='itinerary-input' {...input} type="text" autoComplete='off'/>
-            <p className='error-text'>{touched && error}</p>
-        </div>
+  renderInput({ label, input, meta: { touched, error } }) {
+
+    return (
+      <div className='form-component'>
+        <label className='itinerary-label'>{label}</label>
+        <input className='itinerary-input' {...input} type="text" autoComplete='off' />
+        <p className='error-text'>{touched && error}</p>
+      </div>
     )
   }
   render() {
@@ -47,28 +50,33 @@ class Itinerary extends Component {
     const { handleSubmit } = this.props;
 
     console.log("props", this.props);
-    return (
-      <div className='itinerary-page'>
-        <div className="itinerary-title">
-          <h1>Itinerary</h1>
-        </div>
-        <section className="cards">
-          {this.props.routes.map((route, index) => <Card key={index} route={route} />)}
-        </section>
-        <div>
-          <form>
-            <div>
-              <Field name='email' type='email' component={this.renderInput} label='Email Address: ' placeholder='Email Address' />
-            </div>
-            <button type='submit' className="btn is-primary is-fullwidth is-uppercase" >Send My intinerary</button>
-          </form>
-        </div>
+    if (!this.state.loading) {
+      return (
+        <div className='itinerary-page'>
+          <div className="itinerary-title">
+            <h1>Itinerary</h1>
+          </div>
+          <section className="cards">
+            {this.props.routes.map((route, index) => <Card key={index} route={route} />)}
+          </section>
+          <div>
+            <form>
+              <div>
+                <Field name='email' type='email' component={this.renderInput} label='Email Address: ' placeholder='Email Address' />
+              </div>
+              <button type='submit' className="btn is-primary is-fullwidth is-uppercase" >Send My intinerary</button>
+            </form>
+          </div>
 
-        {/* <input type="email" placeholder="email address" className="input" /> */}
-        
+          {/* <input type="email" placeholder="email address" className="input" /> */}
 
-      </div>
-    );
+
+        </div>
+      );
+    }else{
+      return <Loading />
+    }
+
   }
 }
 function mapStateToProps(state) {
@@ -79,14 +87,14 @@ function mapStateToProps(state) {
   };
 }
 
-function validate(values){
+function validate(values) {
   const { email } = values;
   const errors = {};
 
-  if(!email){
-      errors.email = 'Please add your email address'
+  if (!email) {
+    errors.email = 'Please add your email address'
   }
-   return errors;
+  return errors;
 }
 
 Itinerary = reduxForm({
