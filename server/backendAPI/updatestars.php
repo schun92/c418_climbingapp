@@ -29,7 +29,7 @@ for ($i=0; $i < count($routeArray); ++$i) {
     $updatestarsquery = "UPDATE `routes` SET `stars` = '$routeStar', `star_votes` = '$routeStarvotes' WHERE `ID` = '$routeID'";
     $descripresult = mysqli_query($conn, $updatestarsquery);
 
-    curl_close($handler); */
+    curl_close($handler);
 };
 
 
