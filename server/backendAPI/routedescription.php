@@ -1,5 +1,5 @@
 <?php
-
+$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 ini_set('max_execution_time', 1500);
 $output = [
 	'success'=> false,

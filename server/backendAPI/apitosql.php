@@ -1,8 +1,11 @@
 <?php
+$lat = 32.7157;
+$long = -117.1611;
+
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 $handler = curl_init();
 
-curl_setopt($handler, CURLOPT_URL, "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=36.1070&lon=-112.1130&maxResults=500&maxDistance=50&key=200289763-98ec05129d51c9ebcc2366ea2558c334");
+curl_setopt($handler, CURLOPT_URL, "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat={$lat}&lon={$long}&maxResults=500&maxDistance=50&key=200289763-98ec05129d51c9ebcc2366ea2558c334");
 curl_setopt($handler, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
@@ -69,7 +72,7 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
     if(empty($routeURL)) {
         $routeURL = null;
     };
-    $query = "INSERT INTO `mountainprojecttwo`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
+    $query = "INSERT INTO `mountainproject`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
     $result = mysqli_query($conn, $query);
 
     if (empty($result)) {
