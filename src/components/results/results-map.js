@@ -45,7 +45,8 @@ class RouteMap extends Component {
 			const { avgLat: lat, avgLong: lng } = location;
 			var marker = new google.maps.Marker({
 				position: { lat: Number(lat), lng: Number(lng) },
-				map: this.map
+				map: this.map,
+				label: location.numRoutes
 			});
 
 			marker.addListener("click", () => {
