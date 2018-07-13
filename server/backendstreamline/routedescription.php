@@ -1,4 +1,5 @@
 <?php
+
 ini_set('max_execution_time', 1500);
 $output = [
 	'success'=> false,
@@ -42,7 +43,7 @@ if (empty($routedescriptionresult)) {
                 $descripwithslash = "No description available.";
             }
             
-            $descripquery = "UPDATE `routes` SET `description` = '$descripwithslash' WHERE `ID` = '$id'";
+            $descripquery = "UPDATE `routes` SET `description` = '$descripwithslash', `hasdescription`=1 WHERE `ID` = '$id'";
             $descripresult = mysqli_query($conn, $descripquery);
 
             };
