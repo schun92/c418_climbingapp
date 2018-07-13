@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { getSelectedRoute, addRouteToItinerary } from "../../actions";
+import { getSelectedRoute, addRouteToItinerary, removeRouteFromItinerary } from "../../actions";
 import ReactStars from "react-stars";
 import "./route-details.css";
 
@@ -10,7 +10,8 @@ class RouteDetails extends Component {
 		super(props);
 
 		this.state = {
-			routeDetailInfo: {}
+			routeDetailInfo: {},
+			isAdded: false
 		};
 		this.handleClick = this.handleClick.bind(this);
 	}
@@ -20,11 +21,24 @@ class RouteDetails extends Component {
 	}
 
 	handleClick() {
-		this.props.addToItinerary(this.props.selectedRoute);
+		const { isAdded } = this.state;
+
+		if (isAdded) {
+			console.log("it has an itinerary so we want to remove");
+			this.props.removeFromItinerary(this.props.selectedRoute);
+		} else {
+			console.log("it does NOT have an itinerary so we want to add");
+			this.props.addToItinerary(this.props.selectedRoute);
+		}
+
+		this.setState({
+			isAdded: !isAdded
+		});
 	}
 
 	render() {
 		console.log("Props:", this.props);
+		const { isAdded } = this.state;
 		let content;
 
 		if (this.props.selectedRoute) {
@@ -66,8 +80,8 @@ class RouteDetails extends Component {
 						</div>
 						<p className="description">{description}</p>
 						<div className="btn-group">
-							<button className="btn is-primary is-text-ligther" onClick={this.handleClick}>
-								add to itinerary
+							<button className="btn is-primary is-text-ligther itinerary-toggle" onClick={this.handleClick}>
+								{ isAdded ? "remove from itinerary" : "add to itinerary" }
 							</button>
 							<NavLink className="btn is-secondary  is-text-ligther" to="/itinerary">
 								go to itinerary
@@ -95,6 +109,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	},
 	addToItinerary(route) {
 		dispatch(addRouteToItinerary(route));
+	},
+	removeFromItinerary(route) {
+		dispatch(removeRouteFromItinerary(route))
 	}
 });
 export default connect(
