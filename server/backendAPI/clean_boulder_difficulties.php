@@ -1,6 +1,6 @@
 <?php
 
-$query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`difficulty`) REGEXP 'V'";
+$query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`difficulty`) REGEXP 'V' AND `hasdescription`=0";
 $result = mysqli_query($conn,$query);
 
 if ( mysqli_num_rows($result) > 0 ) {

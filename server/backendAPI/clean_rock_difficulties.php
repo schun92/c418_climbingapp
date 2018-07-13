@@ -1,5 +1,6 @@
 <?php
-$query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`type`) REGEXP 'sport?|trad|tr' AND NOT (LOWER(`type`) REGEXP 'ice|snow')";
+
+$query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`type`) REGEXP 'sport?|trad|tr' AND `hasdescription`=0 AND NOT (LOWER(`type`) REGEXP 'ice|snow')";
 $result = mysqli_query($conn,$query);
 
 if ( mysqli_num_rows($result) > 0 ) {
