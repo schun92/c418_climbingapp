@@ -1,4 +1,5 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 
 $query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`difficulty`) REGEXP 'V'";
 $result = mysqli_query($conn,$query);
@@ -6,8 +7,8 @@ $result = mysqli_query($conn,$query);
 if ( mysqli_num_rows($result) > 0 ) {
     while ( $row = mysqli_fetch_assoc($result) ) {
         $ids_and_diffs[] = $row;
-    };
-};
+    }
+}
 
 //Takes the $ids_and_diffs array and turns it into a string
 $diffStr = [];
@@ -34,7 +35,7 @@ foreach($matches as $clean_difficulty){
     $clean_difficulty[0] = preg_replace($pattern, $replacement, $string);
 
     $parsed_difficulties_arr[] = $clean_difficulty[0]; 
-};
+}
 
 //Inserts the cleaned difficuly strings into the table 
 if ( count($ids_and_diffs) === count($parsed_difficulties_arr) ){
@@ -43,5 +44,9 @@ if ( count($ids_and_diffs) === count($parsed_difficulties_arr) ){
         $diff = $parsed_difficulties_arr[$i];
         $query = "UPDATE `routes` SET `boulder_difficulty`='{$diff}' WHERE `id`=$id";
         $result = mysqli_query($conn,$query);
-    };
-};
+    }
+}
+
+echo '<pre>';
+print_r($ids_and_diffs);
+echo '</pre>';

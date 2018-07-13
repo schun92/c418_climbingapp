@@ -1,4 +1,6 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+
 $query = "SELECT `id`, `difficulty` FROM `routes` WHERE LOWER(`type`) REGEXP 'sport?|trad|tr' AND NOT (LOWER(`type`) REGEXP 'ice|snow')";
 $result = mysqli_query($conn,$query);
 
