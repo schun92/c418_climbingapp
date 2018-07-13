@@ -61,6 +61,12 @@ ul {
 	flex-flow: column nowrap;
 }
 
+.btn-group.is-horizontal {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+
 .btn-group .btn {
 	margin-bottom: 0.5em;
 }
@@ -91,3 +97,8 @@ ul {
 
 /* Photo by Christoph Deinet on Unsplash
 Photo by Daniel Leone on Unsplash */
+
+
+.text-center {
+	text-align: center;
+}

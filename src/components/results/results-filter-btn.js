@@ -7,7 +7,7 @@ class FilterBtn extends Component {
         super(props)
 
         this.state = {
-            showFilterModal: false
+            showFilterModal: true
         };
 
         this.handleClick = this.handleClick.bind(this);

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
 import queryString from "query-string";
-import FilterBtn from './results-filter-btn';
+import FilterBtn from "./results-filter-btn";
 
 const Results = props => {
 	return (
@@ -13,10 +13,14 @@ const Results = props => {
 			<RouteModal />
 		</div>
 	);
-}
+};
 
 const mapsStateToProps = (state, ownProps) => ({
 	searchTerm: queryString.parse(ownProps.location.search).searchTerm
 });
 
 export default connect(mapsStateToProps)(Results);
+
+function Button() {
+	return <button>button</button>;
+}
