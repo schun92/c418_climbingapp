@@ -2,7 +2,7 @@
 $conn = mysqli_connect("localhost", "root", "root", "mountainprojecttwo");
 $handler = curl_init();
 
-curl_setopt($handler, CURLOPT_URL, "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=33.6846&lon=-117.8265&maxResults=500&maxDistance=50&key=200289763-98ec05129d51c9ebcc2366ea2558c334");
+curl_setopt($handler, CURLOPT_URL, "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=36.1070&lon=-112.1130&maxResults=500&maxDistance=50&key=200289763-98ec05129d51c9ebcc2366ea2558c334");
 curl_setopt($handler, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
