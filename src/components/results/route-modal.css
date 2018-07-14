@@ -26,6 +26,7 @@
 	text-align: center;
 	font-size: 2em;
 	margin: 0.2em 1em;
+	padding: .2em 0em 0em 0em;
 }
 
 .routes-modal > p {
@@ -37,12 +38,15 @@
 	display: flex;
 	flex-flow: column nowrap;
 	padding: 0 1em;
+	margin: 0;
 }
 
 .routes-modal ul li {
 	border-bottom: 1px solid rgba(43, 41, 41, 0.3);
 	box-sizing: border-box;
 	margin: 0.1em 0;
+	padding: .7em 0em;
+	font-size: 1.2em;
 }
 
 .routes-modal ul li:last-child {
