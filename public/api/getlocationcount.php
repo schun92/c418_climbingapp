@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+require 'mysql_connect.php';
 
 $output = [
 	'success'=> false,

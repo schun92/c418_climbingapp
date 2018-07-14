@@ -1,6 +1,6 @@
 <?php
- header("Access-Control-Allow-Origin: *");
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+header("Access-Control-Allow-Origin: *");
+require 'mysql_connect.php';
 
 require('../../server/backendAPI/google_places_curl.php');
 
