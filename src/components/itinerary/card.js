@@ -26,6 +26,7 @@ class Card extends Component {
 		});
 	}
 	handleXClick() {
+		console.log('xprops', this.props);
 		this.props.removeRoute(this.props.route.id);
 	}
 

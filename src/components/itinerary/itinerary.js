@@ -32,7 +32,7 @@ class Itinerary extends Component {
     e.preventDefault();
     console.log('hey button')
     var params = new URLSearchParams();
-    params.append('email', 'paulglujan@gmail.com')
+    params.append('email', 'danparker55@gmail.com')
     params.append('body', `<!DOCTYPE html>
     <html>
     <head>
