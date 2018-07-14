@@ -4,10 +4,11 @@ import RouteModal from "./route-modal";
 import RouteMap from "./results-map";
 import queryString from "query-string";
 import FilterBtn from "./results-filter-btn";
+import "./results-page.css"
 
 const Results = props => {
 	return (
-		<div>
+		<div className="result-page-container">
 			<RouteMap searchTerm={props.searchTerm} />
 			<FilterBtn />
 			<RouteModal />
