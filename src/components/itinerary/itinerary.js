@@ -30,9 +30,12 @@ class Itinerary extends Component {
 
   handleClick = async (e) => {
     e.preventDefault();
-    console.log('hey button')
+
+    console.log('HEY PROPS', this.props)
+    console.log('hey state', this.state)
+
     var params = new URLSearchParams();
-    params.append('email', 'danparker55@gmail.com')
+    params.append('email', this.props.emailInput.values.email)
     params.append('body', `<!DOCTYPE html>
     <html>
     <head>
@@ -41,13 +44,74 @@ class Itinerary extends Component {
       <title>JS Bin</title>
     </head>
       <style>
-        .card {
-          color: red;
-          background-color: green;
+      .cards{
+        width: 100%;
+        padding: 0.5em;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+      }  
+      .cards{
+        width: 100%;
+        padding: 0.5em;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+      }  
+      
+      .card {
+          height: 16em;
+          width: 100%;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+          margin-bottom: 1em;
         }
+
+      .card img{
+        height: 50%;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+      }
+
+      .card-content {
+        padding: .8em;
+        align-items: center;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+      }
       </style>
-    <body>
-      <div class="card">This is card</div>
+    <body>  
+      <div class="cards">
+        <div class="card">
+          <img src=${this.props.routes[0].image}>
+            
+              <div class='card-content'>
+                  <div>${this.props.routes[0].name}</div>
+                  <div>${this.props.routes[0].location}</div>
+                  <div>${this.props.routes[0].difficulty}</div>
+                  <div>${this.props.routes[0].description}</div>
+              </div>
+        
+        </div>
+        <div class="card">
+          <img src=${this.props.routes[1].image}>
+              
+            <div class='card-content'>
+              <div>${this.props.routes[1].name}</div>
+              <div>${this.props.routes[1].location}</div>
+              <div>${this.props.routes[1].difficulty}</div>
+              <div>${this.props.routes[1].description}</div> 
+            </div>
+       </div>   
+      </div> 
+
+
+
     </body>
     </html>`)
     await axios.post('/api/mail_handler.php', params);
@@ -55,6 +119,8 @@ class Itinerary extends Component {
 
   componentDidMount() {
     const { itinItem } = this.props.match.params;
+    console.log('MYPROPS', this.props);
+
   }
 
 
@@ -72,7 +138,7 @@ class Itinerary extends Component {
 
     const { handleSubmit } = this.props;
 
-    console.log("props", this.props);
+    console.log("email.props", this.props);
     if (!this.state.loading) {
       return (
         <div className='itinerary-page'>
@@ -103,10 +169,12 @@ class Itinerary extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("state:", state);
+  console.log("this State:", state);
   const itineraryInfo = state.itinerary.routes;
+  const emailInput = state.form.email;
   return {
-    routes: itineraryInfo
+    routes: itineraryInfo,
+    emailInput: emailInput
   };
 }
 

@@ -35,7 +35,6 @@ class RouteDetails extends Component {
 	}
 
 	render() {
-		console.log("Props:", this.props);
 		const { isAdded } = this.state;
 		let content;
 
