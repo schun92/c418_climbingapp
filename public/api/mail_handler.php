@@ -1,7 +1,7 @@
 <?php
-foreach($_POST as $key=>$value){
-    $_POST[$key] = htmlentities( addslashes( $value ));
-}
+// foreach($_POST as $key=>$value){
+//     $_POST[$key] = htmlentities( addslashes( $value ));
+// }
 
 require_once('../../server/backendAPI/php_mailer/email_config.php');
 require('../../server/backendAPI/php_mailer/phpmailer/PHPMailer/PHPMailerAutoload.php');

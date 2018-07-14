@@ -28,7 +28,30 @@ class Itinerary extends Component {
 
   }
 
-
+  handleClick = async (e) => {
+    e.preventDefault();
+    console.log('hey button')
+    var params = new URLSearchParams();
+    params.append('email', 'paulglujan@gmail.com')
+    params.append('body', `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>JS Bin</title>
+    </head>
+      <style>
+        .card {
+          color: red;
+          background-color: green;
+        }
+      </style>
+    <body>
+      <div class="card">This is card</div>
+    </body>
+    </html>`)
+    await axios.post('/api/mail_handler.php', params);
+  }
 
   componentDidMount() {
     const { itinItem } = this.props.match.params;
@@ -60,7 +83,7 @@ class Itinerary extends Component {
             {this.props.routes.map((route, index) => <Card key={index} route={route} />)}
           </section>
           <div>
-            <form>
+            <form onSubmit={this.handleClick}>
               <div>
                 <Field name='email' type='email' component={this.renderInput} label='Email Address: ' placeholder='Email Address' />
               </div>
@@ -73,7 +96,7 @@ class Itinerary extends Component {
 
         </div>
       );
-    }else{
+    } else {
       return <Loading />
     }
 
