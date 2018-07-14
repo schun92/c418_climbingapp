@@ -4,8 +4,8 @@
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(255, 255, 255, 0.85);
-	border-top: 1px solid #6fb265;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-top: 1px solid #78a9d1;
 	box-sizing: border-box;
 	overflow-y: scroll;
 	transform-origin: 0 0;

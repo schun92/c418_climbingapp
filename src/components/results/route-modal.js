@@ -46,24 +46,17 @@ class RouteModal extends Component {
 				>
 					<div onClick={this.handleClick}>
 						<h1 className="is-text-lighter">
-							({this.props.location ? this.props.location.numRoutes : ""}){" "}
 							{this.props.location ? this.props.location.name : ""}
 						</h1>
 					</div>
 					<ul>
 						{this.props.routes.map((route, i) => {
 							let abbreviate = null;
-							//  if(route.type.toLowerCase() === 'trad'){
-							//  	abbreviate =  <p>TRAD</p>
-							//  }
-							//  if(route.type.toLowerCase() === 'sport'){
-							// 	 abbreviate = <p>S</p>
-							//  }
 							return (
 								<li key={i}>
 									<NavLink to={`/route-details/${route.id}`}>
 										<p>{route.name}</p>
-										{route.type}
+										<p>{route.type}</p>
 										<p>{route.difficulty}</p>
 									</NavLink>
 								</li>
