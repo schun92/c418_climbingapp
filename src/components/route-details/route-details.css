@@ -1,0 +1,73 @@
+
+.thumbnail {
+	height: 35vh;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+		url("../../assets/images/mountain_bg.jpg");
+	background-size: cover;
+	background-position: center;
+
+	display: flex;
+	color: white;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.title,
+.subtitle,
+.stars {
+	margin: 0;
+	font-weight: lighter;
+}
+
+.title {
+	font-size: 3em;
+	text-align: center;
+}
+
+.subtitle {
+	font-size: 1em;
+}
+
+.details {
+	padding: 0.4em 0.8em;
+}
+
+.brand {
+	text-transform: uppercase;
+	font-size: 100%;
+}
+
+.stars {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	color: #fff;
+	margin-top: 0.5em;
+}
+
+.description {
+	margin: 1em auto 2em auto;
+}
+
+.bar {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	font-weight: 300;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	margin-top: 1em;
+	padding: 1em;
+}
+
+.bar div p {
+	margin: 0;
+	text-align: center;
+}
+
+.bar div p:first-child {
+	font-size: 1em;
+	font-weight: bold;
+}

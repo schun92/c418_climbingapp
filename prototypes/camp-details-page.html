@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        nav {
+            height: 3.5em;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 1em;
+        }
+
+        .container {
+            height: calc(100% - 3.5em);
+        }
+
+        .thumbnail {
+            height: 35%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg);
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            color: white;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title,
+        .subtitle,
+        .stars {
+            margin: 0;
+            font-weight: lighter;
+        }
+
+        .title {
+            font-size: 3em;
+        }
+
+        .subtitle {
+            font-size: 1em;
+        }
+
+        .details {
+            padding: .4em .8em;
+        }
+
+        .brand {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .bar {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            font-weight: 300;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-top: 1em;
+            padding: 1em;
+        }
+
+        .bar div p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .bar div p:first-child {
+            font-size: 2em;
+        }
+
+        .bar:last-of-type {
+            justify-content: center;
+        }
+
+        .bar:last-of-type div p:first-child {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100%;
+            margin-top: 1em;
+        }
+    </style>
+    <script>
+        const data = {
+            "id": 106004895,
+            "name": "Dihedral",
+            "type": "Trad, TR, Sport, Boulder",
+            "rating": "5.7",
+            "stars": 3.1,
+            "starVotes": 49,
+            "pitches": 1,
+            "location": [
+                "California",
+                "Los Angeles Basin",
+                "Santa Ana Mountains",
+                "Ortega Falls"
+            ],
+            "url": "https://www.mountainproject.com/route/106004895/dihedral",
+            "imgSqSmall": "https://cdn-files.apstatic.com/climb/106571432_sqsmall_1494121431.jpg",
+            "imgSmall": "https://cdn-files.apstatic.com/climb/106571432_small_1494121431.jpg",
+            "imgSmallMed": "https://cdn-files.apstatic.com/climb/106571432_smallMed_1494121431.jpg",
+            "imgMedium": "https://cdn-files.apstatic.com/climb/106571432_medium_1494121431.jpg",
+            "longitude": -117.4264,
+            "latitude": 33.6258
+        };
+    </script>
+</head>
+
+<body>
+    <nav>
+        <i class="material-icons">
+            menu
+        </i>
+        <div class="brand">Excursion Journal</div>
+        <i class="material-icons">
+            note_add
+        </i>
+    </nav>
+    <div class="container">
+        <div class="thumbnail">
+            <h1 class="title">Dihedral</h1>
+            <h2 class="subtitle">Ortega Falls</h2>
+        </div>
+        <div class="details">
+            <div class="bar">
+                <div>
+                    <p>5.7</p>
+                    <p>difficulty</p>
+                </div>
+                <div>
+                    <p>★★★★★</p>
+                    <p> 49 votes</p>
+                </div>
+            </div>
+            <div class="bar">
+                <div>
+                    <p>Trad, TR, Sport, Boulder</p>
+                    <p>type</p>
+                </div>
+            </div>
+            <img src="./images/gmap.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

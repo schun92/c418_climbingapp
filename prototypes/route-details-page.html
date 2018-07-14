@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        nav {
+            height: 3.5em;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: .5em;
+            align-items: center;
+        }
+
+        nav ul {
+            z-index: 1;
+        }
+
+        nav .brand {
+            z-index: 2;
+        }
+
+        nav .material-icons:last-of-type {
+            z-index: 2;
+        }
+
+        ul {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            border: 1px solid rgb(35, 204, 30);
+            box-sizing: border-box;
+            list-style-type: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column wrap;
+
+
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        ul.show {
+            transform: none;
+        }
+
+        ul li {
+            margin: .5em auto;
+        }
+
+        ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: lighter;
+        }
+
+        .container {
+            height: calc(100% - 3.5em);
+        }
+
+        .thumbnail {
+            height: 35%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/107655293_medium_1494202770.jpg);
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            color: white;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title,
+        .subtitle,
+        .stars {
+            margin: 0;
+            font-weight: lighter;
+        }
+
+        .title {
+            font-size: 3em;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1em;
+        }
+
+        .details {
+            padding: .4em .8em;
+        }
+
+        .brand {
+            text-transform: uppercase;
+            font-size: 100%;
+        }
+
+        .bar {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            font-weight: 300;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            margin-top: 1em;
+            padding: 1em;
+        }
+
+        .bar div p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .bar div p:first-child {
+            font-size: 2em;
+        }
+
+        .bar:last-of-type {
+            justify-content: center;
+        }
+
+        .bar:last-of-type div p:first-child {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        img {
+            width: 49%;
+            margin-top: 1em;
+            display: inline-block;
+        }
+
+        section.btn-group {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            margin-top: .5em;
+            width: 100%;
+            background-color: rgb(35, 204, 30);
+            color: white;
+            font-size: 1.5em;
+            font-weight: lighter;
+            padding: .5em;
+            border: none;
+            text-transform: uppercase;
+        }
+    </style>
+    <script>
+        const data = {
+            "id": 107501690,
+            "name": "Photographer's Delight",
+            "type": "Sport",
+            "rating": "5.4 PG13",
+            "stars": 4.2,
+            "starVotes": 19,
+            "pitches": 1,
+            "location": [
+                "California",
+                "Central Coast",
+                "Pinnacles National Park",
+                "High Peaks"
+            ],
+            "url": "https://www.mountainproject.com/route/107501690/photographers-delight",
+            "imgSqSmall": "https://cdn-files.apstatic.com/climb/109839631_sqsmall_1494364012.jpg",
+            "imgSmall": "https://cdn-files.apstatic.com/climb/109839631_small_1494364012.jpg",
+            "imgSmallMed": "https://cdn-files.apstatic.com/climb/109839631_smallMed_1494364012.jpg",
+            "imgMedium": "https://cdn-files.apstatic.com/climb/109839631_medium_1494364012.jpg",
+            "longitude": -117.8227,
+            "latitude": 34.0591
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.querySelector('.material-icons.burger-menu').addEventListener('click', function () {
+                document.getElementsByTagName('ul')[0].classList.toggle('show');
+            })
+        });
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <i class="material-icons" onclick="goBack()">
+            arrow_back_ios
+        </i>
+        <div class="brand">EJ</div>
+        <i class="material-icons burger-menu">
+            menu
+        </i>
+        <ul>
+            <li>
+                <a href="./landing-page.html">home</a>
+            </li>
+            <li>
+                <a href="itinerary-page.html">itinerary</a>
+            </li>
+            <li>
+                <a href="about-page.html">about</a>
+            </li>
+            <li>
+                <a href="team-page.html">team</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="thumbnail">
+            <h1 class="title">Not Even Chips</h1>
+            <h2 class="subtitle">Pirate's Cove</h2>
+        </div>
+        <div class="details">
+            <div class="bar">
+                <div>
+                    <p>V3- PG13</p>
+                    <p>difficulty</p>
+                </div>
+                <div>
+                    <p>
+                        <span style='color: red'>★★★★</span>☆</p>
+                    <p> 23 votes</p>
+                </div>
+            </div>
+            <div class="bar">
+                <div>
+                    <p>Boulder</p>
+                    <p>type</p>
+                </div>
+            </div>
+            <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt="">
+            <img src="https://cdn-files.apstatic.com/climb/107655293_smallMed_1494202770.jpg" alt="">
+            <section class="btn-group">
+                
+                    <a href="./itinerary-page.html"><button>add to itinerary</button></a>
+                
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

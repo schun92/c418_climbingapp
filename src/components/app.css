@@ -1,0 +1,106 @@
+body {
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	font-family: "Quicksand", sans-serif;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.container {
+	height: calc(100% - 3.5em);
+}
+
+.colors {
+	color: #78a9d1;
+	color: #dff1ff;
+	color: #9ba8b2;
+	color: #a79d8d;
+	color: #ffebcc;
+}
+
+.input {
+	font-size: 1.3em;
+	width: 80%;
+	background-color: white;
+	color: black;
+	padding: 0.5em;
+	font-weight: 300;
+}
+
+.btn {
+	box-sizing: border-box;
+	padding: 0.5em 1em;
+	font-size: 1.5em;
+	outline: none;
+	border: none;
+}
+
+.btn.is-small {
+	font-size: 1.2em;
+}
+
+.btn.is-very-small {
+	font-size: 1em;
+}
+
+.btn.is-primary {
+	background-color: #78a9d1;
+	color: white;
+}
+
+.btn.is-secondary {
+	background-color: #9ba8b2;
+	color: white;
+	text-align: center;
+}
+
+.btn-group {
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+}
+
+.btn-group.is-horizontal {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row nowrap;
+}
+
+.btn.is-fullwidth {
+	width: 100%;
+}
+
+/* .is-uppercase {
+	text-transform: uppercase;
+} */
+
+/* .is-capitalize {
+	text-transform: capitalize;
+} */
+
+.navbar.is-primary {
+	background-color: #78a9d1;
+}
+
+.is-text-white {
+	color: #e8ffe5;
+}
+
+.is-text-lighter {
+	font-weight: lighter;
+}
+
+/* Photo by Christoph Deinet on Unsplash
+Photo by Daniel Leone on Unsplash */
+
+.text-center {
+	text-align: center;
+}

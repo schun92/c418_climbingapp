@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Quicksand', sans-serif;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        nav {
+            height: 3.5em;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: .5em;
+            align-content: center;
+        }
+
+        nav ul {
+            z-index: 1;
+        }
+
+        nav .brand {
+            z-index: 2;
+        }
+
+        nav .material-icons:last-of-type {
+            z-index: 2;
+        }
+
+        ul {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            border: 1px solid rgb(35, 204, 30);
+            box-sizing: border-box;
+            list-style-type: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column wrap;
+
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        ul.show {
+            transform: none;
+        }
+
+        ul li {
+            margin: .5em auto;
+        }
+
+        ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: lighter;
+
+        }
+
+        .container {
+            height: calc(100% - 3.5em)
+        }
+
+        .itinerary-title {
+
+            background-image: linear-gradient(rgba(0, 0, 0, 0, .6), rgba(0, 0, 0, 0.4)), url(https://cdn-files.apstatic.com/climb/107655293_medium_1494202770.jpg);
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            font-weight: lighter;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 1.5em;
+        }
+
+        .card {
+            flex: 0 1 47%;
+            box-sizing: border-box;
+            margin: 1rem .25em;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            text-align: center;
+            border-radius: 0
+
+        }
+
+        @media screen and (min-width: 40em) {
+            .card {
+                max-width: calc(50% - 1em)
+            }
+        }
+
+        @media screen and (min-width: 60em) {
+            .card {
+                max-width: calc(25% - 1em);
+            }
+        }
+
+        button {
+
+            margin-top: .5em;
+            width: 100%;
+            background-color: rgb(156, 229, 153);
+            color: white;
+            font-size: 1.5em;
+            font-weight: lighter;
+            padding: .5em;
+            border: none;
+            text-transform: uppercase;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        input {
+            margin-top: 3em;
+            width: 100%;
+            background-color: rgb(156, 229, 153);
+            color: white;
+            font-size: 1.5em;
+            font-weight: lighter;
+            padding: .5em;
+            border: none;
+            text-transform: uppercase;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        .centered {
+            width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.querySelector('.material-icons.burger-menu').addEventListener('click', function () {
+                document.getElementsByTagName('ul')[0].classList.toggle('show');
+            })
+        });
+
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <i class='material-icons' onclick="goBack()">
+            arrow_back_ios
+        </i>
+        <div class='brand'>CJ</div>
+        <i class='material-icons burger-menu'>
+            menu
+        </i>
+        <ul>
+            <li>
+                <a href="./landing-page.html">home</a>
+            </li>
+            <li>
+                <a href="./itinerary-page.html">itinerary</a>
+            </li>
+            <li>
+                <a href="./about-page.html">about</a>
+            </li>
+            <li>
+                <a href="./team-page.html">team</a>
+            </li>
+
+    </nav>
+    <!-- <div class='container'>
+        <div class='itinerary-title'>
+            <h1>Itinerary</h1>
+        </div>
+        <div class='climb-container'>
+            <div class='climb-locations'>
+                <h3>Oretega Falls</h3>
+                <div class='routes'>
+                    <div>Fingers</div>
+                    <div>Polish</div>
+                </div>
+            </div>
+            <div class='climb-locations'>
+                <h3>San Juan Loop</h3>
+                <div class='routes'>
+                    <div>SJ loop</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+    <div class="centered">
+        <div class='itinerary-title'>
+            <h1>Itinerary</h1>
+        </div>
+        <section class="cards">
+
+
+            <article class="card">
+
+                <a href="route-details-page.html">
+                    <h3>Ortega Falls</h3>
+                    <p>Fingers</p>
+                </a>
+            </article>
+
+            <!-- /card-one -->
+
+            <article class="card">
+                <h3>Ortega Falls</h3>
+                <p>Polish</p>
+            </article>
+            <!-- /card-two -->
+
+            <article class="card">
+                <h3>San Jaun Loop</h3>
+                <p>Alpine</p>
+            </article>
+            <!-- /card-three -->
+
+            <article class="card">
+                <h3>San Jaun Loop</h3>
+                <p>Jagged Ridge</p>
+            </article>
+            <article class="card">
+                <h3>Ortega Falls</h3>
+                <p>Fingers</p>
+            </article>
+            <!-- /card-one -->
+
+            <article class="card">
+                <h3>Ortega Falls</h3>
+                <p>Polish</p>
+            </article>
+            <!-- /card-two -->
+
+            <article class="card">
+                <h3>San Jaun Loop</h3>
+                <p>Alpine</p>
+            </article>
+            <!-- /card-three -->
+
+
+            <!-- /card-four -->
+
+        </section>
+        <input type="email" placeholder="email address">
+        <button>Send My intinerary</button>
+
+    </div>
+</body>
+
+</html>

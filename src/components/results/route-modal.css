@@ -1,0 +1,70 @@
+.routes-modal {
+	position: fixed;
+	top: 20%;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-top: 1px solid #78a9d1;
+	box-sizing: border-box;
+	overflow-y: scroll;
+	transform-origin: 0 0;
+	transform: translate(0%, 70%);
+	transition: transform 0.2s ease-in;
+}
+
+.routes-modal.show {
+	transform: none;
+}
+
+.routes-modal.hide-modal {
+	transform: translateY(100%);
+}
+
+.routes-modal h1 {
+	text-transform: lowercase;
+	text-align: center;
+	font-size: 2em;
+	margin: 0.2em 1em;
+	padding: .2em 0em 0em 0em;
+}
+
+.routes-modal > p {
+	text-align: right;
+	margin-right: 1em;
+}
+
+.routes-modal ul {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 0 1em;
+	margin: 0;
+}
+
+.routes-modal ul li {
+	border-bottom: 1px solid rgba(43, 41, 41, 0.3);
+	box-sizing: border-box;
+	margin: 0.1em 0;
+	padding: .7em 0em;
+	font-size: 1.2em;
+}
+
+.routes-modal ul li:last-child {
+	border-bottom: none;
+}
+
+.routes-modal ul li a {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.routes-modal ul li img {
+	height: 10%;
+}

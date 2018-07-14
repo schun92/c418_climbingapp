@@ -1,0 +1,175 @@
+.itinerary-title h1 {
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	font-weight: lighter;
+	color: black;
+}
+
+.cards {
+	width: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	height: 16em;
+	width: 100%;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 1em;
+}
+
+.card.expand {
+	height: auto;
+}
+
+.card-content h1,
+.card-content h2,
+.card-content p {
+	text-align: left;
+	margin: 0;
+}
+
+.card-content h1 {
+	font-size: 2em;
+}
+
+.card-content h2 {
+	font-size: 1.2em;
+}
+
+.card-content p {
+	font-size: 1em;
+}
+
+.card-image {
+	height: 10em;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.card-content {
+	padding: 0.8em;
+	display: flex;
+	align-items: center;
+}
+.card-content-left {
+	flex: 1 1 90%;
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.card.expand .card-content-left {
+    text-overflow: initial;
+	white-space: initial;
+	overflow: initial;
+}
+
+
+.card-content-right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.card-content-right i {
+	font-size: 1.9em;
+}
+.card .card-details {
+	max-height: 0;
+	overflow: hidden;
+}
+
+.card.expand .card-details {
+	overflow: scroll;
+	transition:max-height .5s ease-out;
+	max-height: 400px;
+	height: auto;
+	padding: 0.5em;
+	border-top: 1px solid rgba(102, 99, 99, 0.192);
+}
+
+/* @keyframes drop-down {
+	0% { 
+		height: 0;
+	}
+	100%{
+		height: auto;
+	}
+	.card .card-details {
+	height: 0;
+	transform: scaleY(0);
+}
+
+.card.expand .card-details {
+	transition: transform .5s ease;
+	height: auto;
+	transform: scaleY(1);
+	transform-origin: top;
+} */
+
+.card.expand .down-arrow{
+	transform: rotateZ(180deg);
+}
+.card .down-arrow{
+	transform: rotateZ(0deg);
+	transition: transform .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.top-left-text{
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	background-color: #9BA8B2;
+	color: white;
+	border-radius: 10%;
+
+}
+
+.top-right-x{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	background-color: #9BA8B2;
+	color: white;
+	border-radius: 10%;
+	width: 2em;
+	text-align: center;
+
+}
+.itinerary-page{
+	display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.itinerary-input{
+	font-size: 1.3em;
+    width: 100%;
+    background-color: #dddada;
+    color: black;
+    padding: .5em;
+	font-weight: 300;
+	border: black 1px solid;
+	box-sizing: border-box;
+	margin: .5em 0;
+
+}
+.itinerary-label{
+	display: flex;
+	justify-content: center;
+
+}
+
+.error-text{
+	color: red;
+	text-align: center;
+}
+

@@ -1,0 +1,7 @@
+.filter {
+    z-index: 3;
+    position: fixed;
+    top: 55px;
+    right: 5px;
+    padding: .2em .4em;
+}

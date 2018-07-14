@@ -1,0 +1,30 @@
+.team {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.team-title{
+    text-align: center;
+    text-transform: lowercase
+    
+}
+
+.member {
+    flex: 1 1 40%;
+    padding: .4em;
+    text-transform: lowercase;
+}
+
+.member>img {
+    width: 100%;
+}
+
+
+.member>p img {
+    width: 2em;
+    padding: .3em;
+}
+
+.member h2, h3, p{
+    margin: .3em;
+}
