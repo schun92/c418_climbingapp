@@ -12,7 +12,7 @@ $output = [
 ];
 
 
-$query = "SELECT `id`, `name`, `type`, `difficulty` FROM `routes` WHERE `locationID` = {$locationID}";
+$query = "SELECT `id`, `name`, `type_abbrev` AS 'type', `difficulty` FROM `routes` WHERE `locationID` = {$locationID}";
 $result = mysqli_query($conn, $query);
 
 
