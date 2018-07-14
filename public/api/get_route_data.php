@@ -1,9 +1,9 @@
 <?php
- header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 $locationID = $_GET['data'];
 
 
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+require 'mysql_connect.php';
 
 
 $output = [
