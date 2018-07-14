@@ -40,7 +40,7 @@ class FilterBtn extends Component {
         return (
             <div>
                 <div className="filter">
-                    <button className="filter-modal-button" type="button" onClick={this.toggle}>filter</button>
+                    <button className="btn is-secondary is-very-small is-text-lighter" type="button" onClick={this.toggle}>FILTER</button>
                 </div>
                 <FilterModal  apply={this.handleApplyClick} toggle={this.toggle} show={this.state.showFilterModal}/>
             </div>

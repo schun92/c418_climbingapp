@@ -47,6 +47,10 @@ ul {
 	font-size: 1.2em;
 }
 
+.btn.is-very-small {
+	font-size: 1em;
+}
+
 .btn.is-primary {
 	background-color: #78a9d1;
 	color: white;

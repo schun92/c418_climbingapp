@@ -9,7 +9,7 @@ const FilterModal = (props) => (
 		<div className="filter-modal-body">
 			<div className="filter-modal-header">
 				<h1 className="text-center">Filter</h1>
-				<button className="btn is-secondary is-small" onClick={props.toggle}>DONE</button>
+				<button className="btn is-secondary is-very-small" onClick={props.toggle}>DONE</button>
 			</div>
 			<h2>Categories</h2>
 			<div className="categories">
