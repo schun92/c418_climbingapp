@@ -22,7 +22,6 @@ class Itinerary extends Component {
   }
 
   async handleAddItem(values) {
-    console.log('form values: ', values);
     // await this.props.sendTodoItem(values)
     // this.props.history.push('/');
 
@@ -31,8 +30,6 @@ class Itinerary extends Component {
   handleClick = async (e) => {
     e.preventDefault();
 
-    console.log('HEY PROPS', this.props)
-    console.log('hey state', this.state)
 
     var params = new URLSearchParams();
     params.append('email', this.props.emailInput.values.email)
@@ -119,7 +116,6 @@ class Itinerary extends Component {
 
   componentDidMount() {
     const { itinItem } = this.props.match.params;
-    console.log('MYPROPS', this.props);
 
   }
 
@@ -138,7 +134,6 @@ class Itinerary extends Component {
 
     const { handleSubmit } = this.props;
 
-    console.log("email.props", this.props);
     if (!this.state.loading) {
       return (
         <div className='itinerary-page'>
@@ -169,7 +164,6 @@ class Itinerary extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("this State:", state);
   const itineraryInfo = state.itinerary.routes;
   const emailInput = state.form.email;
   return {

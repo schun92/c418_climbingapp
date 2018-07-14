@@ -33,7 +33,6 @@ class RouteModal extends Component {
 		const newUrl = `${pathname}?${queryParams}`;
 		this.props.history.push(newUrl);
 
-		console.log('click');
 	}
 
 	render() {
