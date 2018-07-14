@@ -24,10 +24,8 @@ class RouteDetails extends Component {
 		const { isAdded } = this.state;
 
 		if (isAdded) {
-			console.log("it has an itinerary so we want to remove");
 			this.props.removeFromItinerary(this.props.selectedRoute);
 		} else {
-			console.log("it does NOT have an itinerary so we want to add");
 			this.props.addToItinerary(this.props.selectedRoute);
 		}
 
