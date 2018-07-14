@@ -7,12 +7,17 @@ import { getLocations } from "../../actions";
 import { withRouter } from "react-router-dom";
 import { showModal } from "../../actions";
 import queryString from "query-string";
+import Loading from '../loading';
 
 class RouteMap extends Component {
 	constructor(props) {
 		super(props);
 		this.map = null;
 		this.ref = React.createRef();
+
+		this.state = {
+			loading: false
+		}
 	}
 
 	componentDidMount() {
@@ -36,11 +41,15 @@ class RouteMap extends Component {
 			this.map.setCenter(this.props.mapCenter);
 		}
 
-		this.props.locations.map(location => {
+		this.props.locations.forEach(location => {
 			const { avgLat: lat, avgLong: lng } = location;
 			var marker = new google.maps.Marker({
 				position: { lat: Number(lat), lng: Number(lng) },
-				map: this.map
+				map: this.map,
+				label: {
+					text: location.numRoutes,
+					color: 'white',
+				  }
 			});
 
 			marker.addListener("click", () => {
@@ -53,11 +62,15 @@ class RouteMap extends Component {
 			});
 		});
 
-		return (
+		if(!this.state.loading) {
+		return(
 			<div className="map-container">
 				<div ref={this.ref} />
 			</div>
-		);
+			)
+		}else{
+			return <Loading />
+		}
 	}
 }
 

@@ -1,21 +1,21 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 1500);
 $output = [
 	'success'=> false,
 	'errors'=>[]
 ];
 
-$query = "SELECT `id`, `routeURL`, `name` FROM `routes`";
-$result = mysqli_query($conn, $query);
+$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes` WHERE `hasdescription`=0";
+$routedescriptionresult = mysqli_query($conn, $routedescriptionquery);
 
-if (empty($result)) {
+if (empty($routedescriptionresult)) {
 	$output['errors'][] = 'database error';
 } else {
-	if ($result) {
+	if ($routedescriptionresult) {
 		$output['success'] = true;
         $output['data']=[];
-        while( $row = mysqli_fetch_assoc($result)){
+        while( $row = mysqli_fetch_assoc($routedescriptionresult)){
             $id = $row['id'];
             $descriptionURL = $row['routeURL'];
 
@@ -27,13 +27,14 @@ if (empty($result)) {
             curl_setopt($handler, CURLOPT_FOLLOWLOCATION, true);
 
             $page = curl_exec($handler);
-            $start = strpos($page, 'Description');
-            $testArea = substr($page, $start, 2000);
+            $start = strpos($page, 'fr-view');
+            $testArea = substr($page, $start, 500);
             $start = strpos($testArea, 'fr-view');
             $end = strpos($testArea, '</div>', $start);
             $description = substr($testArea, $start+9, $end-$start-9);
             $startKey = "a_$id";
             $data = [];
+            
 
             $cleandescrip = strip_tags($description);
             $descripwithslash = addslashes($cleandescrip);
@@ -41,8 +42,8 @@ if (empty($result)) {
             if(empty($descripwithslash)) {
                 $descripwithslash = "No description available.";
             }
-
-            $descripquery = "UPDATE `routes` SET `description` = '$descripwithslash' WHERE `ID` = '$id'";
+            
+            $descripquery = "UPDATE `routes` SET `description` = '$descripwithslash', `hasdescription`=1 WHERE `ID` = '$id'";
             $descripresult = mysqli_query($conn, $descripquery);
 
             };

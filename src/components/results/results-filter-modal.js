@@ -4,75 +4,76 @@ import "./results-filter-modal.css";
 import axios from "axios";
 import queryString from "query-string";
 
-class FilterModal extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	handleApplyClick() {}
-
-	render() {
-		let showClass = "";
-		if (this.props.showModal) {
-			showClass = "show";
-		}
-
-		return (
-			<div className={`filter-modal-shadow ${showClass}`}>
-				<div className="filter-modal-body">
-					<h1 className="text-center">Filter by</h1>
-					<h2>Categories</h2>
-					<div className="categories">
-						{selection.rockOptions.map(option => {
-							return (
-								<div className="checkbox-container">
-									<input type="checkbox" value={option} />
-									<label for={option}>{option}</label>
-								</div>
-							);
-						})}
-					</div>
-					<h2>Rock difficulty</h2>
-					<div className="drop-menu">
-						<select className="drop-menu-style" name="difficulty">
-							{selection.rockDifficulty.map(difficulty => {
-								return <option value={difficulty}>{difficulty}</option>;
-							})}
-						</select>
-						<p>to</p>
-						<select className="drop-menu-style" name="difficulty">
-							{selection.rockDifficulty.map(difficulty => {
-								return <option value={difficulty}>{difficulty}</option>;
-							})}
-						</select>
-					</div>
-					<h2>Boulder difficulty</h2>
-					<div className="drop-menu">
-						<select className="drop-menu-style" name="difficulty">
-							{selection.boulderDifficulty.map(difficulty => {
-								return <option value={difficulty}>{difficulty}</option>;
-							})}
-						</select>
-						<p>to</p>
-						<select className="drop-menu-style" name="difficulty">
-							{selection.boulderDifficulty.map(difficulty => {
-								return <option value={difficulty}>{difficulty}</option>;
-							})}
-						</select>
-					</div>
-					<div className="btn-group is-horizontal">
-						<button onClick={this.handleApplyClick.bind(this)} className="btn is-secondary">
-							CANCEL
-						</button>
-						<button onClick={this.handleApplyClick.bind(this)} className="btn is-primary">
-							APPLY
-						</button>
-					</div>
-				</div>
+const FilterModal = (props) => (
+	<div className={`filter-modal-shadow ${props.show ? "show" : ""}`}>
+		<div className="filter-modal-body">
+			<div className="filter-modal-header">
+				<h1 className="text-center">Filter</h1>
+				<button className="btn is-secondary is-small" onClick={props.toggle}>DONE</button>
 			</div>
-		);
-	}
-}
+			<h2>Categories</h2>
+			<div className="categories">
+				{selection.rockOptions.map((option, i) => {
+					return (
+						<div key={i} className="checkbox-container">
+							<input type="checkbox" value={option} />
+							<label htmlFor={option}>{option}</label>
+						</div>
+					);
+				})}
+			</div>
+			<h2>Rock difficulty</h2>
+			<div className="drop-menu">
+				<select className="drop-menu-style" name="difficulty">
+					{selection.rockDifficulty.map((difficulty, i) => {
+						return (
+							<option key={i} value={difficulty}>
+								{difficulty}
+							</option>
+						);
+					})}
+				</select>
+				<p>to</p>
+				<select className="drop-menu-style" name="difficulty">
+					{selection.rockDifficulty.map((difficulty, i) => {
+						return (
+							<option key={i} value={difficulty}>
+								{difficulty}
+							</option>
+						);
+					})}
+				</select>
+			</div>
+			<h2>Boulder difficulty</h2>
+			<div className="drop-menu">
+				<select className="drop-menu-style" name="difficulty">
+					{selection.boulderDifficulty.map((difficulty, i) => {
+						return (
+							<option key={i} value={difficulty}>
+								{difficulty}
+							</option>
+						);
+					})}
+				</select>
+				<p>to</p>
+				<select className="drop-menu-style" name="difficulty">
+					{selection.boulderDifficulty.map((difficulty, i) => {
+						return (
+							<option key={i} value={difficulty}>
+								{difficulty}
+							</option>
+						);
+					})}
+				</select>
+			</div>
+			<div className="btn-group">
+				<button onClick={props.apply} className="btn is-primary is-small">
+					APPLY
+				</button>
+			</div>
+		</div>
+	</div>
+);
 
 export default FilterModal;
 

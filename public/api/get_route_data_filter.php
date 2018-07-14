@@ -1,11 +1,10 @@
 <?php
 //Request from frontend is
 //routeList=106070976,105903225,105870999
- header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 $routeList = $_GET['routeList'];
 
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
-
+require 'mysql_connect.php';
 
 $output = [
     "success" => false,

@@ -7,33 +7,42 @@ class FilterBtn extends Component {
         super(props)
 
         this.state = {
-            showFilterModal: true
+            showFilterModal: false
         };
 
-        this.handleClick = this.handleClick.bind(this);
-        this.handleHideModal = this.handleHideModal.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.handleApplyClick = this.handleApplyClick.bind(this);
     }
 
-    handleClick(e) {
-        this.setState({
-            showFilterModal: true
-        });
+    toggle() {
+        this.setState((prevState) => ({showFilterModal: !prevState.showFilterModal}));
     }
 
-    handleHideModal() {
-        console.log('hide modal')
-        this.setState({
-            showFilterModal: false
-        })
-    }
+    async handleApplyClick() {
+        this.toggle();
+		const params = {
+			traditional: false, //true or false
+			topRope: false, //true or false
+			sport: true, //true or false
+			boulder: false, //true or false
+			rockDiffStart: "5.5", //3 to 5.15d
+			rockDiffEnd: "5.15d", //3 to 5.15d
+			boulderDiffStart: "V0", //V0 to V14
+			boulderDiffEnd: "V14" //V0 to V14
+		};
+		const queryParams = queryString.stringify(params);
+		const response = await axios.get(`/api/filter_endpoint.php?${queryParams}`);
+		const apply = response;
+		console.log("apply:", apply);
+	}
 
     render() {
         return (
             <div>
                 <div className="filter">
-                    <button className="filter-modal-button" type="button" onClick={this.handleClick}>Filter</button>
+                    <button className="filter-modal-button" type="button" onClick={this.toggle}>filter</button>
                 </div>
-                <FilterModal handleHideModal = {this.handleHideModal} showModal={this.state.showFilterModal}/>
+                <FilterModal  apply={this.handleApplyClick} toggle={this.toggle} show={this.state.showFilterModal}/>
             </div>
         )
 

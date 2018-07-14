@@ -1,6 +1,7 @@
 <?php
- header("Access-Control-Allow-Origin: *");
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+header("Access-Control-Allow-Origin: *");
+
+require 'mysql_connect.php';
 
 $inputID = $_GET['data'];
 

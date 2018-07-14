@@ -1,8 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+//Fetch rows from table
 
-//Fetch rows from table 
-$query = "SELECT `id`, `type` FROM `routes`";
+$query = "SELECT `id`, `type` FROM `routes` WHERE `type_abbrev` = ''";
 $result = mysqli_query($conn,$query);
 if ( mysqli_num_rows($result) > 0 ) {
     while ( $row = mysqli_fetch_assoc($result) ) {

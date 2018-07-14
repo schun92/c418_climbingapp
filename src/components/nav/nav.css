@@ -44,13 +44,19 @@
 
 .navbar ul li {
 	margin: 0.5em auto;
+	width: 100%;
+	text-align: center;
+}
+
+.navbar ul li:hover {
+	background-color: rgb(162, 166, 170);
 }
 
 .navbar ul li a {
 	color: white;
 	text-decoration: none;
 	font-size: 2em;
-	text-transform: uppercase;
+	text-transform: lowercase;
 	font-weight: lighter;
 }
 
@@ -60,10 +66,9 @@
 }
 
 .navbar .brand {
-	font-size: 1em;
+	font-size: 1.8em;
 	padding: 0.4em;
 	font-style: italic;
-	background-color: #B9C7D4;
 	border-radius: 100%;
 	width: 1.5em;
 	height: 1.5em;

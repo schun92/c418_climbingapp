@@ -6,11 +6,16 @@ import boulder from "../../assets/images/icons/boulder.png";
 import { showModal, setSelectedLocation, getRoutes } from "../../actions";
 import { withRouter } from "react-router-dom";
 import queryString from "query-string";
+import Loading from '../loading';
 
 class RouteModal extends Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
+
+		this.state= {
+			loading: false
+		}
 	}
 
 	componentDidMount() {
@@ -32,40 +37,44 @@ class RouteModal extends Component {
 	}
 
 	render() {
-		return (
-			<div
-				className={`routes-modal ${
-					this.props.location ? (this.props.show ? "show" : "") : "hide-modal"
-				}`}
-			>
-				<div onClick={this.handleClick}>
-					<h1 className="is-text-lighter">
-						({this.props.location ? this.props.location.numRoutes : ""}){" "}
-						{this.props.location ? this.props.location.name : ""}
-					</h1>
+		if (!this.state.loading) {
+			return (
+				<div
+					className={`routes-modal ${
+						this.props.location ? (this.props.show ? "show" : "") : "hide-modal"
+						}`}
+				>
+					<div onClick={this.handleClick}>
+						<h1 className="is-text-lighter">
+							({this.props.location ? this.props.location.numRoutes : ""}){" "}
+							{this.props.location ? this.props.location.name : ""}
+						</h1>
+					</div>
+					<ul>
+						{this.props.routes.map((route, i) => {
+							let abbreviate = null;
+							//  if(route.type.toLowerCase() === 'trad'){
+							//  	abbreviate =  <p>TRAD</p>
+							//  }
+							//  if(route.type.toLowerCase() === 'sport'){
+							// 	 abbreviate = <p>S</p>
+							//  }
+							return (
+								<li key={i}>
+									<NavLink to={`/route-details/${route.id}`}>
+										<p>{route.name}</p>
+										{route.type}
+										<p>{route.difficulty}</p>
+									</NavLink>
+								</li>
+							);
+						})}
+					</ul>
 				</div>
-				<ul>
-					{this.props.routes.map((route, i) => {
-						let abbreviate = null;
-						//  if(route.type.toLowerCase() === 'trad'){
-						//  	abbreviate =  <p>TRAD</p>
-						//  }
-						//  if(route.type.toLowerCase() === 'sport'){
-						// 	 abbreviate = <p>S</p>
-						//  }
-						return (
-							<li key={i}>
-								<NavLink to={`/route-details/${route.id}`}>
-									<p>{route.name}</p>
-									{route.type}
-									<p>{route.difficulty}</p>
-								</NavLink>
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		);
+			);
+		}else {
+			return <Loading />
+		}
 	}
 }
 

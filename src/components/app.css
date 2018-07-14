@@ -4,7 +4,6 @@ body {
 	height: 100vh;
 	font-family: "Quicksand", sans-serif;
 	padding: 0;
-	
 }
 
 a {
@@ -20,11 +19,11 @@ ul {
 }
 
 .colors {
-	color: #78A9D1;
-	color: #DFF1FF;
-	color: #9BA8B2;
-	color: #A79D8D;
-	color: #FFEBCC;
+	color: #78a9d1;
+	color: #dff1ff;
+	color: #9ba8b2;
+	color: #a79d8d;
+	color: #ffebcc;
 }
 
 .input {
@@ -44,13 +43,17 @@ ul {
 	border: none;
 }
 
+.btn.is-small {
+	font-size: 1.2em;
+}
+
 .btn.is-primary {
-	background-color: #78A9D1;
+	background-color: #78a9d1;
 	color: white;
 }
 
 .btn.is-secondary {
-	background-color:#9BA8B2;
+	background-color: #9ba8b2;
 	color: white;
 	text-align: center;
 }
@@ -64,27 +67,23 @@ ul {
 .btn-group.is-horizontal {
 	display: flex;
 	justify-content: space-between;
-	flex-flow: row wrap;
-}
-
-.btn-group .btn {
-	margin-bottom: 0.5em;
+	flex-flow: row nowrap;
 }
 
 .btn.is-fullwidth {
 	width: 100%;
 }
 
-.is-uppercase {
+/* .is-uppercase {
 	text-transform: uppercase;
-}
+} */
 
-.is-capitalize {
+/* .is-capitalize {
 	text-transform: capitalize;
-}
+} */
 
 .navbar.is-primary {
-	background-color: #78A9D1;
+	background-color: #78a9d1;
 }
 
 .is-text-white {
@@ -97,7 +96,6 @@ ul {
 
 /* Photo by Christoph Deinet on Unsplash
 Photo by Daniel Leone on Unsplash */
-
 
 .text-center {
 	text-align: center;
