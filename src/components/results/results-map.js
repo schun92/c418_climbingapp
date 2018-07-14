@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./results-map.css";
 import mapStyle from "./map-style.json";
-import { setSelectedLocation, getRoutes } from "../../actions";
+import { setSelectedLocation, getRoutes, setMapCenter } from "../../actions";
 import { getLocations } from "../../actions";
 import { withRouter } from "react-router-dom";
 import { showModal } from "../../actions";
 import queryString from "query-string";
-import Loading from '../loading';
+import Loading from "../loading";
 
 class RouteMap extends Component {
 	constructor(props) {
@@ -17,7 +17,7 @@ class RouteMap extends Component {
 
 		this.state = {
 			loading: false
-		}
+		};
 	}
 
 	componentDidMount() {
@@ -42,18 +42,21 @@ class RouteMap extends Component {
 		}
 
 		this.props.locations.forEach(location => {
-			const { avgLat: lat, avgLong: lng } = location;
+			let { avgLat: lat, avgLong: lng } = location;
+			lat = Number(lat);
+			lng = Number(lng);
 			var marker = new google.maps.Marker({
-				position: { lat: Number(lat), lng: Number(lng) },
+				position: { lat, lng },
 				map: this.map,
 				label: {
 					text: location.numRoutes,
-					color: 'white',
-				  }
+					color: "white"
+				}
 			});
 
 			marker.addListener("click", () => {
 				this.props.handleLocationSelect(location);
+				this.props.setMapCenter(lat, lng);
 				const { pathname, search } = this.props.history.location;
 				const queryParamsData = queryString.parse(search);
 				const queryParams = queryString.stringify({ ...queryParamsData, ...location });
@@ -62,14 +65,14 @@ class RouteMap extends Component {
 			});
 		});
 
-		if(!this.state.loading) {
-		return(
-			<div className="map-container">
-				<div ref={this.ref} />
-			</div>
-			)
-		}else{
-			return <Loading />
+		if (!this.state.loading) {
+			return (
+				<div className="map-container">
+					<div ref={this.ref} />
+				</div>
+			);
+		} else {
+			return <Loading />;
 		}
 	}
 }
@@ -86,6 +89,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	handleLocationSelect(location) {
 		dispatch(setSelectedLocation(location));
 		dispatch(getRoutes(location.ID));
+	},
+	setMapCenter(lat, lng) {
+		dispatch(setMapCenter(lat, lng));
 	}
 });
 
