@@ -10,7 +10,7 @@ $output = [
 ];
 
 // $query = "SELECT `ID`, `name`, `avgLat`, `avgLong`, `numRoutes` FROM locations WHERE (avgLat BETWEEN 33.6163 AND 33.8512) AND (avgLong BETWEEN -117.9008 AND -117.5991)";
-$query = "SELECT `ID`, `name`, `avgLat`, `avgLong`, `numRoutes` FROM locations LIMIT 30";
+$query = "SELECT `ID`, `name`, `avgLat`, `avgLong`, `numRoutes` FROM locations LIMIT 50";
 
 
 $result = mysqli_query($conn, $query);
