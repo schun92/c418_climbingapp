@@ -86,8 +86,10 @@ class Itinerary extends Component {
       }
       </style>
     <body>  
+      <h1>Thank you for using Peaky Finder, here's your itinerary! Enjoy your climb, by order of the Peaky Finders!</h1>
       <div class="cards">
         <div class="card">
+
           <img src=${this.props.routes[0].image}>
             
               <div class='card-content'>
