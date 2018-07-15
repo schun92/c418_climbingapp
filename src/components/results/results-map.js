@@ -25,8 +25,14 @@ class RouteMap extends Component {
 		this.handleMapClick = this.handleMapClick.bind(this);
 	}
 
-	componentDidMount() {
-		this.props.getLocationsData();
+	async componentDidMount() {
+		await this.props.getLocationsData();
+		const params = queryString.parse(this.props.history.location.search);
+		const { avgLat, avgLong, ID } = params;
+		if (ID) {
+			this.props.handleLocationSelect(params);
+			this.props.setMapCenter(avgLat, avgLong);
+		}
 	}
 
 	handleMapClick() {
@@ -37,6 +43,12 @@ class RouteMap extends Component {
 		this.props.handleLocationSelect(location);
 		const { avgLat, avgLong } = location;
 		this.props.setMapCenter(avgLat, avgLong);
+
+		const { pathname, search } = this.props.history.location;
+		const queryParamsData = queryString.parse(search);
+		const queryParams = queryString.stringify({ ...queryParamsData, ...location });
+		const newUrl = `${pathname}?${queryParams}`;
+		this.props.history.push(newUrl);
 	}
 
 	render() {
