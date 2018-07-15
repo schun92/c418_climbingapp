@@ -48,7 +48,7 @@ class RouteMap extends Component {
 		const queryParamsData = queryString.parse(search);
 		const queryParams = queryString.stringify({ ...queryParamsData, ...location });
 		const newUrl = `${pathname}?${queryParams}`;
-		this.props.history.push(newUrl);
+		this.props.history.replace(newUrl);
 	}
 
 	render() {
