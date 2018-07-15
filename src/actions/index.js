@@ -88,11 +88,3 @@ export function showModal(show) {
 		payload: show
 	}
 }
-
-
-// export function (item){
-//     return {
-//         type: types.ADD_ITEM,
-//         payload: 
-//     }
-// }
