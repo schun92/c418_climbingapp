@@ -27,7 +27,6 @@ class Nav extends Component {
 	}
 
 	render() {
-		console.log(this.props.history);
 		return (
 			<nav className="navbar is-primary is-text-white">
 				{this.props.location.pathname === "/" ? null : (

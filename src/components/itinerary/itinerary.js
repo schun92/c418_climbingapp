@@ -131,7 +131,7 @@ class Itinerary extends Component {
     )
   }
   render() {
-
+    console.log(this.props.routes);
     const { handleSubmit } = this.props;
 
     if (!this.state.loading) {
