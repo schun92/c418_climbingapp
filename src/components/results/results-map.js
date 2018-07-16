@@ -54,7 +54,6 @@ class RouteMap extends Component {
 	render() {
 		return !this.props.mapCenter ? null : (
 			<Map
-				style={style}
 				styles={mapStyle}
 				google={this.props.google}
 				zoom={10}

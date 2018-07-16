@@ -87,10 +87,10 @@ export default class Team extends Component {
                         <h2>Jhon</h2>
                         <h3>Frontend</h3>
                         <p>
-                            <a href='https://github.com/AlmondoG' target="_blank">
+                            <a href='https://github.com/jhonalino' target="_blank">
                                 <img src={github} alt="" />
                             </a>
-                            <a href='https://www.linkedin.com/in/amin-ghanimati-a26710147/' target="_blank">
+                            <a href='https://www.linkedin.com/in/jhonalino/' target="_blank">
                                 <img src={linkedin} alt="" />   
                             </a>
                         </p>
