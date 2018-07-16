@@ -36,7 +36,6 @@ class LandingPage extends Component {
 			return (
 				<div className="landing-page">
 					<form onSubmit={this.handleFormSubmit}>
-						<h1 className="brand is-text-white">peaky finder</h1>
 						<input
 							name="location"
 							className="landing-page-input"
@@ -45,7 +44,7 @@ class LandingPage extends Component {
 							onChange={handleSearchTermChange}
 							value={searchTerm}
 						/>
-						<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter">
+						<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter landing-button">
 							seach locations
 					</button>
 					</form>

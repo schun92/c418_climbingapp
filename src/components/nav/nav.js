@@ -28,7 +28,7 @@ class Nav extends Component {
 
 	render() {
 		return (
-			<nav className="navbar is-primary is-text-white">
+			<nav className="navbar is-primary is-text-darker">
 				{this.props.location.pathname === "/" ? null : (
 					<i className="material-icons" onClick={this.goBack}>
 						arrow_back_ios
@@ -36,7 +36,7 @@ class Nav extends Component {
 				)}
 
 				<NavLink to="/">
-					<img className="brand" src={brandLogo} />
+					<h1>pf</h1>
 				</NavLink>
 
 				<div
