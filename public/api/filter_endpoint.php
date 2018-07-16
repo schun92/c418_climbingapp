@@ -23,6 +23,8 @@ $rockDiffMin = $_POST['rockDiffStart'];
 $rockDiffMax = $_POST['rockDiffEnd'];
 $boulderDiffMin = $_POST['boulderDiffStart'];
 $boulderDiffMax = $_POST['boulderDiffEnd'];
+$mapCenterLat = $_POST['mapCenterLat'];
+$mapCenterLong = $_POST['mapCenterLong'];
 
 
 if($sport) {
@@ -131,7 +133,7 @@ $query = "SELECT `locations`.`ID` AS 'Location ID',
 `locations`.`avgLong`, 
 COUNT(`routes`.`locationID`) AS 'Total Number of Routes With Filter', 
 `routes`.`id` AS 'Route IDs',
-`avgLat`, `avgLong`, `numRoutes`, SQRT( POW(69.1 * (`avgLat` - 33.6694649), 2) + POW(69.1 * (-117.8231107 - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
+`avgLat`, `avgLong`, `numRoutes`, SQRT( POW(69.1 * (`avgLat` - {$mapCenterLat}), 2) + POW(69.1 * ({$mapCenterLong} - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
     FROM `locations`
     JOIN `routes` ON `locations`.`ID` = `routes`.`locationID`
     WHERE LOWER(`type`) REGEXP '{$regexString}'
