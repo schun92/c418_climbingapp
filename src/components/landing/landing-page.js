@@ -45,7 +45,7 @@ class LandingPage extends Component {
 							value={searchTerm}
 						/>
 						<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter landing-button">
-							seach locations
+							find your peak
 					</button>
 					</form>
 				</div>
