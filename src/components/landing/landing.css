@@ -25,6 +25,7 @@
 	flex-flow: column nowrap;
 	justify-content: space-between;
 	box-sizing: border-box;
+	font-size: .9em;
 }
 
 .landing-page-input {
@@ -35,11 +36,15 @@
 	font-weight: 300;
 	display: flex;
 	align-items: flex-end;
+	text-align: center;
+	font-family: filson;
 }
 
 .landing-page-input::placeholder {
 	color: rgb(109, 109, 109);
-	text-transform: lowercase
+	text-transform: lowercase;
+	text-align: center;
+	font-family: filson;
 }
 
 .landing-page .brand {
