@@ -1,6 +1,6 @@
 <?php
-$lat = 32.7157;
-$long = -117.1611;
+$lat = //Insert latitude here - If south, have number negative;
+$long = //Insert longitude here - If west, have number negative;
 
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 $handler = curl_init();

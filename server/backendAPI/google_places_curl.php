@@ -25,13 +25,9 @@ curl_close($curl);
 if ($err) {
     echo "cURL Error #:" . $err;
 } else {
-    //echo $response;
-
     $response = json_decode($response);
     $lat = $response->candidates[0]->geometry->location->lat;
     $lon = $response->candidates[0]->geometry->location->lng;
-    // print($lat);
-    // print($lon);
-}
+};
 
 ?>

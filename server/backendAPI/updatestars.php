@@ -8,7 +8,7 @@ if ( mysqli_num_rows($result) > 0 ) {
     while ( $row = mysqli_fetch_assoc($result) ) {
         $routeArray[] = $row;
     }
-}
+};
 
 for ($i=0; $i < count($routeArray); ++$i) {
     $routeIDURL = $routeArray[$i]['id'];
