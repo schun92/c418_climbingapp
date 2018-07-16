@@ -45,7 +45,6 @@ export function setRoutes(routes) {
 	};
 }
 
-
 export function getRoutes(locationID) {
 	return async dispatch => {
 		const response = await axios.get(`/api/get_route_data.php?data=${locationID}`);
@@ -63,28 +62,42 @@ export function setSelectedRoute(route) {
 export function getSelectedRoute(routeId) {
 	return async dispatch => {
 		const response = await axios.get(`/api/get_route_details.php?data=${routeId}`);
-        const [route] = response.data.data;
+		const [route] = response.data.data;
 		dispatch(setSelectedRoute(route));
 	};
 }
 
-export function addRouteToItinerary(route){
-	return{
+export function addRouteToItinerary(route) {
+	return {
 		type: types.ADD_ROUTE_TO_ITINERARY,
 		payload: route
-	}
+	};
 }
 
-export function removeRouteFromItinerary(routeId){
-	return{
+export function removeRouteFromItinerary(routeId) {
+	return {
 		type: types.REMOVE_ROUTE_FROM_ITINERARY,
 		payload: routeId
-	}
+	};
 }
 
 export function showModal(show) {
 	return {
 		type: types.SHOW_MODAL,
 		payload: show
-	}
+	};
+}
+
+export function getItenaryRoutes(...routeIds) {
+	return async dispatch => {
+		const routesPromises = routeIds.map(async id => {
+			return axios.get(`/api/get_route_details.php?data=${id}`);
+		});
+		const responses = await Promise.all(routesPromises);
+		const routes = responses.map(a => a.data.data[0]);
+		dispatch({
+			type: types.REPLACE_ROUTES_IN_ITINERARY,
+			payload: routes
+		});
+	};
 }

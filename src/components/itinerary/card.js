@@ -59,8 +59,7 @@ class Card extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-}
+
 
 function mapDispatchToProps(dispatch) {
 	return {
@@ -70,4 +69,4 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(null, mapDispatchToProps)(Card);
