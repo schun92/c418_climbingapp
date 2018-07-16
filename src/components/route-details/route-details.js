@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { getSelectedRoute, addRouteToItinerary, removeRouteFromItinerary } from "../../actions";
 import ReactStars from "react-stars";
+import queryString from "query-string";
 import "./route-details.css";
 
 class RouteDetails extends Component {
@@ -35,9 +36,10 @@ class RouteDetails extends Component {
 	}
 
 	render() {
+		var a = this.props.itineraryRoutes.map(route => route.id);
+		console.log(a);
 		const { isAdded } = this.state;
 		let content;
-
 		if (this.props.selectedRoute) {
 			const {
 				description,
@@ -49,7 +51,6 @@ class RouteDetails extends Component {
 				stars,
 				type
 			} = this.props.selectedRoute;
-
 			content = (
 				<div className="detail-container">
 					<div className="thumbnail">
@@ -77,10 +78,18 @@ class RouteDetails extends Component {
 						</div>
 						<p className="description">{description}</p>
 						<div className="btn-group">
-							<button className="btn is-primary is-text-ligther itinerary-toggle" onClick={this.handleClick}>
-								{ isAdded ? "remove from itinerary" : "add to itinerary" }
+							<button
+								className="btn is-primary is-text-ligther itinerary-toggle"
+								onClick={this.handleClick}
+							>
+								{isAdded ? "remove from itinerary" : "add to itinerary"}
 							</button>
-							<NavLink className="btn is-secondary  is-text-ligther" to="/itinerary">
+							<NavLink
+								className="btn is-secondary  is-text-ligther"
+								to={`/itinerary?${queryString.stringify({
+									routes: this.props.itineraryRoutes.map(route => route.id)
+								})}`}
+							>
 								go to itinerary
 							</NavLink>
 						</div>
@@ -108,7 +117,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 		dispatch(addRouteToItinerary(route));
 	},
 	removeFromItinerary(route) {
-		dispatch(removeRouteFromItinerary(route))
+		dispatch(removeRouteFromItinerary(route));
 	}
 });
 export default connect(

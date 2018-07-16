@@ -33,7 +33,6 @@ class FilterBtn extends Component {
 		const queryParams = queryString.stringify(params);
 		const response = await axios.get(`/api/filter_endpoint.php?${queryParams}`);
 		const apply = response;
-		console.log("apply:", apply);
 	}
 
     render() {
