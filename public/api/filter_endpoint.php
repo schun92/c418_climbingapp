@@ -10,22 +10,25 @@ $output = [
 ];
 
 
-//$rock = $_GET['rock'];
-$traditional = json_decode( $_GET['traditional'] );
-$topRope = json_decode( $_GET['topRope'] );
-$sport = json_decode( $_GET['sport'] );
-// $aid = $_GET['aid'];
-$boulder = json_decode( $_GET['boulder'] );
-// $ice = $_GET['ice'];
-// $snow = $_GET['snow'];
-$rockDiffMin = $_GET['rockDiffStart'];
-$rockDiffMax = $_GET['rockDiffEnd'];
-$boulderDiffMin = $_GET['boulderDiffStart'];
-$boulderDiffMax = $_GET['boulderDiffEnd'];
+//$rock = $_POST['rock'];
+$radius = json_decode( $_POST['radius'] );
+$traditional = json_decode( $_POST['traditional'] );
+$topRope = json_decode( $_POST['topRope'] );
+$sport = json_decode( $_POST['sport'] );
+// $aid = $_POST['aid'];
+$boulder = json_decode( $_POST['boulder'] );
+// $ice = $_POST['ice'];
+// $snow = $_POST['snow'];
+$rockDiffMin = $_POST['rockDiffStart'];
+$rockDiffMax = $_POST['rockDiffEnd'];
+$boulderDiffMin = $_POST['boulderDiffStart'];
+$boulderDiffMax = $_POST['boulderDiffEnd'];
+$mapCenterLat = $_POST['mapCenterLat'];
+$mapCenterLong = $_POST['mapCenterLong'];
 
 
 if($sport) {
-    $regex[] = 'sport';
+    $regex[] = 'sport?';
 }
 
 if($traditional) {
@@ -45,7 +48,7 @@ if($topRope) {
 // }
 
 if($boulder) {
-    $regex[] = 'boulder';
+    $regex[] = 'bou';
 }
 
 // if($ice) {
@@ -124,12 +127,19 @@ if($boulder){
 //AND `routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax}
 //AND `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'
 
-$query = "SELECT `locations`.`ID` AS 'Location ID', `locations`.`name`, `locations`.`avgLat`, `locations`.`avgLong`, COUNT(`routes`.`locationID`) AS 'Total Number of Routes With Filter', `routes`.`id` AS 'Route IDs'
+$query = "SELECT `locations`.`ID` AS 'Location ID', 
+`locations`.`name`, 
+`locations`.`avgLat`, 
+`locations`.`avgLong`, 
+COUNT(`routes`.`locationID`) AS 'Total Number of Routes With Filter', 
+`routes`.`id` AS 'Route IDs',
+`avgLat`, `avgLong`, `numRoutes`, SQRT( POW(69.1 * (`avgLat` - {$mapCenterLat}), 2) + POW(69.1 * ({$mapCenterLong} - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
     FROM `locations`
     JOIN `routes` ON `locations`.`ID` = `routes`.`locationID`
     WHERE LOWER(`type`) REGEXP '{$regexString}'
     {$difficultyString}
-    GROUP BY `routes`.`ID`";
+    GROUP BY `routes`.`ID`
+HAVING distance < {$radius}";
 
 // print($query);
 // exit();

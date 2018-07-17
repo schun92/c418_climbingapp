@@ -1,6 +1,6 @@
 import types from "../actions/types";
 
-function searchTermReducer(state = {}, action) {
+function mapReducer(state = {}, action) {
   if (action.type === types.SET_MAP_CENTER) {
     return action.payload;
   } else {
@@ -8,4 +8,4 @@ function searchTermReducer(state = {}, action) {
   }
 }
 
-export default searchTermReducer;
+export default mapReducer;

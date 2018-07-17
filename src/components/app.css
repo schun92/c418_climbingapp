@@ -2,8 +2,13 @@ body {
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-	font-family: "Quicksand", sans-serif;
+	font-family: "filson";
 	padding: 0;
+}
+
+@font-face{
+	font-family: filson;
+	src: url(../assets/fonts/Filson-Soft-Light-Webfont/Webfonts/filsonsoft_light_macroman/filsonsoft-light-webfont.woff);
 }
 
 a {
@@ -41,6 +46,7 @@ ul {
 	font-size: 1.5em;
 	outline: none;
 	border: none;
+	font-family: filson;
 }
 
 .btn.is-small {
@@ -52,13 +58,13 @@ ul {
 }
 
 .btn.is-primary {
-	background-color: #78a9d1;
-	color: white;
+	
+	color: black;
 }
 
 .btn.is-secondary {
-	background-color: #9ba8b2;
-	color: white;
+	background-color: #e0e7e0;
+	color: black;
 	text-align: center;
 }
 
@@ -87,11 +93,15 @@ ul {
 } */
 
 .navbar.is-primary {
-	background-color: #78a9d1;
+	background-color: #f2f0ec;
 }
 
 .is-text-white {
 	color: #e8ffe5;
+}
+
+.is-text-darker{
+	color: #70837e;
 }
 
 .is-text-lighter {
@@ -104,3 +114,5 @@ Photo by Daniel Leone on Unsplash */
 .text-center {
 	text-align: center;
 }
+
+/*test comment */

@@ -31,9 +31,7 @@ class RouteModal extends Component {
 		const queryParamsData = queryString.parse(search);
 		const queryParams = queryString.stringify({ ...queryParamsData, showModal: !this.props.show });
 		const newUrl = `${pathname}?${queryParams}`;
-		this.props.history.push(newUrl);
-
-		console.log('click');
+		this.props.history.replace(newUrl);
 	}
 
 	render() {
