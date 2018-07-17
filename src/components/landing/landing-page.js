@@ -37,6 +37,7 @@ class LandingPage extends Component {
 				<div className="landing-page">
 					<form onSubmit={this.handleFormSubmit}>
 						<input
+						    autoComplete="off"
 							name="location"
 							className="landing-page-input"
 							type="text"

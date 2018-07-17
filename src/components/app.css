@@ -31,6 +31,10 @@ ul {
 	color: #ffebcc;
 }
 
+input:focus {
+	outline: none;
+}
+
 .input {
 	font-size: 1.3em;
 	width: 80%;
