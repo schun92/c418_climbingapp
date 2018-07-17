@@ -19,19 +19,16 @@ for ($i=0; $i < count($routeArray); ++$i) {
     curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
     $jsonresult = curl_exec($handler);
-    $result = json_decode($jsonresult);
+    $result = json_decode($jsonresult, true);
+    $routes = $result['routes'][0];
 
-    $routes = $result->routes;
-    $routeID = $routes[$routeCount]->id;
-    $routeStar = $routes[$routeCount]->stars;
-    $routeStarvotes = $routes[$routeCount]->starVotes;
+    $routeID = $routes['id'];
+    $routeStar = $routes['stars'];
+    $routeStarvotes = $routes['starVotes'];
 
     $updatestarsquery = "UPDATE `routes` SET `stars` = '$routeStar', `star_votes` = '$routeStarvotes' WHERE `ID` = '$routeID'";
     $descripresult = mysqli_query($conn, $updatestarsquery);
 
     curl_close($handler);
 };
-
-
-
 ?>

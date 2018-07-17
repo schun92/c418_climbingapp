@@ -66,8 +66,8 @@ input:focus {
 }
 
 .btn.is-secondary {
-	background-color: #9ba8b2;
-	color: black;
+	background-color: #e0e7e0;
+	color: #70837f;
 	text-align: center;
 }
 

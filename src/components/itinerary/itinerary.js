@@ -154,7 +154,7 @@ class Itinerary extends Component {
 									placeholder="Email Address"
 								/>
 							</div>
-							<button type="submit" className="btn is-primary is-fullwidth is-uppercase">
+							<button type="submit" className="itinerary-button btn is-primary is-fullwidth">
 								Send My intinerary
 							</button>
 						</form>
