@@ -85,7 +85,7 @@ class RouteDetails extends Component {
 								{isAdded ? "remove from itinerary" : "add to itinerary"}
 							</button>
 							<NavLink
-								className="btn is-secondary  is-text-ligther bottom-btn"
+								className="btn bottom-btn"
 								to={`/itinerary?${queryString.stringify({
 									routes: this.props.itineraryRoutes.map(route => route.id)
 								})}`}
