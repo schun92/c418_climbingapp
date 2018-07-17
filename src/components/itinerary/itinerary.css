@@ -1,7 +1,3 @@
-.itinerary-page{
-	height: 80vh;
-}
-
 .itinerary-title h1 {
 	display: flex;
 	justify-content: center;
@@ -150,6 +146,7 @@
     justify-content: space-evenly;
     align-items: center;
 	flex-direction: column;
+	height: 100vh;
 	text-transform: lowercase;
 }
 
@@ -182,4 +179,6 @@
 	text-transform: lowercase
 }
 
-/* Test comment */
+.hide-itinerary{
+	display: none;
+}

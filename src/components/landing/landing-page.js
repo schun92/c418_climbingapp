@@ -8,9 +8,7 @@ import Loading from '../loading';
 class LandingPage extends Component {
 	constructor(props) {
 		super(props);
-
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
 		this.state = {
 			loading: false
 		}
