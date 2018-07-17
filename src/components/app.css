@@ -6,7 +6,7 @@ body {
 	padding: 0;
 }
 
-@font-face{
+@font-face {
 	font-family: filson;
 	src: url(../assets/fonts/Filson-Soft-Light-Webfont/Webfonts/filsonsoft_light_macroman/filsonsoft-light-webfont.woff);
 }
@@ -24,13 +24,13 @@ ul {
 }
 
 .colors {
-	color: #78a9d1;
-	color: #dff1ff;
-	color: #9ba8b2;
-	color: #a79d8d;
-	color: #ffebcc;
+	color: #f1f0ec;
+	color: #e0e7e0;
+	color: #b0b0b0;
+	color: #96a2a0;
+	color: #8a908c;
+	color: #70837f;
 }
-
 input:focus {
 	outline: none;
 }
@@ -62,7 +62,6 @@ input:focus {
 }
 
 .btn.is-primary {
-	
 	color: black;
 }
 
@@ -104,7 +103,7 @@ input:focus {
 	color: #e8ffe5;
 }
 
-.is-text-darker{
+.is-text-darker {
 	color: #70837e;
 }
 
