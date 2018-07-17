@@ -157,6 +157,7 @@ class Itinerary extends Component {
 
 	render() {
 		const { handleSubmit } = this.props;
+		
 
 		if (!this.state.loading) {
 			return (
@@ -167,7 +168,8 @@ class Itinerary extends Component {
 					<section className="cards">
 						{this.props.routes.map((route, index) => <Card key={index} route={route} />)}
 					</section>
-					<div>
+					<div className = {this.props.routes.length ? '' : "hide-itinerary"}>
+						
 						<form onSubmit={this.handleClick}>
 							<div>
 								<Field
