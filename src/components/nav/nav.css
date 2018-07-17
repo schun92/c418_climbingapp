@@ -83,6 +83,7 @@
 	width: 2em;
 	box-sizing: border-box;
 	position: relative;
+	
 }
 
 .navbar .burger-menu span {
@@ -124,4 +125,9 @@
 .navbar .burger-menu.close span:nth-child(3) {
 	transform: rotateZ(-45deg);
 	top: 50%;
+}
+
+.landing-burger{
+	display: flex;
+	justify-content: flex-end;
 }
