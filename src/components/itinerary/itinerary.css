@@ -1,3 +1,7 @@
+.itinerary-page{
+	height: 80vh;
+}
+
 .itinerary-title h1 {
 	display: flex;
 	justify-content: center;
