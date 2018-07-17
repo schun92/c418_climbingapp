@@ -10,7 +10,8 @@
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
-	height: 50%;
+	height: 35vh;
+	margin-top: 3.2em;
 }
 
 .title,
