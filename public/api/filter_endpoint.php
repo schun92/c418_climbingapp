@@ -119,10 +119,13 @@ else if (preg_match('/[0-9]{1,2}d/', $rockDiffMax)){
 }
 $difficultyString = '';
 if($traditional|$topRope|$sport){
-    $difficultyString = $difficultyString . "AND `routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax} ";
+    $difficultyString = $difficultyString . "`routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax} ";
 }
 if($boulder){
-    $difficultyString = $difficultyString . "AND `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'";
+    $difficultyString = $difficultyString . "OR `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'";
+}
+if($boulder && !$traditional && !$topRope && !$sport){
+    $difficultyString = $difficultyString . "`routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'";
 }
 //AND `routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax}
 //AND `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'
@@ -137,7 +140,7 @@ COUNT(`routes`.`locationID`) AS 'Total Number of Routes With Filter',
     FROM `locations`
     JOIN `routes` ON `locations`.`ID` = `routes`.`locationID`
     WHERE LOWER(`type`) REGEXP '{$regexString}'
-    {$difficultyString}
+    AND ({$difficultyString})
     GROUP BY `routes`.`ID`
 HAVING distance < {$radius}";
 
@@ -165,6 +168,7 @@ if(empty($result)) {
                 ];
             }
         }
+        $output['success'] = true;
     } else {
         $output['error'] = 'No Data';
     }
