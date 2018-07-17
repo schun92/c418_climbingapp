@@ -35,8 +35,8 @@ if (empty($routedescriptionresult)) {
             $startKey = "a_$id";
             $data = [];
             
-
-            $cleandescrip = strip_tags($description);
+            $descriptionhtmldecode = html_entity_decode($description);
+            $cleandescrip = strip_tags($descriptionhtmldecode);
             $descripwithslash = addslashes($cleandescrip);
 
             if(empty($descripwithslash)) {
