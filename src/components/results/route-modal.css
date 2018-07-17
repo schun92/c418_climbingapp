@@ -4,8 +4,8 @@
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(255, 255, 255, 0.95);
-	border-top: 1px solid #78a9d1;
+	background-color:#f1f0ec;
+	border-top: 1px solid #96a2a0;
 	box-sizing: border-box;
 	overflow-y: scroll;
 	transform-origin: 0 0;
@@ -29,10 +29,22 @@
 	padding: .2em 0em 0em 0em;
 }
 
-.routes-modal > p {
-	text-align: right;
+.routes-modal li p {
 	margin-right: 1em;
 }
+
+.route-name{
+	width: 50%;
+}
+
+.route-type{
+	width: 10%;
+}
+
+.route-difficulty{
+	width: 10%;
+}
+
 
 .routes-modal ul {
 	display: flex;
