@@ -7,6 +7,13 @@
 	height: calc(100vh - 3.2em);
 }
 
+@media only screen and (min-width: 450px) {
+	.landing-page {
+		background: url("../../assets/images/landing-page-design-desktop.jpg") no-repeat center center fixed;
+		background-size: contain;
+	}
+}
+
 /* color wheel */
 /* https://color.adobe.com/create/color-wheel/?base=2&rule=Triad&selected=0&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.13725490196078433,0.8,0.11764705882352941,0.24341692789923852,0.09999999999999998,1,0.02873563218417985,1,0,0.8,0.38635057471232354,0.07999999999999999,0.7,0.31794879469957665,0.03500000000000003&swatchOrder=0,1,2,3,4 */
 
