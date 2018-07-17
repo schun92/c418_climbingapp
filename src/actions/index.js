@@ -24,15 +24,18 @@ export function setMapCenter(lat, lng) {
 
 export function getLocations(searchTerm) {
 	return async dispatch => {
-		try{const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
-		console.log('response', response)
-		const { locations, mapCenterLat, mapCenterLon } = response.data.data;
-		dispatch(setLocations(locations));
-		dispatch(setMapCenter(mapCenterLat, mapCenterLon));
-	} catch(err){
-		console.log('get location error: ', err)
+		try {
+			const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
+			console.log('response', response)
+			const { locations, mapCenterLat, mapCenterLon } = response.data.data;
+			dispatch(setLocations(locations));
+			dispatch(setMapCenter(mapCenterLat, mapCenterLon));
+		} catch (err) {
+			console.log('get location error: ', err)
+		} finally {
+			
+		}
 	}
-}
 }
 
 export function setSelectedLocation(location) {
@@ -98,9 +101,9 @@ export function getItenaryRoutes(...routeIds) {
 			return axios.get(`/api/get_route_details.php?data=${id}`);
 		});
 		const responses = await Promise.all(routesPromises);
-	
-		try {const routes = responses.map(a => a.data.data[0])}
-		catch(err){console.log('ERROR', err)} 
+
+		try { const routes = responses.map(a => a.data.data[0]) }
+		catch (err) { console.log('ERROR', err) }
 		dispatch({
 			type: types.REPLACE_ROUTES_IN_ITINERARY,
 			payload: routes
