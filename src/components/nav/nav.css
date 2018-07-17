@@ -20,7 +20,6 @@
 	width: 100vw;
 	margin: 0;
 	padding: 0;
-	background-color: white;
 	box-sizing: border-box;
 	list-style-type: none;
 
@@ -29,7 +28,7 @@
 	align-items: center;
 	flex-flow: column wrap;
 
-	background-color: #B9C7D4;
+	background-color: #e0e7e0;
 	border-radius: 50%;
 
 	transform: translate(100%, 0);
@@ -47,6 +46,7 @@
 	margin: 0.5em auto;
 	width: 100%;
 	text-align: center;
+	
 }
 
 .navbar ul li:hover {
@@ -54,7 +54,7 @@
 }
 
 .navbar ul li a {
-	color: black;
+	color: #70837f;
 	text-decoration: none;
 	font-size: 2em;
 	text-transform: lowercase;
@@ -83,6 +83,7 @@
 	width: 2em;
 	box-sizing: border-box;
 	position: relative;
+	
 }
 
 .navbar .burger-menu span {
@@ -124,4 +125,9 @@
 .navbar .burger-menu.close span:nth-child(3) {
 	transform: rotateZ(-45deg);
 	top: 50%;
+}
+
+.landing-burger{
+	display: flex;
+	justify-content: flex-end;
 }

@@ -28,16 +28,19 @@ class Nav extends Component {
 
 	render() {
 		return (
-			<nav className="navbar is-primary is-text-darker">
+			<nav  className = {this.props.location.pathname === "/" ? "navbar is-primary is-text-darker landing-burger" : "navbar is-primary is-text-darker"}>
 				{this.props.location.pathname === "/" ? null : (
 					<i className="material-icons" onClick={this.goBack}>
 						arrow_back_ios
 					</i>
 				)}
-
-				<NavLink to="/">
+				
+				{this.props.location.pathname === "/" ? null : (<NavLink to="/">
 					<h1>pf</h1>
-				</NavLink>
+				</NavLink>)}
+
+				
+				
 
 				<div
 					className={this.state.showNavMenu ? "burger-menu close" : "burger-menu"}

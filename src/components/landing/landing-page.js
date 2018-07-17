@@ -37,6 +37,7 @@ class LandingPage extends Component {
 				<div className="landing-page">
 					<form onSubmit={this.handleFormSubmit}>
 						<input
+						    autoComplete="off"
 							name="location"
 							className="landing-page-input"
 							type="text"
@@ -45,7 +46,7 @@ class LandingPage extends Component {
 							value={searchTerm}
 						/>
 						<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter landing-button">
-							seach locations
+							go
 					</button>
 					</form>
 				</div>
