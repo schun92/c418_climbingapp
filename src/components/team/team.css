@@ -5,8 +5,8 @@
 
 .team-title{
     text-align: center;
-    text-transform: lowercase
-    
+    text-transform: lowercase;
+    margin-top: 2.5em;
 }
 
 .member {
