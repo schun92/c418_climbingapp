@@ -36,7 +36,6 @@ if ($err) {
         print_r($jsonoutput);
         exit;
     };
-    $jsonoutput = json_encode($output);
     
     $lat = $response->candidates[0]->geometry->location->lat;
     $lon = $response->candidates[0]->geometry->location->lng;

@@ -39,7 +39,7 @@ class Itinerary extends Component {
 	async handleAddItem(values) {
 		// await this.props.sendTodoItem(values)
 		// this.props.history.push('/');
-	}
+}
 
 	handleClick = async e => {
 		

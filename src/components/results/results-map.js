@@ -55,9 +55,11 @@ class RouteMap extends Component {
 	}
 
 	render() {
+
 		if(!this.props.locations.length){
 			return <NoResults />
 		}
+
 
 		return !this.props.mapCenter ? null : (
 			<Map

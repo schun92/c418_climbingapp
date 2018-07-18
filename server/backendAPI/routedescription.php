@@ -1,12 +1,12 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
-ini_set('max_execution_time', 15000000000);
+ini_set('max_execution_time', 15000);
 $output = [
 	'success'=> false,
 	'errors'=>[]
 ];
 
-$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes`";//" WHERE `hasdescription`=0";
+$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes` WHERE `hasdescription`=0";
 $routedescriptionresult = mysqli_query($conn, $routedescriptionquery);
 
 if (empty($routedescriptionresult)) {
@@ -38,7 +38,7 @@ if (empty($routedescriptionresult)) {
             $descriptionhtmldecode = html_entity_decode($description);
             $cleandescrip = strip_tags($descriptionhtmldecode);
             $descripwithslash = addslashes($cleandescrip);
-            print_r($descripwithslash);
+
             if(empty($descripwithslash)) {
                 $descripwithslash = "No description available.";
             }
