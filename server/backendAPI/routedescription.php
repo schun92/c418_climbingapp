@@ -1,12 +1,12 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
-ini_set('max_execution_time', 1500);
+ini_set('max_execution_time', 15000000000);
 $output = [
 	'success'=> false,
 	'errors'=>[]
 ];
 
-$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes` WHERE `hasdescription`=0";
+$routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes`";//" WHERE `hasdescription`=0";
 $routedescriptionresult = mysqli_query($conn, $routedescriptionquery);
 
 if (empty($routedescriptionresult)) {
@@ -18,7 +18,7 @@ if (empty($routedescriptionresult)) {
         while( $row = mysqli_fetch_assoc($routedescriptionresult)){
             $id = $row['id'];
             $descriptionURL = $row['routeURL'];
-
+            
             $handler = curl_init();
             curl_setopt($handler, CURLOPT_URL, "$descriptionURL");
             curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
@@ -28,7 +28,7 @@ if (empty($routedescriptionresult)) {
 
             $page = curl_exec($handler);
             $start = strpos($page, 'fr-view');
-            $testArea = substr($page, $start, 500);
+            $testArea = substr($page, $start, 2500);
             $start = strpos($testArea, 'fr-view');
             $end = strpos($testArea, '</div>', $start);
             $description = substr($testArea, $start+9, $end-$start-9);
@@ -38,7 +38,7 @@ if (empty($routedescriptionresult)) {
             $descriptionhtmldecode = html_entity_decode($description);
             $cleandescrip = strip_tags($descriptionhtmldecode);
             $descripwithslash = addslashes($cleandescrip);
-
+            print_r($descripwithslash);
             if(empty($descripwithslash)) {
                 $descripwithslash = "No description available.";
             }
@@ -48,7 +48,7 @@ if (empty($routedescriptionresult)) {
 
             };
 	    } else {
-		    $output['errors'][] = 'no data';
+		    $output['errors'] = 'no data';
 	    };
     };
 print_r($output['data']);
