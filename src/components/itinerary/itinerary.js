@@ -28,7 +28,6 @@ class Itinerary extends Component {
 
 	buildEmailCard(){
 	const mapImage = function(item){
-		console.log(item);
 		return (`
 			<div class ="card">	
 				<img src="${item.image}"/>              
@@ -53,7 +52,6 @@ class Itinerary extends Component {
 		this.setState({
 			emailSent: true
 		})
-		console.log(this.props.routes)
 		e.preventDefault();
 
 		var params = new URLSearchParams();
@@ -150,7 +148,6 @@ class Itinerary extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.props, "Props from itinerary component");	
 		const { routes } = queryString.parse(this.props.history.location.search);
 		Array.isArray(routes)
 			? this.props.getItenaryRoutes(...routes)
@@ -168,10 +165,7 @@ class Itinerary extends Component {
 	}
 	
 	emailSentMsg(){
-		console.log('function called');
-		console.log(this.state.emailSent, "state")
 		if(this.state.emailSent){
-			console.log("hit1");
 			 return (
 				 <p className="email-sent-msg">email sent</p>
 			 )

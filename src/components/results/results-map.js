@@ -28,17 +28,13 @@ class RouteMap extends Component {
 	async componentDidMount() {
 		await this.props.getLocationsData();
 		
-		console.log('LOCATION PROPS',  this.props)
 		const params = queryString.parse(this.props.history.location.search);
 		const { avgLat, avgLong, ID } = params;
 		if (ID) {
 			this.props.handleLocationSelect(params);
 			this.props.setMapCenter(avgLat, avgLong);
 		}
-		// if(!this.props.locations.length){
-		// 	console.log('no results');
-			
-		// }
+		
 		
 	}
 
@@ -60,7 +56,6 @@ class RouteMap extends Component {
 
 	render() {
 
-		console.log('LOCATION', this.props.locations)
 		if(this.props.locations == null){
 			return (
 				<NoResults />

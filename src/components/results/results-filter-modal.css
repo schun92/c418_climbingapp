@@ -17,12 +17,11 @@
 
 .filter-modal-body {
 	box-sizing: border-box;
-	background-color: #fff;
+	background-color: #f2f0ec;
 	color: black;
 	padding: 0.5em 1em;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: space-evenly;
 	height: 100%;
 }
 
@@ -37,10 +36,19 @@
 }
 
 .filter-modal-header {
+	height: 3em;
 	display: flex;
+	flex-flow: row wrap;
 	justify-content: space-between;
-	border-bottom: 1px solid #9ba8b2;
-	padding-bottom: 1em;
+	align-items: center;
+	border-bottom: 1px solid black;
+}
+
+.filter-form {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	height: 100%;
 }
 
 .categories {

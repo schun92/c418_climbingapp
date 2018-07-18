@@ -10,7 +10,7 @@ class FilterBtn extends Component {
 		super(props);
 
 		this.state = {
-			showFilterModal: false
+			showFilterModal: true
 		};
 
 		this.toggle = this.toggle.bind(this);

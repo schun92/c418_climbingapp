@@ -34,7 +34,6 @@ class RouteDetails extends Component {
 
 	render() {
 
-		console.log(this.props.itineraryRoutes);
 		let content;
 		if (this.props.selectedRoute) {
 			const {

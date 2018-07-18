@@ -21,7 +21,6 @@ class Card extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props, "This is props passed from itinerary component to card")
 	}
 
 	handleClick() {

@@ -9,9 +9,9 @@ import filterOptions from "./filterOptions";
 
 const renderCheckBox = ({ label, input, meta: { touched, error }, type }) => {
 	return (
-		<div className="form-component">
-			<label className="">{label}</label>
+		<div className="checkbox-container">
 			<input className="" {...input} type={type} autoComplete="off" />
+			<label className="">{label}</label>
 		</div>
 	);
 };
@@ -28,7 +28,7 @@ class FilterModal extends Component {
 							DONE
 						</button>
 					</div>
-					<form onSubmit={handleSubmit(this.props.apply)}>
+					<form onSubmit={handleSubmit(this.props.apply)} className="filter-form">
 						<h2>Categories</h2>
 						<div className="categories">
 							<Field
