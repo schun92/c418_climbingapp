@@ -1,17 +1,20 @@
 
 .thumbnail {
-	height: 35vh;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
 		url("../../assets/images/mountain_bg.jpg");
 	background-size: cover;
 	background-position: center;
-
+	margin-top: 3.2em;
 	display: flex;
 	color: white;
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
+	height: 35vh;
+	margin-top: 3.2em;
 }
+
+
 
 .title,
 .subtitle,
@@ -47,6 +50,10 @@
 	margin-top: 0.5em;
 }
 
+.detail-container{
+	height: 100vh;
+}
+
 .description {
 	margin: 1em auto 2em auto;
 }
@@ -70,4 +77,10 @@
 .bar div p:first-child {
 	font-size: 1em;
 	font-weight: bold;
+}
+
+ .bottom-btn{
+	background-color: #e0e7e0;
+	margin-top: 5%;
+	text-align: center;
 }

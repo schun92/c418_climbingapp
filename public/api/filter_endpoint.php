@@ -124,6 +124,9 @@ if($traditional|$topRope|$sport){
 if($boulder){
     $difficultyString = $difficultyString . "OR `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'";
 }
+if($boulder && !$traditional && !$topRope && !$sport){
+    $difficultyString = $difficultyString . "`routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'";
+}
 //AND `routes`.`rock_difficulty` BETWEEN {$rockDiffMin} AND {$rockDiffMax}
 //AND `routes`.`boulder_difficulty` BETWEEN '{$boulderDiffMin}' AND '{$boulderDiffMax}'
 
@@ -165,6 +168,7 @@ if(empty($result)) {
                 ];
             }
         }
+        $output['success'] = true;
     } else {
         $output['error'] = 'No Data';
     }

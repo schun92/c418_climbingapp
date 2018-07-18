@@ -1,7 +1,8 @@
 .navbar {
 	height: 3.2em;
 	width: 100%;
-
+	position: fixed;
+	top: 0;
 
 	display: flex;
 	justify-content: space-between;
@@ -50,7 +51,7 @@
 }
 
 .navbar ul li:hover {
-	background-color: rgb(162, 166, 170);
+	background-color: #f1f0ec;
 }
 
 .navbar ul li a {

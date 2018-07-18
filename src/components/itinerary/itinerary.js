@@ -18,12 +18,32 @@ class Itinerary extends Component {
 		};
 	}
 
+	buildEmailCard(){
+	const mapImage = function(item){
+		console.log(item);
+		return (`
+			<div class ="card">	
+				<img src="${item.image}"/>              
+			<div class="card-content">
+				<div>${item.name}</div>
+				<div>${item.location}</div>
+				<div>${item.difficulty}</div>
+				<div>${item.description}</div>
+			</div>
+		</div>`)
+	}
+		return this.props.routes.map(mapImage);
+		
+	}
+
 	async handleAddItem(values) {
 		// await this.props.sendTodoItem(values)
 		// this.props.history.push('/');
 }
 
 	handleClick = async e => {
+		
+		console.log(this.props.routes)
 		e.preventDefault();
 
 		var params = new URLSearchParams();
@@ -58,56 +78,60 @@ class Itinerary extends Component {
       }  
       
       .card {
-          height: 16em;
-          width: 100%;
+          height: auto;
+          width: auto;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-          margin-bottom: 1em;
-        }
+					margin-bottom: 1em;
+					padding: .5em;
+					display: flex;
+					box-sizing: border-box;
+					align-items: center
+				}
 
       .card img{
-        height: 50%;
+        height: 14em;
         background-position: center;
         background-size: cover;
         position: relative;
-        display: flex;
+				display: flex;
+				margin-right: .5em;
       }
 
       .card-content {
+				height: auto
         padding: .8em;
         align-items: center;
         box-sizing: border-box;
-        font-family: "Quicksand", sans-serif;
-      }
+				font-family: "Quicksand", sans-serif;
+				display: flex;
+				flex-flow: column wrap;
+			}
+			
+			@media only screen and (max-width: 600px){
+				.card {
+				 display: flex;
+				 flex-flow: column wrap;
+				 justify-content: center;
+				}
+
+				.card img { 
+					width: 18em;
+					height: auto;
+					text-align: center;
+					display: block;
+					background-size: contain;
+				}
+			}
+
+			.card-content div{
+				padding-top: .3em;
+			}
       </style>
     <body>  
       <h1>Thank you for using Peaky Finder, here's your itinerary! Enjoy your climb, by order of the Peaky Finders!</h1>
       <div class="cards">
-        <div class="card">
-
-          <img src=${this.props.routes[0].image}>
-            
-              <div class='card-content'>
-                  <div>${this.props.routes[0].name}</div>
-                  <div>${this.props.routes[0].location}</div>
-                  <div>${this.props.routes[0].difficulty}</div>
-                  <div>${this.props.routes[0].description}</div>
-              </div>
-        
-        </div>
-        <div class="card">
-          <img src=${this.props.routes[1].image}>
-              
-            <div class='card-content'>
-              <div>${this.props.routes[1].name}</div>
-              <div>${this.props.routes[1].location}</div>
-              <div>${this.props.routes[1].difficulty}</div>
-              <div>${this.props.routes[1].description}</div> 
-            </div>
-       </div>   
-      </div> 
-
-
-
+			${this.buildEmailCard()}
+			</div>
     </body>
     </html>`
 		);
@@ -133,6 +157,7 @@ class Itinerary extends Component {
 
 	render() {
 		const { handleSubmit } = this.props;
+		
 
 		if (!this.state.loading) {
 			return (
@@ -143,7 +168,8 @@ class Itinerary extends Component {
 					<section className="cards">
 						{this.props.routes.map((route, index) => <Card key={index} route={route} />)}
 					</section>
-					<div>
+					<div className = {this.props.routes.length ? '' : "hide-itinerary"}>
+						
 						<form onSubmit={this.handleClick}>
 							<div>
 								<Field

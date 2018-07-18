@@ -10,7 +10,6 @@
 	width: 100%;
 	padding: 0.5em;
 	box-sizing: border-box;
-
 	display: flex;
 	flex-flow: column wrap;
 	justify-content: center;
@@ -23,7 +22,6 @@
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	margin-bottom: 1em;
 }
-
 .card.expand {
 	height: auto;
 }
@@ -147,8 +145,10 @@
 	display: flex;
     justify-content: space-evenly;
     align-items: center;
-	flex-direction: column;
+	flex-flow: row wrap;
+	height: 100vh;
 	text-transform: lowercase;
+	margin-top: 3.2em;
 }
 
 .itinerary-input{
@@ -180,4 +180,6 @@
 	text-transform: lowercase
 }
 
-/* Test comment */
+.hide-itinerary{
+	display: none;
+}
