@@ -4,7 +4,7 @@
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 
 //Queries database to get locations where latitudes repeat for multiple locations
-$query = "SELECT `ID`, `avgLat`, COUNT(`avgLat`) AS 'match_lat' FROM `locations` GROUP BY `avgLat`, `avgLong` ORDER BY COUNT(`avgLat`) DESC";
+$query = "SELECT `ID`, `avgLat`, COUNT(`avgLat`) AS 'match_lat' FROM `locations` GROUP BY `avgLat` ORDER BY COUNT(`avgLat`) DESC";
 $result = mysqli_query($conn,$query);
 
 //Sorts through the query result to save latitudes that are repeated
@@ -54,6 +54,6 @@ for ( $lat_i = 0; $lat_i < count($overlap_lat); $lat_i++ ){
     $query = "UPDATE `locations` SET `avgLat`=$avgLat WHERE `id`=$id";
     $result = mysqli_query($conn,$query);
     }
-    
+
     $locs_with_same_lats = null;
 }
