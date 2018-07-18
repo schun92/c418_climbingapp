@@ -134,7 +134,7 @@ $query = "SELECT `locations`.`ID` AS 'Location ID',
 `locations`.`name`, 
 `locations`.`avgLat`, 
 `locations`.`avgLong`, 
-COUNT(`routes`.`locationID`) AS 'Total Number of Routes With Filter', 
+COUNT(`routes`.`locationID`) AS 'numRoutes', 
 `routes`.`id` AS 'Route IDs',
 `avgLat`, `avgLong`, `numRoutes`, SQRT( POW(69.1 * (`avgLat` - {$mapCenterLat}), 2) + POW(69.1 * ({$mapCenterLong} - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
     FROM `locations`
@@ -157,14 +157,15 @@ if(empty($result)) {
             $areaID = $row['Location ID'];
             if(isset($output['data'][$areaID])) {
                 $output['data'][$areaID]['Route IDs'] .= ',' . $row['Route IDs'];
-                $output['data'][$areaID]['Total Number of Routes With Filter'] += 1;
+                $output['data'][$areaID]['numRoutes'] += 1;
             } else {
                 $output['data'][$areaID] = [
                     'name' => $row['name'],
                     'avgLat' => $row['avgLat'],
                     'avgLong' => $row['avgLong'],
-                    'Total Number of Routes With Filter' => $row['Total Number of Routes With Filter'],
-                    'Route IDs' => $row['Route IDs']
+                    'numRoutes' => $row['numRoutes'],
+                    'Route IDs' => $row['Route IDs'],
+                    'ID' => $areaID
                 ];
             }
         }

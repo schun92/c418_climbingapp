@@ -59,6 +59,7 @@ class RouteMap extends Component {
 	}
 
 	render() {
+
 		console.log('LOCATION', this.props.locations)
 		if(this.props.locations == null){
 			return (
@@ -86,7 +87,7 @@ class RouteMap extends Component {
 					return (
 						<Marker
 							label={{
-								text: location.numRoutes,
+								text: location.numRoutes.toString(),
 								color: "white"
 							}}
 							onClick={this.handleMarkerClick}

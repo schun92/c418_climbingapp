@@ -1,5 +1,6 @@
 import axios from "axios";
 import types from "./types";
+import { objectToURLSearchParams } from "../utils/utility";
 
 export function setSearchTerm(searchTerm) {
 	return {
@@ -47,7 +48,27 @@ export function getLocations(searchTerm) {
 		} catch (err) {
 			console.log('get location error: ', err)
 		}
-	}
+	};
+}
+
+export function getFilteredLocation(filter) {
+	return async dispatch => {
+		try {
+			const urlSearchParams = objectToURLSearchParams({
+				...filter,
+				radius: 35,
+				mapCenterLat: 33.6845673,
+				mapCenterLong: -117.8265049
+			});
+
+			const response = await axios.post(`/api/filter_endpoint.php`, urlSearchParams);
+			const locations = response.data.data;
+			//the response is returning an object instead of array so it had to be converted
+			dispatch(setLocations(Object.values(locations)));
+		} catch (err) {
+			console.log("getFilteredLocation: ", err);
+		}
+	};
 }
 
 export function setSelectedLocation(location) {
@@ -114,8 +135,11 @@ export function getItenaryRoutes(...routeIds) {
 		});
 		const responses = await Promise.all(routesPromises);
 
-		try { const routes = responses.map(a => a.data.data[0]) }
-		catch (err) { console.log('ERROR', err) }
+		try {
+			const routes = responses.map(a => a.data.data[0]);
+		} catch (err) {
+			console.log("ERROR", err);
+		}
 		dispatch({
 			type: types.REPLACE_ROUTES_IN_ITINERARY,
 			payload: routes
