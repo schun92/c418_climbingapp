@@ -3,7 +3,6 @@
 //routeList=106070976,105903225,105870999
 header("Access-Control-Allow-Origin: *");
 $routeList = $_GET['routeList'];
-
 require 'mysql_connect.php';
 
 $output = [
