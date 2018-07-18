@@ -28,13 +28,14 @@ if ($err) {
     if($status === 'ZERO_RESULTS') {
         $output['error']="zero_results";
         $jsonoutput = json_encode($output);
+        print_r($jsonoutput);
         exit;
     } else if ($status === 'INVALID_REQUEST') {
         $output['error']="invalid_request";
         $jsonoutput = json_encode($output);
+        print_r($jsonoutput);
         exit;
     };
-    $jsonoutput = json_encode($output);
     
     $lat = $response->candidates[0]->geometry->location->lat;
     $lon = $response->candidates[0]->geometry->location->lng;
