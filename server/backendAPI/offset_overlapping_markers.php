@@ -1,7 +1,6 @@
 <?php
 //Finds locations that have the same latitude and longitude and offsets them 
 //so that they do not overlap on the map. 
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 
 //Queries database to get locations where latitudes repeat for multiple locations
 $query = "SELECT `ID`, `avgLat`, COUNT(`avgLat`) AS 'match_lat' FROM `locations` GROUP BY `avgLat` ORDER BY COUNT(`avgLat`) DESC";
