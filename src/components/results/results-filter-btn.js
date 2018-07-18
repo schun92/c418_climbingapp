@@ -36,9 +36,9 @@ class FilterBtn extends Component {
 		};
         
         var urlParams = new URLSearchParams();
-        urlParams.append('traditional', true);
-        urlParams.append('topRope', true);
-        urlParams.append('sport', true);
+        urlParams.append('traditional', false);
+        urlParams.append('topRope', false);
+        urlParams.append('sport', false);
         urlParams.append('boulder', true);
         urlParams.append('rockDiffStart', '5.5');
         urlParams.append('rockDiffEnd', '5.15d');
@@ -50,7 +50,7 @@ class FilterBtn extends Component {
         
 		const response = await axios.post(`/api/filter_endpoint.php`, urlParams);
         console.log(Object.values(response.data.data).length);
-	}
+	} 
 
     render() {
         return (

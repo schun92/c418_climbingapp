@@ -26,10 +26,14 @@ class RouteDetails extends Component {
 		const { itineraryRoutes, selectedRoute } = this.props;
 		if (itineraryRoutes.find(route => route.id === selectedRoute.id) == null) {
 			this.props.addToItinerary(this.props.selectedRoute);
+		} else {
+			this.props.removeFromItinerary(this.props.selectedRoute);
 		}
 	}
 
 	render() {
+
+		console.log(this.props.itineraryRoutes);
 		let content;
 		if (this.props.selectedRoute) {
 			const {
