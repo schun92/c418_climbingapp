@@ -24,7 +24,11 @@ class FilterBtn extends Component {
 	async handleApplyClick(formValues) {
 		this.toggle();
 
-		this.props.getFilteredLocation(formValues);
+		this.props.getFilteredLocation({
+			...formValues,
+			mapCenterLat: this.props.mapCenter.lat,
+			mapCenterLong: this.props.mapCenter.lng
+		});
 	}
 
 	render() {
@@ -49,6 +53,10 @@ class FilterBtn extends Component {
 	}
 }
 
+const mapStateToProps = state => ({
+	mapCenter: state.map.center
+});
+
 const mapDispatchToProps = dispatch => {
 	return {
 		getFilteredLocation: filterParams => dispatch(getFilteredLocation(filterParams))
@@ -56,6 +64,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(FilterBtn);
