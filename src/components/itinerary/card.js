@@ -29,7 +29,7 @@ class Card extends Component {
 		});
 	}
 	handleXClick() {
-		this.props.removeRoute(this.props.route.id);
+		this.props.removeRoute(this.props.route);
 	}
 
 	render() {
@@ -38,7 +38,6 @@ class Card extends Component {
 			img = stockPhoto;
 		}
 		return (
-
 			<div className={this.state.expandCard ? "card expand" : "card"}>
 				<div className="card-image" style={{ backgroundImage: `url(${img})` }}>
 					<div className='top-left-text'><p>{this.props.route.difficulty}</p></div>

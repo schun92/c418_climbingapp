@@ -27,26 +27,24 @@ export function clearLocationData() {
 	return {
 		type: types.CLEAR_LOCATION_DATA,
 		payload: []
-	}
+	};
 }
 
 export function getLocations(searchTerm) {
-
 	return async dispatch => {
 		try {
 			dispatch(clearLocationData()); //Clear previous data before filling the array again to check for invalid search
 			const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
-			
-			if(response.data.error){
-				dispatch(setLocations(null))
-			}
-			else{
+
+			if (response.data.error) {
+				dispatch(setLocations(null));
+			} else {
 				const { locations, mapCenterLat, mapCenterLon } = response.data.data;
 				dispatch(setLocations(locations));
 				dispatch(setMapCenter(mapCenterLat, mapCenterLon));
 			}
 		} catch (err) {
-			console.log('get location error: ', err)
+			console.log("get location error: ", err);
 		}
 	};
 }
@@ -135,12 +133,12 @@ export function getItenaryRoutes(...routeIds) {
 
 		try {
 			const routes = responses.map(a => a.data.data[0]);
+			dispatch({
+				type: types.REPLACE_ROUTES_IN_ITINERARY,
+				payload: routes
+			});
 		} catch (err) {
 			console.log("ERROR", err);
 		}
-		dispatch({
-			type: types.REPLACE_ROUTES_IN_ITINERARY,
-			payload: routes
-		});
 	};
 }
