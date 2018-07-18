@@ -43,7 +43,7 @@ for ( $lat_i = 0; $lat_i < count($overlap_lat); $lat_i++ ){
     for ( $loc_i = 1; $loc_i < count($locs_with_same_lats); $loc_i++ ){
         if($locs_with_same_lats[$loc_i]['avgLat'] === $lat_this_arr 
         && $locs_with_same_lats[$loc_i]['avgLong'] === $lon_this_arr){
-            $locs_with_same_lats[$loc_i]['avgLat'] -= ($loc_i/10000);
+            $locs_with_same_lats[$loc_i]['avgLat'] -= ($loc_i/10000*4);
         }
     }
 
