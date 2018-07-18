@@ -23,6 +23,7 @@ class RouteDetails extends Component {
 	}
 
 	handleClick() {
+		//create a cookie or local storage here.
 		const { itineraryRoutes, selectedRoute } = this.props;
 		if (itineraryRoutes.find(route => route.id === selectedRoute.id) == null) {
 			this.props.addToItinerary(this.props.selectedRoute);

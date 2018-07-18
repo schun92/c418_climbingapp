@@ -20,6 +20,10 @@ class Card extends Component {
 		this.handleXClick = this.handleXClick.bind(this);
 	}
 
+	componentDidMount() {
+		console.log(this.props, "This is props passed from itinerary component to card")
+	}
+
 	handleClick() {
 		this.setState({
 			expandCard: !this.state.expandCard

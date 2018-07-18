@@ -8,13 +8,21 @@ import Card from "./card";
 import Loading from "../loading";
 import queryString from "query-string";
 
+const email = value =>
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+  'Invalid email address' : undefined
+
+
 class Itinerary extends Component {
 	constructor(props) {
 		super(props);
-
+		//create a state that will take routes from route-details.js Stored cookie or local storage
+		// use this state to render card.js instead of the props. 
+		//make sure to always updatede the Cookie or local storage every time user changes the location.
 		this.state = {
 			itineraryItems: {},
-			loading: false
+			loading: false,
+			emailSent: false
 		};
 	}
 
@@ -39,10 +47,12 @@ class Itinerary extends Component {
 	async handleAddItem(values) {
 		// await this.props.sendTodoItem(values)
 		// this.props.history.push('/');
-}
+	}
 
 	handleClick = async e => {
-		
+		this.setState({
+			emailSent: true
+		})
 		console.log(this.props.routes)
 		e.preventDefault();
 
@@ -136,9 +146,11 @@ class Itinerary extends Component {
     </html>`
 		);
 		await axios.post("/api/mail_handler.php", params);
+		
 	};
 
 	componentDidMount() {
+		console.log(this.props, "Props from itinerary component");	
 		const { routes } = queryString.parse(this.props.history.location.search);
 		Array.isArray(routes)
 			? this.props.getItenaryRoutes(...routes)
@@ -153,6 +165,18 @@ class Itinerary extends Component {
 				<p className="error-text">{touched && error}</p>
 			</div>
 		);
+	}
+	
+	emailSentMsg(){
+		console.log('function called');
+		console.log(this.state.emailSent, "state")
+		if(this.state.emailSent){
+			console.log("hit1");
+			 return (
+				 <p className="email-sent-msg">email sent</p>
+			 )
+		}
+		return
 	}
 
 	render() {
@@ -178,8 +202,10 @@ class Itinerary extends Component {
 									component={this.renderInput}
 									label="Email Address: "
 									placeholder="Email Address"
+									validate={email}
 								/>
 							</div>
+								{this.emailSentMsg()}
 							<button type="submit" className="itinerary-button btn is-primary is-fullwidth">
 								Send My intinerary
 							</button>
