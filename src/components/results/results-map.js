@@ -52,7 +52,6 @@ class RouteMap extends Component {
 	}
 
 	render() {
-		console.log(this.props.locations);
 		return !this.props.mapCenter ? null : (
 			<Map
 				styles={mapStyle}
@@ -68,7 +67,7 @@ class RouteMap extends Component {
 					return (
 						<Marker
 							label={{
-								text: location.numRoutes,
+								text: location.numRoutes.toString(),
 								color: "white"
 							}}
 							onClick={this.handleMarkerClick}
