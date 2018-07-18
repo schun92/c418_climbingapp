@@ -7,7 +7,7 @@ import { getLocations } from "../../actions";
 import { withRouter } from "react-router-dom";
 import queryString from "query-string";
 import Loading from "../loading";
-
+import NoResults from "./no-results-modal";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const style = {
@@ -27,12 +27,19 @@ class RouteMap extends Component {
 
 	async componentDidMount() {
 		await this.props.getLocationsData();
+		
+		console.log('LOCATION PROPS',  this.props)
 		const params = queryString.parse(this.props.history.location.search);
 		const { avgLat, avgLong, ID } = params;
 		if (ID) {
 			this.props.handleLocationSelect(params);
 			this.props.setMapCenter(avgLat, avgLong);
 		}
+		// if(!this.props.locations.length){
+		// 	console.log('no results');
+			
+		// }
+		
 	}
 
 	handleMapClick() {
@@ -52,7 +59,20 @@ class RouteMap extends Component {
 	}
 
 	render() {
-		return !this.props.mapCenter ? null : (
+
+		console.log('LOCATION', this.props.locations)
+		if(this.props.locations == null){
+			return (
+				<NoResults />
+			)
+		}
+		if (!this.props.locations.length){
+			
+			return(
+				<Loading />
+			)
+		}
+		return  (
 			<Map
 				styles={mapStyle}
 				google={this.props.google}

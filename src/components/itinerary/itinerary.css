@@ -183,3 +183,8 @@
 .hide-itinerary{
 	display: none;
 }
+
+.email-sent-msg{
+	text-align: center;
+	color: green;
+}
