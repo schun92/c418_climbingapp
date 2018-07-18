@@ -7,10 +7,31 @@
 	height: calc(100vh - 3.2em);
 }
 
-@media  (min-aspect-ratio: 470/710) {
+@media only all and (max-width: 530px) and (min-aspect-ratio: 400/610) {
 	.landing-page {
-		background-image: none;
-		/* background-color: aqua; */
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center;
+	}
+}
+
+@media only all and (min-width: 530px) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center;
+	}
+}
+
+@media only all and (min-width: 450px) and (min-aspect-ratio: 850/440) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center top;
+	}
+}
+
+@media only all and (min-width: 450px) and (min-aspect-ratio: 1000/465) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop-flat-row.jpg");
+		background-position: center top;
 	}
 }
 
