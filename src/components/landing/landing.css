@@ -1,5 +1,5 @@
 .landing-page {
-	background: url("../../assets/images/landing-page-design.PNG");
+	background-image: url("../../assets/images/landing-page-design.PNG");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -7,10 +7,10 @@
 	height: calc(100vh - 3.2em);
 }
 
-@media only screen and (min-width: 450px) {
+@media  (min-aspect-ratio: 470/710) {
 	.landing-page {
-		background: url("../../assets/images/landing-page-design-desktop.jpg") no-repeat center center fixed;
-		background-size: contain;
+		background-image: none;
+		/* background-color: aqua; */
 	}
 }
 
