@@ -28,10 +28,12 @@ if ($err) {
     if($status === 'ZERO_RESULTS') {
         $output['error']="zero_results";
         $jsonoutput = json_encode($output);
+        print_r($jsonoutput);
         exit;
     } else if ($status === 'INVALID_REQUEST') {
         $output['error']="invalid_request";
         $jsonoutput = json_encode($output);
+        print_r($jsonoutput);
         exit;
     };
     $jsonoutput = json_encode($output);

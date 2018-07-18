@@ -27,14 +27,12 @@ export function getLocations(searchTerm) {
 		try {
 			const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
 			console.log('response', response)
-			const { locations, mapCenterLat, mapCenterLon } = response.data.data;
-			dispatch(setLocations(locations));
+			const { locations, mapCenterLat, mapCenterLon, error } = response.data.data;
+			dispatch(setLocations(locations, error));
 			dispatch(setMapCenter(mapCenterLat, mapCenterLon));
 		} catch (err) {
 			console.log('get location error: ', err)
-		} finally {
-			
-		}
+		} 
 	}
 }
 

@@ -7,6 +7,8 @@ import { getLocations } from "../../actions";
 import { withRouter } from "react-router-dom";
 import queryString from "query-string";
 import Loading from "../loading";
+import NoResults from './no-results-modal';
+import './no-results-modal.css'
 
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
@@ -27,6 +29,7 @@ class RouteMap extends Component {
 
 	async componentDidMount() {
 		await this.props.getLocationsData();
+		console.log('location props', this.props)
 		const params = queryString.parse(this.props.history.location.search);
 		const { avgLat, avgLong, ID } = params;
 		if (ID) {
@@ -52,6 +55,10 @@ class RouteMap extends Component {
 	}
 
 	render() {
+		if(!this.props.locations.length){
+			return <NoResults />
+		}
+
 		return !this.props.mapCenter ? null : (
 			<Map
 				styles={mapStyle}
