@@ -74,7 +74,7 @@ class RouteDetails extends Component {
 						<p className="description">{description}</p>
 						<div className="btn-group">
 							<button
-								className="btn is-primary is-text-ligther itinerary-toggle top-btn"
+								className="btn is-primary is-text-ligther itinerary-toggle itinerary-button top-btn"
 								onClick={this.handleClick}
 							>
 								{this.props.itineraryRoutes.find(route => route.id === this.props.selectedRoute.id) == null ? "add to itinerary" : "remove from itinerary"}

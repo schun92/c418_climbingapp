@@ -8,6 +8,7 @@ import Card from "./card";
 import Loading from "../loading";
 import queryString from "query-string";
 import NoResults from '../results/no-results-modal';
+import info from '../../assets/images/icons/info.svg'
 
 class Itinerary extends Component {
 	constructor(props) {
@@ -18,16 +19,19 @@ class Itinerary extends Component {
 		this.state = {
 			itineraryItems: {},
 			loading: false,
-			emailSent: false
+			emailSent: false,
+			iconClick: false
+			
 		};
 
 		this.renderInput = this.renderInput.bind(this);
 		this.removeEmailSentWhenFormAlreadySubmits = this.removeEmailSentWhenFormAlreadySubmits.bind(this);
+		this.handleIconClick = this.handleIconClick.bind(this)
 	}
 
-	buildEmailCard(){
-	const mapImage = function(item){
-		return (`
+	buildEmailCard() {
+		const mapImage = function (item) {
+			return (`
 			<div class ="card">	
 				<img src="${item.image}"/>              
 			<div class="card-content">
@@ -37,26 +41,32 @@ class Itinerary extends Component {
 				<div>${item.description}</div>
 			</div>
 		</div>`)
-	}
+		}
 		return this.props.routes.map(mapImage);
-		
-	}
 
+	}
+	
 	async handleAddItem(values) {
 		// await this.props.sendTodoItem(values)
 		// this.props.history.push('/');
 	}
 
+	handleIconClick(){
+		this.setState({
+			iconClick: !this.state.iconClick
+		})
+	}
+
 	handleClick = async e => {
-	e.preventDefault();
-		if(!this.props.valid){
+		e.preventDefault();
+		if (!this.props.valid) {
 			return;
 		}
 
 		this.setState({
 			emailSent: true
 		})
-		
+
 
 		var params = new URLSearchParams();
 		params.append("email", this.props.emailInput.values.email);
@@ -149,7 +159,7 @@ class Itinerary extends Component {
 		);
 		await axios.post("/api/mail_handler.php", params);
 
-		
+
 	};
 
 	componentDidMount() {
@@ -168,7 +178,7 @@ class Itinerary extends Component {
 		return (
 			<div className="form-component">
 				<label className="itinerary-label">{label}</label>
-				<input className="itinerary-input" {...input} type="text" autoComplete="off" />
+				<input className="itinerary-input" {...input} type="text" autoComplete="off" placeholder='email address' />
 				<p className="error-text">{touched && error}</p>
 			</div>
 		);
@@ -183,7 +193,7 @@ class Itinerary extends Component {
 			});
 		}
 	}
-	
+
 
 	// emailSentMsg(){
 	// 	if(this.state.emailSent){
@@ -197,12 +207,12 @@ class Itinerary extends Component {
 
 	render() {
 		const { handleSubmit } = this.props;
-		
-		if(!this.props.routes.length){
-            return (
-                <NoResults text="no itinerary yet" />
-            )
-        }
+
+		if (!this.props.routes.length) {
+			return (
+				<NoResults text="no itinerary yet" />
+			)
+		}
 
 		const { emailSent } = this.state;
 
@@ -216,21 +226,25 @@ class Itinerary extends Component {
 					<section className="cards">
 						{this.props.routes.map((route, index) => <Card key={index} route={route} />)}
 					</section>
-					<div className = {this.props.routes.length ? '' : "hide-itinerary"}>
-						
+
+					<div className={this.props.routes.length ? 'main-form-container' : "hide-itinerary"}>
+
+						<div className='info-container' onClick={this.handleIconClick} >
+							<img className='image-icon' src={info} />
+							<p className={this.state.iconClick ? '' : 'hide'}>Send yourself your itinerary in case you lose service in the mountains</p>
+						</div>
+
 						<form onSubmit={this.handleClick}>
 							<div>
 								<Field
 									name="email"
 									type="email"
 									component={this.renderInput}
-									label="Email Address: "
-									placeholder="Email Address"
 								/>
 							</div>
-								{/* {this.emailSentMsg()} */}
-								{ emailSent ? <p className="email-sent-msg">email sent</p> : null }
-							<button type="submit" className="itinerary-button btn is-primary is-fullwidth">
+							{/* {this.emai`lSentMsg()} */}
+							{emailSent ? <p className="email-sent-msg">email sent</p> : null}
+							<button type="submit" className="itinerary-button btn is-primary is-small">
 								Send My intinerary
 							</button>
 						</form>
@@ -267,7 +281,7 @@ function validate(values) {
 		errors.email = "Please add your email address";
 	}
 	var result = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
-	if(!result){
+	if (!result) {
 		errors.email = 'Invalid email address';
 	}
 	return errors;
