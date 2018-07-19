@@ -30,7 +30,6 @@ class Itinerary extends Component {
 	}
 
 	buildEmailCard(){
-		console.log('buildEmail', this.props)
 	const mapImage = function(item){
 		return (`
 			<div class ="card">	
@@ -54,7 +53,6 @@ class Itinerary extends Component {
 
 	handleClick = async e => {
 	e.preventDefault();
-		console.log("Props: ", this.props);
 		if(!this.props.valid){
 			return;
 		}
@@ -214,7 +212,6 @@ class Itinerary extends Component {
 
 
 		if (!this.state.loading) {
-			console.log('ITINERARY PROPS', this.props)
 			return (
 				<div className="itinerary-page">
 					<div className="itinerary-title">

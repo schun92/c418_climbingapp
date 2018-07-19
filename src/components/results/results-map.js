@@ -52,7 +52,7 @@ class RouteMap extends Component {
 		
 		this.props.handleLocationSelect(location);
 		const { avgLat, avgLong } = location;
-		this.props.setMapCenter(avgLat, avgLong);
+		//this.props.setMapCenter(avgLat, avgLong);
 
 		const { pathname, search } = this.props.history.location;
 		const queryParamsData = queryString.parse(search);
@@ -62,7 +62,6 @@ class RouteMap extends Component {
 	}
 
 	centerMoved(mapProps, map) {
-		console.log('2nd Routes', this.props)
 		this.props.getFilteredLocation({
 			...this.props.filterFormValues,
 			mapCenterLat: map.center.lat(),

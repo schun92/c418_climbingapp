@@ -44,7 +44,6 @@ export function getLocations(searchTerm) {
 				dispatch(setMapCenter(mapCenterLat, mapCenterLon));
 			}
 		} catch (err) {
-			console.log("get location error: ", err);
 		}
 	};
 }
@@ -62,7 +61,6 @@ export function getFilteredLocation(filter) {
 			//the response is returning an object instead of array so it had to be converted
 			dispatch(setLocations(Object.values(locations)));
 		} catch (err) {
-			console.log("getFilteredLocation: ", err);
 		}
 	};
 }
@@ -138,7 +136,6 @@ export function getItenaryRoutes(...routeIds) {
 				payload: routes
 			});
 		} catch (err) {
-			console.log("ERROR", err);
 		}
 	};
 }
