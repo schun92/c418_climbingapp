@@ -9,10 +9,6 @@ import Loading from "../loading";
 import queryString from "query-string";
 import NoResults from '../results/no-results-modal';
 
-
-
-  
-
 class Itinerary extends Component {
 	constructor(props) {
 		super(props);

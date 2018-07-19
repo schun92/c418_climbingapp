@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import "./results-filter-btn.css";
 import FilterModal from "./results-filter-modal";
-import { getFilteredLocation } from "../../actions";
+import { getFilteredLocation, setRoutes, setSelectedLocation } from "../../actions";
 
 class FilterBtn extends Component {
 	constructor(props) {
@@ -29,6 +29,10 @@ class FilterBtn extends Component {
 			mapCenterLat: this.props.mapCenter.lat,
 			mapCenterLong: this.props.mapCenter.lng
 		});
+
+		//clear selected location and its routes when applying filter
+		this.props.clearRoutes();
+		this.props.clearSelectedLocation();
 	}
 
 	render() {
@@ -54,12 +58,14 @@ class FilterBtn extends Component {
 }
 
 const mapStateToProps = state => ({
-	mapCenter: state.map.center
+	mapCenter: state.map.center,
 });
 
 const mapDispatchToProps = dispatch => {
 	return {
-		getFilteredLocation: filterParams => dispatch(getFilteredLocation(filterParams))
+		getFilteredLocation: filterParams => dispatch(getFilteredLocation(filterParams)),
+		clearSelectedLocation: () => dispatch(setSelectedLocation(null)),
+		clearRoutes: () => dispatch(setRoutes([]))
 	};
 };
 
