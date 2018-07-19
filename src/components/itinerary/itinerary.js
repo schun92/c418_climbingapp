@@ -29,6 +29,7 @@ class Itinerary extends Component {
 	}
 
 	buildEmailCard(){
+		console.log('buildEmail', this.props)
 	const mapImage = function(item){
 		return (`
 			<div class ="card">	
@@ -199,8 +200,9 @@ class Itinerary extends Component {
 
 	render() {
 		const { handleSubmit } = this.props;
+
 		const { emailSent } = this.state;
-		
+
 
 		if (!this.state.loading) {
 			return (
