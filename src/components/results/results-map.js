@@ -44,10 +44,12 @@ class RouteMap extends Component {
 	}
 
 	handleMapClick() {
+		
 		this.props.handleLocationSelect(null);
 	}
 
 	handleMarkerClick({ location }) {
+		
 		this.props.handleLocationSelect(location);
 		const { avgLat, avgLong } = location;
 		this.props.setMapCenter(avgLat, avgLong);
@@ -60,6 +62,7 @@ class RouteMap extends Component {
 	}
 
 	centerMoved(mapProps, map) {
+		console.log('2nd Routes', this.props)
 		this.props.getFilteredLocation({
 			...this.props.filterFormValues,
 			mapCenterLat: map.center.lat(),
@@ -71,7 +74,6 @@ class RouteMap extends Component {
 	}
 
 	render() {
-
 		if (this.props.locations == null) {
 			return <NoResults />;
 		}
@@ -91,6 +93,7 @@ class RouteMap extends Component {
 			>
 				{this.props.locations.map(location => {
 					let { avgLat: lat, avgLong: lng } = location;
+					
 					return (
 						<Marker
 							label={{

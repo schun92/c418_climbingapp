@@ -14,7 +14,7 @@ export default class Team extends Component {
 
     render() {
         return (
-            <div>
+            <div className="team-page-container">
                 <h1 className='team-title'>Meet the Team</h1>
                 <div className="team">
                     <div className="member">
@@ -72,7 +72,7 @@ export default class Team extends Component {
                     <div className="member">
                         <img src={aghanimati} alt="" />
                         <h2>Amin</h2>
-                        <h3>Backend</h3>
+                        <h3>full fucking stack!</h3>
                         <p>
                             <a href='https://github.com/AlmondoG' target="_blank">
                                 <img src={github} alt="" />
