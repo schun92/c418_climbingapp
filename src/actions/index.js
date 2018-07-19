@@ -79,10 +79,12 @@ export function setRoutes(routes) {
 	};
 }
 
-export function getRoutes(locationID, routeIds) {
+export function getRoutes(locationID, routeIds = null) {
 	return async dispatch => {
-		const response = await axios.get(`/api/get_route_data.php?locationId=${locationID}&routeIDs=${routeIds}`);
-		debugger;
+		console.log('location selected', locationID, routeIds)
+		console.log(`/api/get_route_data.php?locationID=${locationID}&routeIDs=${routeIds}`);
+		const response = await axios.get(`/api/get_route_data.php?locationID=${locationID}&routeIDs=${routeIds}`);
+		console.log(response);
 		const { routes } = response.data.data;
 		dispatch(setRoutes(routes));
 	};

@@ -48,7 +48,9 @@ class RouteMap extends Component {
 	}
 
 	handleMarkerClick({ location }) {
-		this.props.handleLocationSelect(location, location["Route IDs"]);
+		const routeIDs = location["Route IDs"];
+		console.log("routeids", routeIDs);
+		this.props.handleLocationSelect(location, routeIDs);
 		const { avgLat, avgLong } = location;
 		//this.props.setMapCenter(avgLat, avgLong);
 
