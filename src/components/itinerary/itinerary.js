@@ -149,9 +149,12 @@ class Itinerary extends Component {
 			.card-content div{
 				padding-top: .3em;
 			}
+			.header-text{
+				text-align: center;
+			}
       </style>
     <body>  
-      <h1>Thank you for using Peaky Finder, here's your itinerary! Enjoy your trip to ${this.props.routes[0].location}, by order of the Peaky Finders!</h1>
+      <h1 class="header-text">Here is your itinerary! Enjoy your trip to ${this.props.routes[0].location}, by order of the Peaky Finders!</h1>
       <div class="cards">
 			${this.buildEmailCard()}
 			</div>
@@ -167,9 +170,6 @@ class Itinerary extends Component {
 		Array.isArray(routes)
 			? this.props.getItenaryRoutes(...routes)
 			: this.props.getItenaryRoutes(routes);
-	}
-
-	componentWillMount() {
 	}
 
 	renderInput({ label, input, meta: { touched, error } }) {
