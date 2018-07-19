@@ -164,7 +164,6 @@ class Itinerary extends Component {
 	}
 
 	componentWillMount() {
-		debugger;
 	}
 
 	renderInput({ label, input, meta: { touched, error } }) {
@@ -257,7 +256,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function validate(values) {
-	debugger;
 	const { email } = values;
 	const errors = {};
 
