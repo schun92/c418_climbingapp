@@ -58,6 +58,7 @@ class Itinerary extends Component {
 	}
 
 	handleClick = async e => {
+		console.log('email props', this.props)
 		e.preventDefault();
 		if (!this.props.valid) {
 			return;
@@ -158,7 +159,6 @@ class Itinerary extends Component {
     </html>`
 		);
 		await axios.post("/api/mail_handler.php", params);
-
 
 	};
 
