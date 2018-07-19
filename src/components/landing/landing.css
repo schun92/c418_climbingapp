@@ -1,10 +1,38 @@
 .landing-page {
-	background: url("../../assets/images/landing-page-design.PNG");
+	background-image: url("../../assets/images/landing-page-design.PNG");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	/* 3.2 em or whatever height of the navbar */
 	height: 100vh;
+}
+
+@media only all and (max-width: 530px) and (min-aspect-ratio: 400/610) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center;
+	}
+}
+
+@media only all and (min-width: 530px) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center;
+	}
+}
+
+@media only all and (min-width: 450px) and (min-aspect-ratio: 850/440) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center top;
+	}
+}
+
+@media only all and (min-width: 450px) and (min-aspect-ratio: 1000/465) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop-flat-row.jpg");
+		background-position: center top;
+	}
 }
 
 /* color wheel */
