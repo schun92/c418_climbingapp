@@ -9,7 +9,7 @@ class NoResults extends Component {
         return (
             <div className='no-results-outer-modal'>
                 <div className='no-results-inner-modal'>
-                    <h1 className="no-results-text">no results</h1>
+                    <h1 className="no-results-text">{this.props.text}</h1>
                     <NavLink to="/" className="btn is-secondary">back to search</NavLink>
                 </div>
             </div>

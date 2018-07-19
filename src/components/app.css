@@ -4,6 +4,7 @@ body {
 	height: 100vh;
 	font-family: "filson";
 	padding: 0;
+	background-color: #f1f0ec;
 }
 
 @font-face {
@@ -119,3 +120,5 @@ Photo by Daniel Leone on Unsplash */
 .text-center {
 	text-align: center;
 }
+
+/*Photo by Brook Anderson on Unsplash*/

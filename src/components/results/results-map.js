@@ -75,7 +75,7 @@ class RouteMap extends Component {
 
 	render() {
 		if (this.props.locations == null) {
-			return <NoResults />;
+			return <NoResults text="no results" />;
 		}
 		if (!this.props.locations.length) {
 			return <Loading />;

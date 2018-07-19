@@ -181,7 +181,7 @@ class Itinerary extends Component {
 		
 		if(!this.props.routes.length){
             return (
-                <NoResults />
+                <NoResults text="no itinerary yet" />
             )
         }
 
