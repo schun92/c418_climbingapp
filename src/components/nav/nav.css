@@ -51,7 +51,7 @@
 }
 
 .navbar ul li:hover {
-	background-color: #f1f0ec;
+	background-color: #acbdb9;
 }
 
 .navbar ul li a {
@@ -77,6 +77,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: #70837f
 }
 
 .navbar .burger-menu {

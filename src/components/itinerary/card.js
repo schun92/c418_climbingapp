@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { removeRouteFromItinerary } from '../../actions'
 
 import stockPhoto from "../../assets/images/climb_no_image.jpeg";
-import './card.css'
+
 
 
 
