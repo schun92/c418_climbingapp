@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { setSearchTerm, setSelectedLocation, showModal } from "../../actions";
+import { setSearchTerm, setSelectedLocation, showModal, setMapCenter } from "../../actions";
 import "./landing.css";
 import Loading from '../loading';
+
 
 class LandingPage extends Component {
 	constructor(props) {
 		super(props);
-
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
-
 		this.state = {
 			loading: false
 		}
@@ -21,6 +20,7 @@ class LandingPage extends Component {
 		this.props.clearSearchTerm();
 		this.props.clearLocation();
 		this.props.hideRouteModal();
+		this.props.clearMapCenter();
 	}
 
 	handleFormSubmit(event) {
@@ -75,6 +75,9 @@ const mapDispatchToProps = dispatch => ({
 	},
 	hideRouteModal() {
 		dispatch(showModal(false))
+	},
+	clearMapCenter(){
+		dispatch(setMapCenter(0))
 	}
 });
 

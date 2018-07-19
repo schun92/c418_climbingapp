@@ -4,7 +4,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	/* 3.2 em or whatever height of the navbar */
-	height: calc(100vh - 3.2em);
+	height: 100vh;
 }
 
 @media only all and (max-width: 530px) and (min-aspect-ratio: 400/610) {

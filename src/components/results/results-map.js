@@ -2,12 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./results-map.css";
 import mapStyle from "./map-style.json";
-import { setSelectedLocation, getRoutes, setMapCenter, setRoutes } from "../../actions";
+import {
+	setSelectedLocation,
+	getRoutes,
+	setMapCenter,
+	setRoutes,
+	getFilteredLocation
+} from "../../actions";
 import { getLocations } from "../../actions";
 import { withRouter } from "react-router-dom";
 import queryString from "query-string";
 import Loading from "../loading";
-
+import NoResults from "./no-results-modal";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
 const style = {
@@ -23,10 +29,12 @@ class RouteMap extends Component {
 
 		this.handleMarkerClick = this.handleMarkerClick.bind(this);
 		this.handleMapClick = this.handleMapClick.bind(this);
+		this.centerMoved = this.centerMoved.bind(this);
 	}
 
 	async componentDidMount() {
 		await this.props.getLocationsData();
+
 		const params = queryString.parse(this.props.history.location.search);
 		const { avgLat, avgLong, ID } = params;
 		if (ID) {
@@ -51,8 +59,26 @@ class RouteMap extends Component {
 		this.props.history.replace(newUrl);
 	}
 
+	centerMoved(mapProps, map) {
+		this.props.getFilteredLocation({
+			...this.props.filterFormValues,
+			mapCenterLat: map.center.lat(),
+			mapCenterLong: map.center.lng()
+		});
+//set the center on redux for the filter form can listen to it from props
+		this.props.setMapCenter(map.center.lat(), map.center.lng());
+
+	}
+
 	render() {
-		return !this.props.mapCenter ? null : (
+
+		if (this.props.locations == null) {
+			return <NoResults />;
+		}
+		if (!this.props.locations.length) {
+			return <Loading />;
+		}
+		return (
 			<Map
 				styles={mapStyle}
 				google={this.props.google}
@@ -61,13 +87,14 @@ class RouteMap extends Component {
 				center={this.props.mapCenter}
 				onClick={this.handleMapClick}
 				disableDefaultUI={true}
+				onDragend={this.centerMoved}
 			>
 				{this.props.locations.map(location => {
 					let { avgLat: lat, avgLong: lng } = location;
 					return (
 						<Marker
 							label={{
-								text: location.numRoutes,
+								text: location.numRoutes.toString(),
 								color: "white"
 							}}
 							onClick={this.handleMarkerClick}
@@ -84,7 +111,19 @@ class RouteMap extends Component {
 
 const mapStateToProps = state => ({
 	locations: state.location.locations,
-	mapCenter: state.map.center
+	mapCenter: state.map.center,
+	filterFormValues: state.form.filter
+		? state.form.filter.values
+		: {
+				traditional: true,
+				topRope: true,
+				sport: true,
+				boulder: true,
+				rockDiffStart: "5.5",
+				rockDiffEnd: "5.15d",
+				boulderDiffStart: "V0",
+				boulderDiffEnd: "V14"
+		  }
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -97,7 +136,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	},
 	setMapCenter(lat, lng) {
 		dispatch(setMapCenter(lat, lng));
-	}
+	},
+	getFilteredLocation: filterParams => dispatch(getFilteredLocation(filterParams))
 });
 
 RouteMap = GoogleApiWrapper({

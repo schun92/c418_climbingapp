@@ -1,5 +1,6 @@
 import axios from "axios";
 import types from "./types";
+import { objectToURLSearchParams } from "../utils/utility";
 
 export function setSearchTerm(searchTerm) {
 	return {
@@ -22,12 +23,47 @@ export function setMapCenter(lat, lng) {
 	};
 }
 
+export function clearLocationData() {
+	return {
+		type: types.CLEAR_LOCATION_DATA,
+		payload: []
+	};
+}
+
 export function getLocations(searchTerm) {
 	return async dispatch => {
-		const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
-		const { locations, mapCenterLat, mapCenterLon } = response.data.data;
-		dispatch(setLocations(locations));
-		dispatch(setMapCenter(mapCenterLat, mapCenterLon));
+		try {
+			dispatch(clearLocationData()); //Clear previous data before filling the array again to check for invalid search
+			const response = await axios.get(`/api/get_location_data.php?data=${searchTerm}`);
+
+			if (response.data.error) {
+				dispatch(setLocations(null));
+			} else {
+				const { locations, mapCenterLat, mapCenterLon } = response.data.data;
+				dispatch(setLocations(locations));
+				dispatch(setMapCenter(mapCenterLat, mapCenterLon));
+			}
+		} catch (err) {
+			console.log("get location error: ", err);
+		}
+	};
+}
+
+export function getFilteredLocation(filter) {
+	return async dispatch => {
+		try {
+			const urlSearchParams = objectToURLSearchParams({
+				...filter,
+				radius: 35
+			});
+
+			const response = await axios.post(`/api/filter_endpoint.php`, urlSearchParams);
+			const locations = response.data.data;
+			//the response is returning an object instead of array so it had to be converted
+			dispatch(setLocations(Object.values(locations)));
+		} catch (err) {
+			console.log("getFilteredLocation: ", err);
+		}
 	};
 }
 
@@ -94,10 +130,15 @@ export function getItenaryRoutes(...routeIds) {
 			return axios.get(`/api/get_route_details.php?data=${id}`);
 		});
 		const responses = await Promise.all(routesPromises);
-		const routes = responses.map(a => a.data.data[0]);
-		dispatch({
-			type: types.REPLACE_ROUTES_IN_ITINERARY,
-			payload: routes
-		});
+
+		try {
+			const routes = responses.map(a => a.data.data[0]);
+			dispatch({
+				type: types.REPLACE_ROUTES_IN_ITINERARY,
+				payload: routes
+			});
+		} catch (err) {
+			console.log("ERROR", err);
+		}
 	};
 }
