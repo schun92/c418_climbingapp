@@ -30,48 +30,10 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
     $routeLatitude = $routes[$routeCount]->latitude;
     $routeURL = $routes[$routeCount]->url;
 
-    if(empty($routeName)){
-        $routeName = null;
+    if (!isset($routeMountain)) {
+        continue;
     };
-    if(empty($routeType)) {
-        $routeType = null;
-    };
-    if(empty($routeDifficulty)) {
-        $routeDifficulty = null;
-    };
-    if(empty($routeStars)){
-        $routeStars = null;
-    };
-    if(empty($routeStarVotes)) {
-        $routeStarVotes = 0;
-    };
-    if(empty($routePitch)) {
-        $routePitch = 0;
-    };
-    if(empty($routeState)){
-        $routeState = null;
-    };
-    if(empty($routeRegion)) {
-        $routeRegion = null;
-    };
-    if(empty($routePark)) {
-        $routePark = null;
-    };
-    if(empty($routeMountain)){
-        $routeMountain = null;
-    };
-    if(empty($routeImage)) {
-        $routeImage = null;
-    };
-    if(empty($routeLongitude)) {
-        $routeLongitude = null;
-    };
-    if(empty($routeLatitude)) {
-        $routeLatitude = null;
-    };
-    if(empty($routeURL)) {
-        $routeURL = null;
-    };
+
     $query = "INSERT INTO `mountainproject`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
     $result = mysqli_query($conn, $query);
 
@@ -86,7 +48,7 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
         } else {
             $output['errors'][] = 'no data';
         };
-    };
+    }; 
 }; 
 
 $outputJSON = json_encode($output);
