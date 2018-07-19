@@ -79,13 +79,15 @@ export function setRoutes(routes) {
 	};
 }
 
-export function getRoutes(locationID) {
+export function getRoutes(locationID, routeIds = null) {
 	return async dispatch => {
-		const response = await axios.get(`/api/get_route_data.php?data=${locationID}`);
+		const response = await axios.get(`/api/get_route_data.php?locationID=${locationID}&routeIDs=${routeIds}`);
+		console.log(response);
 		const { routes } = response.data.data;
 		dispatch(setRoutes(routes));
 	};
 }
+
 export function setSelectedRoute(route) {
 	return {
 		type: types.SET_SELECTED_ROUTE,
@@ -127,6 +129,7 @@ export function getItenaryRoutes(...routeIds) {
 		const routesPromises = routeIds.map(async id => {
 			return axios.get(`/api/get_route_details.php?data=${id}`);
 		});
+
 		const responses = await Promise.all(routesPromises);
 
 		try {

@@ -1,7 +1,11 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 $routeIDs = $_GET['routeIDs'];
-$locationID = $_GET['locationID'];
+$locationID = json_decode($_GET['locationID']);
+
+if($routeIDs == 'null'){
+    $routeIDs = null;
+}
 
 require 'mysql_connect.php';
 

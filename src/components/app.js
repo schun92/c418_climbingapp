@@ -9,6 +9,7 @@ import Itinerary from "../components/itinerary/itinerary";
 import RouteDetails from "../components/route-details/route-details";
 import Team from "../components/team/team";
 import "./app.css";
+import NotFound from "../components/not-found/not-found"
 
 const App = () => (
   <div>
@@ -21,11 +22,7 @@ const App = () => (
       <Route path="/itinerary/:itinItem" component={Itinerary} />
       <Route path="/route-details/:routeID" component={RouteDetails} />
       <Route path="/team" component={Team} />
-      <Route render={() => (
-        <div className="four-oh-four">
-          <h1>404 not found</h1>
-        </div>
-      )} />
+      <Route component={NotFound}  />
     </Switch>
   </div>
 );
