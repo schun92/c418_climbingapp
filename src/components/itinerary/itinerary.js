@@ -10,10 +10,6 @@ import queryString from "query-string";
 import NoResults from '../results/no-results-modal';
 import info from '../../assets/images/icons/info.svg'
 
-
-
-
-
 class Itinerary extends Component {
 	constructor(props) {
 		super(props);

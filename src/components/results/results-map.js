@@ -44,13 +44,11 @@ class RouteMap extends Component {
 	}
 
 	handleMapClick() {
-		
 		this.props.handleLocationSelect(null);
 	}
 
 	handleMarkerClick({ location }) {
-		
-		this.props.handleLocationSelect(location);
+		this.props.handleLocationSelect(location, location["Route IDs"]);
 		const { avgLat, avgLong } = location;
 		//this.props.setMapCenter(avgLat, avgLong);
 
@@ -67,9 +65,8 @@ class RouteMap extends Component {
 			mapCenterLat: map.center.lat(),
 			mapCenterLong: map.center.lng()
 		});
-//set the center on redux for the filter form can listen to it from props
+		//set the center on redux so the filter form can listen to it from props
 		this.props.setMapCenter(map.center.lat(), map.center.lng());
-
 	}
 
 	render() {
@@ -92,7 +89,7 @@ class RouteMap extends Component {
 			>
 				{this.props.locations.map(location => {
 					let { avgLat: lat, avgLong: lng } = location;
-					
+
 					return (
 						<Marker
 							label={{
@@ -132,9 +129,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	getLocationsData() {
 		return dispatch(getLocations(ownProps.searchTerm));
 	},
-	handleLocationSelect(location) {
+	handleLocationSelect(location = null, routesIds = null) {
 		dispatch(setSelectedLocation(location));
-		location ? dispatch(getRoutes(location.ID)) : dispatch(setRoutes([]));
+		//if location is undefined or null get the routes from the server
+		//if not just set the routes to an empty array so react doesnt complaine
+		location ? dispatch(getRoutes(location.ID, routesIds)) : dispatch(setRoutes([]));
 	},
 	setMapCenter(lat, lng) {
 		dispatch(setMapCenter(lat, lng));
