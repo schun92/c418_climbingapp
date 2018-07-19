@@ -134,9 +134,8 @@ $query = "SELECT `locations`.`ID` AS 'Location ID',
 `locations`.`name`, 
 `locations`.`avgLat`, 
 `locations`.`avgLong`, 
-COUNT(`routes`.`locationID`) AS 'numRoutes', 
 `routes`.`id` AS 'Route IDs',
-`avgLat`, `avgLong`, `numRoutes`, SQRT( POW(69.1 * (`avgLat` - {$mapCenterLat}), 2) + POW(69.1 * ({$mapCenterLong} - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
+`avgLat`, `avgLong`, SQRT( POW(69.1 * (`avgLat` - {$mapCenterLat}), 2) + POW(69.1 * ({$mapCenterLong} - `avgLong`) * COS(`avgLat` / 57.3), 2)) AS distance
     FROM `locations`
     JOIN `routes` ON `locations`.`ID` = `routes`.`locationID`
     WHERE LOWER(`type`) REGEXP '{$regexString}'
@@ -163,7 +162,7 @@ if(empty($result)) {
                     'name' => $row['name'],
                     'avgLat' => $row['avgLat'],
                     'avgLong' => $row['avgLong'],
-                    'numRoutes' => $row['numRoutes'],
+                    'numRoutes' => 1,
                     'Route IDs' => $row['Route IDs'],
                     'ID' => $areaID
                 ];

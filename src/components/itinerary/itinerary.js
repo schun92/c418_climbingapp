@@ -9,10 +9,9 @@ import Loading from "../loading";
 import queryString from "query-string";
 import NoResults from '../results/no-results-modal';
 
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Invalid email address' : undefined
 
+
+  
 
 class Itinerary extends Component {
 	constructor(props) {
@@ -25,6 +24,9 @@ class Itinerary extends Component {
 			loading: false,
 			emailSent: false
 		};
+
+		this.renderInput = this.renderInput.bind(this);
+		this.removeEmailSentWhenFormAlreadySubmits = this.removeEmailSentWhenFormAlreadySubmits.bind(this);
 	}
 
 	buildEmailCard(){
@@ -51,11 +53,17 @@ class Itinerary extends Component {
 	}
 
 	handleClick = async e => {
-		console.log('propers', this.props)
+
+		e.preventDefault();
+		console.log("Props: ", this.props);
+		if(!this.props.valid){
+			return;
+		}
+
 		this.setState({
 			emailSent: true
 		})
-		e.preventDefault();
+		
 
 		var params = new URLSearchParams();
 		params.append("email", this.props.emailInput.values.email);
@@ -147,6 +155,7 @@ class Itinerary extends Component {
     </html>`
 		);
 		await axios.post("/api/mail_handler.php", params);
+
 		
 	};
 
@@ -157,7 +166,13 @@ class Itinerary extends Component {
 			: this.props.getItenaryRoutes(routes);
 	}
 
+	componentWillMount() {
+		debugger;
+	}
+
 	renderInput({ label, input, meta: { touched, error } }) {
+		// debugger;
+		this.removeEmailSentWhenFormAlreadySubmits();
 		return (
 			<div className="form-component">
 				<label className="itinerary-label">{label}</label>
@@ -166,14 +181,15 @@ class Itinerary extends Component {
 			</div>
 		);
 	}
-	
-	emailSentMsg(){
-		if(this.state.emailSent){
-			 return (
-				 <p className="email-sent-msg">email sent</p>
-			 )
+
+	removeEmailSentWhenFormAlreadySubmits() {
+		const { emailSent } = this.state;
+
+		if (emailSent) {
+			this.setState({
+				emailSent: !emailSent
+			});
 		}
-		return
 	}
 	
 	render() {
@@ -184,6 +200,9 @@ class Itinerary extends Component {
                 <NoResults />
             )
         }
+
+		const { emailSent } = this.state;
+
 
 		if (!this.state.loading) {
 			console.log('ITINERARY PROPS', this.props)
@@ -205,10 +224,10 @@ class Itinerary extends Component {
 									component={this.renderInput}
 									label="Email Address: "
 									placeholder="Email Address"
-									validate={email}
 								/>
 							</div>
-								{this.emailSentMsg()}
+								{/* {this.emailSentMsg()} */}
+								{ emailSent ? <p className="email-sent-msg">email sent</p> : null }
 							<button type="submit" className="itinerary-button btn is-primary is-fullwidth">
 								Send My intinerary
 							</button>
@@ -239,11 +258,16 @@ function mapDispatchToProps(dispatch) {
 }
 
 function validate(values) {
+	debugger;
 	const { email } = values;
 	const errors = {};
 
 	if (!email) {
 		errors.email = "Please add your email address";
+	}
+	var result = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+	if(!result){
+		errors.email = 'Invalid email address';
 	}
 	return errors;
 }
