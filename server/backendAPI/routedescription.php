@@ -3,14 +3,13 @@ $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 ini_set('max_execution_time', 15000);
 $output = [
 	'success'=> false,
-	'errors'=>[]
 ];
 
 $routedescriptionquery = "SELECT `id`, `routeURL`, `name` FROM `routes` WHERE `hasdescription`=0";
 $routedescriptionresult = mysqli_query($conn, $routedescriptionquery);
 
 if (empty($routedescriptionresult)) {
-	$output['errors'][] = 'database error';
+	$output['errors'][] = 'database error - routedescription';
 } else {
 	if ($routedescriptionresult) {
 		$output['success'] = true;
@@ -47,10 +46,11 @@ if (empty($routedescriptionresult)) {
             $descripresult = mysqli_query($conn, $descripquery);
 
             };
-	    } else {
-		    $output['errors'] = 'no data';
-	    };
-    };
+	} else {
+		$output['errors'] = 'no data  - routedescription';
+	};
+};
+$outputJSON = json_encode($output);
 print_r($output['data']);
 
 ?>

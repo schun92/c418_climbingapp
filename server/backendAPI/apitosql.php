@@ -1,6 +1,6 @@
 <?php
-$lat = //Insert latitude here - If south, have number negative;
-$long = //Insert longitude here - If west, have number negative;
+$lat = 36.2352;//Insert latitude here - If south, have number negative;
+$long = -121.4688;//Insert longitude here - If west, have number negative;
 
 $conn = mysqli_connect("localhost", "root", "root", "mountainproject");
 $handler = curl_init();
@@ -38,21 +38,17 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
     $result = mysqli_query($conn, $query);
 
     if (empty($result)) {
-        $output['errors'][] = 'database error';
+        $output['errors'][] = 'database error - apitosql';
     } else {
         if (mysqli_affected_rows($conn) > 0 ) {
-            
             if ($routeCount === count($routes)-1) {
                 include_once "createlocations.php";
             };
         } else {
-            $output['errors'][] = 'no data';
+            $output['errors'][] = 'no data - apitosql';
         };
     }; 
 }; 
-
-$outputJSON = json_encode($output);
-print($outputJSON);
 curl_close($handler);
 
 ?>
