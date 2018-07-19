@@ -36,6 +36,7 @@ class RouteModal extends Component {
 
 	render() {
 		if (!this.state.loading) {
+			console.log('ROUTES', this.props.routes)
 			return (
 				<div
 					className={`routes-modal ${

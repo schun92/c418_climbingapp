@@ -54,7 +54,7 @@ export function getFilteredLocation(filter) {
 		try {
 			const urlSearchParams = objectToURLSearchParams({
 				...filter,
-				radius: 35
+				radius: 50
 			});
 
 			const response = await axios.post(`/api/filter_endpoint.php`, urlSearchParams);

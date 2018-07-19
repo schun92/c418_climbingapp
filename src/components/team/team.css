@@ -1,12 +1,19 @@
+.team-page-container {
+    background-color: #f1f0ec;
+    padding: 3em 1em;
+}
+
 .team {
     display: flex;
     flex-flow: row wrap;
+    text-align: center;
+    justify-content: space-evenly;
 }
 
 .team-title{
     text-align: center;
     text-transform: lowercase;
-    margin-top: 2.5em;
+    color: #70837f;
 }
 
 .member {
@@ -16,8 +23,11 @@
 }
 
 .member>img {
-    width: 100%;
+    width: 90%;
+    border-radius: 50%;
+    filter: drop-shadow(2px 2px 1px #b0b0b0);
 }
+
 
 
 .member>p img {
@@ -27,4 +37,5 @@
 
 .member h2, h3, p{
     margin: .3em;
+    color: #70837f;
 }

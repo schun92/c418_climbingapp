@@ -7,6 +7,7 @@ import { Field, reduxForm } from "redux-form";
 import Card from "./card";
 import Loading from "../loading";
 import queryString from "query-string";
+import NoResults from '../results/no-results-modal';
 
 
 
@@ -52,11 +53,12 @@ class Itinerary extends Component {
 	}
 
 	handleClick = async e => {
-		e.preventDefault();
+	e.preventDefault();
 		console.log("Props: ", this.props);
 		if(!this.props.valid){
 			return;
 		}
+
 		this.setState({
 			emailSent: true
 		})
@@ -144,7 +146,7 @@ class Itinerary extends Component {
 			}
       </style>
     <body>  
-      <h1>Thank you for using Peaky Finder, here's your itinerary! Enjoy your climb, by order of the Peaky Finders!</h1>
+      <h1>Thank you for using Peaky Finder, here's your itinerary! Enjoy your trip to ${this.props.routes[0].location}, by order of the Peaky Finders!</h1>
       <div class="cards">
 			${this.buildEmailCard()}
 			</div>
@@ -188,6 +190,7 @@ class Itinerary extends Component {
 		}
 	}
 	
+
 	// emailSentMsg(){
 	// 	if(this.state.emailSent){
 	// 		 return (
@@ -197,13 +200,21 @@ class Itinerary extends Component {
 	// 	return
 	// }
 
+
 	render() {
 		const { handleSubmit } = this.props;
+		
+		if(!this.props.routes.length){
+            return (
+                <NoResults text="no itinerary yet" />
+            )
+        }
 
 		const { emailSent } = this.state;
 
 
 		if (!this.state.loading) {
+			console.log('ITINERARY PROPS', this.props)
 			return (
 				<div className="itinerary-page">
 					<div className="itinerary-title">

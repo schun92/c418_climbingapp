@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, NavLink} from "react-router-dom";
 
 import Results from "../components/results/results-page";
 import Nav from "../components/nav/nav";
@@ -13,6 +13,7 @@ import "./app.css";
 const App = () => (
   <div>
     <Nav />
+    <Switch>
       <Route exact path="/" component={Landing} />
       <Route path="/results" component={Results} />
       <Route path="/about" component={About} />
@@ -20,6 +21,12 @@ const App = () => (
       <Route path="/itinerary/:itinItem" component={Itinerary} />
       <Route path="/route-details/:routeID" component={RouteDetails} />
       <Route path="/team" component={Team} />
+      <Route render={() => (
+        <div className="four-oh-four">
+          <h1>404 not found</h1>
+        </div>
+      )} />
+    </Switch>
   </div>
 );
 

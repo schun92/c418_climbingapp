@@ -2,14 +2,14 @@
 	position: fixed;
 	top: 20%;
 	left: 0;
-	height: 100vh;
+	height: 80%;
 	width: 100vw;
 	background-color:#f1f0ec;
 	border-top: 1px solid #96a2a0;
 	box-sizing: border-box;
 	overflow-y: scroll;
 	transform-origin: 0 0;
-	transform: translate(0%, 70%);
+	transform: translate(0%, 85%);
 	transition: transform 0.2s ease-in;
 }
 
