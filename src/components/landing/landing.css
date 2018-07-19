@@ -60,7 +60,7 @@
 .landing-page-input {
 	font-size: 1.3em;
 	background-color: white;
-	color: black;
+	color: #70837f;
 	padding: .5em;
 	font-weight: 300;
 	display: flex;
@@ -70,7 +70,7 @@
 }
 
 .landing-page-input::placeholder {
-	color: rgb(109, 109, 109);
+	color: #70837f;
 	text-transform: lowercase;
 	text-align: center;
 	font-family: filson;
@@ -86,6 +86,3 @@ btn{
 	text-transform: lowercase;
 }
 
-.landing-button{
-	
-}
