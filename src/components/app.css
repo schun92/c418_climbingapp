@@ -13,7 +13,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #70837f
+	color: #70837f;
 }
 
 ul {
@@ -79,6 +79,9 @@ input:focus {
 	flex-flow: column nowrap;
 }
 
+.is-bg-grey {
+	background-color: #dddddd;
+}
 
 .btn-group.is-horizontal {
 	display: flex;

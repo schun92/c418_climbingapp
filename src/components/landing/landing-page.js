@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 
 import { setSearchTerm, setSelectedLocation, showModal, setMapCenter } from "../../actions";
 import "./landing.css";
-import Loading from '../loading';
-
+import Loading from "../loading";
+import logo from "../../assets/images/peaky_text.png";
 
 class LandingPage extends Component {
 	constructor(props) {
@@ -12,8 +12,7 @@ class LandingPage extends Component {
 		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 		this.state = {
 			loading: false
-		}
-
+		};
 	}
 
 	componentDidMount() {
@@ -35,9 +34,11 @@ class LandingPage extends Component {
 		if (!this.state.loading) {
 			return (
 				<div className="landing-page">
+				<img src={logo} />
 					<form onSubmit={this.handleFormSubmit}>
+						
 						<input
-						    autoComplete="off"
+							autoComplete="off"
 							name="location"
 							className="landing-page-input"
 							type="text"
@@ -45,18 +46,20 @@ class LandingPage extends Component {
 							onChange={handleSearchTermChange}
 							value={searchTerm}
 						/>
-						<button type="submit" className="btn is-primary is-fullwidth is-uppercase is-text-lighter landing-button">
+						<button
+							type="submit"
+							className="btn is-bg-grey is-primary is-fullwidth is-uppercase is-text-lighter landing-button"
+						>
 							go
-					</button>
+						</button>
 					</form>
 				</div>
 			);
 		} else {
-			return <Loading />
+			return <Loading />;
 		}
 	}
 }
-
 
 const mapStateToProps = state => {
 	return {
@@ -67,17 +70,18 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
 	handleSearchTermChange(event) {
 		dispatch(setSearchTerm(event.target.value));
-	}, clearSearchTerm() {
-		dispatch(setSearchTerm(''))
+	},
+	clearSearchTerm() {
+		dispatch(setSearchTerm(""));
 	},
 	clearLocation() {
-		dispatch(setSelectedLocation(null))
+		dispatch(setSelectedLocation(null));
 	},
 	hideRouteModal() {
-		dispatch(showModal(false))
+		dispatch(showModal(false));
 	},
-	clearMapCenter(){
-		dispatch(setMapCenter(0))
+	clearMapCenter() {
+		dispatch(setMapCenter(0));
 	}
 });
 
@@ -85,5 +89,3 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(LandingPage);
-
-

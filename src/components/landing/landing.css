@@ -1,40 +1,47 @@
 .landing-page {
-	background-image: url("../../assets/images/landing-page-design.PNG");
+	background-image: url("../../assets/images/peaky_bg.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	/* 3.2 em or whatever height of the navbar */
-	height: 100vh;
+	height: calc(100vh - 3.2em);
+	margin-top: 3.2em;
 }
 
-@media only all and (max-width: 530px) and (min-aspect-ratio: 400/610) {
+/* @media only all and (max-width: 530px){
 	.landing-page {
 		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
 		background-position: center;
 	}
-}
+} */
 
-@media only all and (min-width: 530px) {
+/* @media only all and (max-width: 530px) and (min-aspect-ratio: 400/610) {
 	.landing-page {
 		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
 		background-position: center;
 	}
-}
+} */
 
-@media only all and (min-width: 450px) and (min-aspect-ratio: 850/440) {
+/* @media only all and (min-width: 530px) {
+	.landing-page {
+		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
+		background-position: center;
+	}
+} */
+
+/* @media only all and (min-width: 450px) and (min-aspect-ratio: 850/440) {
 	.landing-page {
 		background-image: url("../../assets/images/landing-page-design-desktop.jpg");
 		background-position: center top;
 	}
-}
+} */
 
-@media only all and (min-width: 450px) and (min-aspect-ratio: 1000/465) {
+/* @media only all and (min-width: 450px) and (min-aspect-ratio: 1000/465) {
 	.landing-page {
 		background-image: url("../../assets/images/landing-page-design-desktop-flat-row.jpg");
 		background-position: center top;
 	}
-	
-}
+} */
 
 
 /* color wheel */
@@ -44,7 +51,9 @@
 	position: relative;
 	display: flex;
 	justify-content: space-evenly;
-	align-items: flex-end;
+	align-items: center;
+	flex-flow: column nowrap;
+	width: 100%;
 }
 .landing-page h1{
 	text-transform: lowercase;
@@ -52,11 +61,14 @@
 
 .landing-page form {
 	display: flex;
-	margin-bottom: 8%;
 	/* width: 80%; */
 	justify-content: space-between;
 	box-sizing: border-box;
 	font-size: .9em;
+}
+
+.landing-page img {
+	width: 80%;
 }
 
 .landing-page-input {
