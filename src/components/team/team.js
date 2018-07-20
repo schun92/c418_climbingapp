@@ -72,7 +72,7 @@ export default class Team extends Component {
                     <div className="member">
                         <img src={aghanimati} alt="" />
                         <h2>Amin</h2>
-                        <h3>full stack!</h3>
+                        <h3>backend</h3>
                         <p>
                             <a href='https://github.com/AlmondoG' target="_blank">
                                 <img src={github} alt="" />
