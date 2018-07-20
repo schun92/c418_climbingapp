@@ -140,7 +140,6 @@ $query = "SELECT `locations`.`ID` AS 'Location ID',
     JOIN `routes` ON `locations`.`ID` = `routes`.`locationID`
     WHERE LOWER(`type`) REGEXP '{$regexString}'
     AND ({$difficultyString})
-    GROUP BY `routes`.`ID`
 HAVING distance < {$radius}";
 
 // print($query);
