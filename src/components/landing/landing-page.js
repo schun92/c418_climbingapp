@@ -32,6 +32,7 @@ class LandingPage extends Component {
 
 	render() {
 		const { searchTerm, handleSearchTermChange } = this.props;
+		console.log("some stuff has changed!")
 		if (!this.state.loading) {
 			return (
 				<div className="landing-page">
