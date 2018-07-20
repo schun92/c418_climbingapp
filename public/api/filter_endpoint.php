@@ -149,7 +149,7 @@ HAVING distance < {$radius}";
 $result = mysqli_query($conn, $query);
 
 if(empty($result)) {
-    $output['error'] = 'Database Error';
+    $output['error'] = mysqli_error($conn);
 } else {
     if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
