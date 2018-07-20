@@ -8,7 +8,7 @@ import schun from '../../assets/images/schun.jpg';
 import plujan from '../../assets/images/plujan.jpeg';
 import aghanimati from '../../assets/images/aghanimati.jpg';
 import apark from '../../assets/images/apark.jpg';
-import dparker from '../../assets/images/dparker.jpeg';
+import dparker from '../../assets/images/danphoto.jpg';
 
 export default class Team extends Component {
 
