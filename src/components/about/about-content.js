@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HtmlCssJs from '../../assets/images/html-css-js-icon.png';
 import ReactRedux from '../../assets/images/react-redux-icon.png';
 import Php from '../../assets/images/php_mysql.png';
-import background from '../../assets/images/yosvalley.jpg';
+import background from '../../assets/images/resizedAboutImage.jpg';
 import './about-content.css'
 
 class About extends Component {
