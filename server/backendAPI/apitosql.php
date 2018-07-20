@@ -2,7 +2,7 @@
 $lat = 36.2352;//Insert latitude here - If south, have number negative;
 $long = -121.4688;//Insert longitude here - If west, have number negative;
 
-$conn = mysqli_connect("localhost", "root", "root", "mountainproject");
+$conn = mysqli_connect("localhost", "root", "root", "peaky");
 $handler = curl_init();
 
 curl_setopt($handler, CURLOPT_URL, "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat={$lat}&lon={$long}&maxResults=500&maxDistance=50&key=200289763-98ec05129d51c9ebcc2366ea2558c334");
@@ -34,7 +34,7 @@ for ($routeCount=0; $routeCount < count($routes); ++$routeCount) {
         continue;
     };
 
-    $query = "INSERT INTO `mountainproject`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
+    $query = "INSERT INTO `peaky`.`routes` (`id`, `locationID`, `name`, `type`, `difficulty`, `stars`, `star_votes`, `pitches`, `location_state`, `location_region`, `location_park`, `location_mountain`, `image`, `longitude`, `latitude`, `routeURL`, `hasdescription`) VALUES ('$routeID', '0', '$routeName', '$routeType', '$routeDifficulty', '$routeStars', '$routeStarVotes', '$routePitch', '$routeState', '$routeRegion', '$routePark', '$routeMountain', '$routeImage', '$routeLongitude', '$routeLatitude', '$routeURL', 0)";
     $result = mysqli_query($conn, $query);
 
     if (empty($result)) {
