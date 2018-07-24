@@ -84,3 +84,15 @@
 	margin-top: 5%;
 	text-align: center;
 }
+
+@media only screen and (min-width: 576px){
+	.bottom-btn, .itinerary-button{
+		width: 60%;
+}
+	.btn-group{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+

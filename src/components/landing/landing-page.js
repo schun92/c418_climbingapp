@@ -34,7 +34,7 @@ class LandingPage extends Component {
 		if (!this.state.loading) {
 			return (
 				<div className="landing-page">
-				<img src={logo} />
+				<img className = "peaky-logo" src={logo} />
 					<form onSubmit={this.handleFormSubmit}>
 						
 						<input

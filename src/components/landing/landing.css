@@ -63,11 +63,50 @@
 	/* width: 80%; */
 	justify-content: space-between;
 	box-sizing: border-box;
-	font-size: .9em;
+	font-size: .8em;
 }
 
 .landing-page img {
-	width: 80%;
+	width: 70%;
+}
+
+@media only screen
+ 
+and (min-device-width: 375px)
+ 
+and (max-device-width: 813px)
+ 
+and (orientation: landscape) {
+ .landing-page img{
+	 width: 40%;
+	 padding-top: 3em;
+ }
+}
+
+
+@media only screen and (max-width: 319px){
+	.landing-page form{
+		font-size: .6em
+	}
+}
+
+
+@media only screen and (min-width: 576px){
+	.landing-page img {
+		width: 60%;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.landing-page img{
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	.landing-page img{
+		width: 45%;
+	}
 }
 
 .landing-page-input {
