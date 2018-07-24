@@ -39,3 +39,32 @@
     margin: .3em;
     color: #70837f;
 }
+
+@media only screen and (min-width: 800px){
+	.team{
+        display: flex;
+        flex-flow: row; 
+        padding: .4em;
+	}
+}
+@media only screen and (min-width: 475px) and (max-width: 670px){
+    .team{
+        padding: 0 4em
+    }
+}
+@media only screen and (min-width: 670px) and (max-width: 800px){
+    .team{
+        padding: 0 8em; 
+    }
+}
+/* @media only screen and (min-width: 530px){
+    .member{
+        padding: 1.5em;
+    }
+}
+
+@media only screen and (min-width: 670px){
+    .member{
+        padding: .4em;
+    }
+} */
